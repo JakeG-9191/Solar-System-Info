@@ -9,3 +9,5 @@ router.get('/', async (req, res) => {
   const user = await User.find().sort('name');
   res.send(user);
 });
+
+module.exports = router;

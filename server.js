@@ -1,8 +1,12 @@
 const express = require('express');
+const users = require('./routes/users');
 const app = express();
+
+app.use('/api/users', users);
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true, useNewUrlParser: true }));
 
 const PORT = process.env.PORT || 3000;
 
-const server = app.listen(PORT, () => `App listening on port ${PORT}...`);
-
-module.exports = server;
+app.listen(PORT, () => console.log(`App listening on port ${PORT}...`));
