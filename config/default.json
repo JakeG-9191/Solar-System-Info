@@ -1,0 +1,4 @@
+{
+  "jwtPrivate": "",
+  "db": "mongod://localhost/spaceApp"
+}
