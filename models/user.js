@@ -49,7 +49,7 @@ function validateNewUser(user) {
       .email(),
     password: Joi.string()
       .min(6)
-      .max(255)
+      .max(1024)
   };
   return Joi.validate(user, schema);
 }

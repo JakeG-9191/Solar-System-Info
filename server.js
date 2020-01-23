@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-app.use('/api/users', users);
-
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, useNewUrlParser: true }));
+
+app.use('/api/users', users);
 
 const db = config.get('db');
 
