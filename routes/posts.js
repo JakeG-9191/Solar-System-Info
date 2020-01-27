@@ -16,14 +16,17 @@ router.get('/', async (req, res) => {
   }
 });
 
-router.post('/', async (req, res) => {
+router.post('/:id', async (req, res) => {
   try {
-    const user = await User.findById(req.user).select('-password');
+    const user = await User.findById(req.params.id).select('-password');
+
+    if (!user) {
+      return res.status(401).send('Must be logged in for user to post');
+    }
 
     const newPost = new Post({
       text: req.body.text,
-      name: user.name,
-      user: req.user.id
+      name: user.name
     });
 
     const post = await newPost.save();
