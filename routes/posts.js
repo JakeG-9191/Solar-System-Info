@@ -16,4 +16,22 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.post('/:id', async (req, res) => {
+  try {
+    const user = await User.findById(req.params.id).select('-password');
+
+    const newPost = new Post({
+      text: req.body.text,
+      name: user.name
+    });
+
+    const post = await newPost.save();
+
+    res.json(post);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error while trying to add new post');
+  }
+});
+
 module.exports = router;
