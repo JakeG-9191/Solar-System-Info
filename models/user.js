@@ -23,6 +23,29 @@ const userSchema = new mongoose.Schema({
     minlength: 6,
     maxlength: 255
   },
+  website: {
+    type: String,
+    minlength: 4,
+    maxlength: 99
+  },
+  location: {
+    type: String,
+    maxlength: 99
+  },
+  social: {
+    youtube: {
+      type: String
+    },
+    twitter: {
+      type: String
+    },
+    facebook: {
+      type: String
+    },
+    instagram: {
+      type: String
+    }
+  },
   isAdmin: Boolean
 });
 
@@ -49,7 +72,11 @@ function validateNewUser(user) {
       .email(),
     password: Joi.string()
       .min(6)
-      .max(1024)
+      .max(1024),
+    website: Joi.string()
+      .min(4)
+      .max(99),
+    location: Joi.string().max(99)
   };
   return Joi.validate(user, schema);
 }
