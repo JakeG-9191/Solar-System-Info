@@ -1,0 +1,50 @@
+body {
+  width: 96%;
+  margin-left: 2%;
+  text-align: center;
+  color: whitesmoke;
+}
+
+#randomImage {
+  border-radius: 18px;
+  height: 40rem;
+}
+
+.backdrop0 {
+  background-image: url('../../utils/backdrops/0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  background-attachment: fixed;
+}
+
+.backdrop1 {
+  background-image: url('../../utils/backdrops/1.jpg');
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  background-attachment: fixed;
+}
+
+.backdrop2 {
+  background-image: url('../../utils/backdrops/2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  background-attachment: fixed;
+}
+
+.backdrop3 {
+  background-image: url('../../utils/backdrops/3.jpg');
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  background-attachment: fixed;
+}
+
+.navBar {
+  width: 100%;
+  padding: 1rem;
+}
+
+.btn-success {
+  margin: 0 1rem;
+  float: right;
+  font-size: 20px;
+}
