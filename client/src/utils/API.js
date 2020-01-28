@@ -7,6 +7,8 @@ export default {
 
   getPosts: () => axios.get('/api/posts'),
 
+  addPost: id => axios.post('/api/post/' + id),
+
   getDailyImage: () =>
     axios.get(
       `https://api.nasa.gov/planetary/apod?api_key=6c8dTYwFcHRpLfZXRxCLC2F6obnFUWrGAJnvRc2u`

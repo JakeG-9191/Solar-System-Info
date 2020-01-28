@@ -33,9 +33,11 @@ class Posts extends Component {
       this.setState({
         posts: myArray
       });
-
-      console.log(this.state.posts);
     });
+  };
+
+  newPost = id => {
+    API.addPost(id).then(res => {});
   };
 
   render() {
