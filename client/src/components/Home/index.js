@@ -22,7 +22,6 @@ class Home extends Component {
 
   loadBackground = () => {
     let newBackground = Math.floor(Math.random() * 4);
-    console.log(newBackground);
     document.body.classList.add(`backdrop${newBackground}`);
   };
 
@@ -46,9 +45,10 @@ class Home extends Component {
           </Link>
         </div>
         <div className='container'>
+          <h1>Welcome To My Solar System!</h1>
           <div className='row'>
             <div className='welcome'>
-              <h1>Welcome To My Solar System!</h1>
+              <h2>NASA Photo Of The Day!</h2>
               <h3>{this.state.date}</h3>
               <img id='randomImage' src={this.state.randomImage}></img>
             </div>

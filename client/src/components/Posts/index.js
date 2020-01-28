@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom';
 import './style.css';
 
 class Posts extends Component {
-  state = {};
+  state = {
+    posts: []
+  };
 
   componentDidMount() {
     API.getPosts().then(data => {
@@ -16,6 +18,7 @@ class Posts extends Component {
     return (
       <div>
         <h1>Testing Posts</h1>
+        <h2>{this.state.posts}</h2>
       </div>
     );
   }
