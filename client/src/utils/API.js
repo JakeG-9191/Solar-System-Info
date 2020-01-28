@@ -3,7 +3,9 @@ import axios from 'axios';
 export default {
   getUsers: () => axios.get('/api/users'),
 
-  getUser: id => axios.get('/api/users/' + id),
+  getUser: _id => axios.get('/api/users/' + _id),
+
+  saveUser: () => axios.post('/api/users'),
 
   getPosts: () => axios.get('/api/posts'),
 
