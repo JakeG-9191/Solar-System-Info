@@ -6,6 +6,7 @@ import './style.css';
 class Home extends Component {
   state = {
     randomImage: '',
+    randomVideo: '',
     date: ''
   };
 
@@ -13,10 +14,17 @@ class Home extends Component {
     this.loadBackground();
     API.getDailyImage().then(data => {
       console.log(data);
-      this.setState({
-        randomImage: data.data.url,
-        date: data.data.date
-      });
+      if (data.data.media_type === 'video') {
+        this.setState({
+          randomVideo: data.data.url,
+          date: data.data.date
+        });
+      } else {
+        this.setState({
+          randomImage: data.data.url,
+          date: data.data.date
+        });
+      }
     });
   }
 
@@ -50,7 +58,15 @@ class Home extends Component {
             <div className='welcome'>
               <h2>NASA Photo Of The Day!</h2>
               <h3>{this.state.date}</h3>
-              <img id='randomImage' src={this.state.randomImage}></img>
+              <img
+                id='randomImage'
+                src={this.state.randomImage ? this.state.randomImage : ''}
+              ></img>
+              <video id='randomVideo' loop autoPlay>
+                <source
+                  src={this.state.randomVideo ? this.state.randomVideo : ''}
+                />
+              </video>
             </div>
           </div>
         </div>
