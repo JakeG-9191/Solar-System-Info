@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactPlayer from 'react-player';
 import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import './style.css';
@@ -7,6 +8,7 @@ class Home extends Component {
   state = {
     randomImage: '',
     randomVideo: '',
+    randomDescription: '',
     date: ''
   };
 
@@ -17,12 +19,14 @@ class Home extends Component {
       if (data.data.media_type === 'video') {
         this.setState({
           randomVideo: data.data.url,
-          date: data.data.date
+          date: data.data.date,
+          randomDescription: data.data.explanation
         });
       } else {
         this.setState({
           randomImage: data.data.url,
-          date: data.data.date
+          date: data.data.date,
+          randomDescription: data.data.explanation
         });
       }
     });
@@ -62,11 +66,11 @@ class Home extends Component {
                 id='randomImage'
                 src={this.state.randomImage ? this.state.randomImage : ''}
               ></img>
-              <video id='randomVideo' loop autoPlay>
-                <source
-                  src={this.state.randomVideo ? this.state.randomVideo : ''}
-                />
-              </video>
+              <ReactPlayer
+                url={this.state.randomVideo ? this.state.randomVideo : ''}
+                playing
+              />
+              <h5>{this.state.randomDescription}</h5>
             </div>
           </div>
         </div>
