@@ -45,7 +45,9 @@ class Home extends Component {
             <button className='btn btn-success'>Home</button>
           </Link>
           <Link to='/login'>
-            <button className='btn btn-success'>Login</button>
+            <button className='btn btn-success' disabled>
+              Login
+            </button>
           </Link>
           <Link to='/posts'>
             <button className='btn btn-success'>Forum Posts</button>
@@ -56,11 +58,31 @@ class Home extends Component {
             </button>
           </Link>
         </div>
-        <div className='container'>
+        <div>
           <h1>Welcome To My Solar System!</h1>
+        </div>
+        <div className='container'>
           <div className='row'>
+            <div id='aboutWebsite'>
+              <h2>About This Website</h2>
+              <h4 id='websiteInfo'>
+                My Solar System! is a website about our very own Solar System,
+                which is home to our own planet Earth, as well as 7 other
+                planets, thier moons and numerous other objects, the most
+                massive of which is star at the center of it all, the Sun! This
+                website has additional information on various parts of the Solar
+                System, including a page dedicated entirely to Mars, the ability
+                to leave messages and comments, and a series of games that will
+                test your knowledge about planets, space and our Solar System.
+                Thank you for stopping by!
+              </h4>
+              <h6>
+                Special Thanks to NASA Open APIs for providing much of the
+                imagery for various aspects of the website.
+              </h6>
+            </div>
             <div className='welcome'>
-              <h2>NASA Photo Of The Day!</h2>
+              <h2>NASA Photo / Video Of The Day!</h2>
               <h3>{this.state.date}</h3>
               <img
                 id='randomImage'
@@ -69,8 +91,9 @@ class Home extends Component {
               <ReactPlayer
                 url={this.state.randomVideo ? this.state.randomVideo : ''}
                 playing
+                id='randomVideo'
               />
-              <h5>{this.state.randomDescription}</h5>
+              <h5 id='dailyInfo'>{this.state.randomDescription}</h5>
             </div>
           </div>
         </div>

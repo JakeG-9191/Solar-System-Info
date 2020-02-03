@@ -8,14 +8,16 @@ import './App.css';
 
 function App() {
   return (
-    <Router>
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/login' component={Login} />
-        <Route exact path='/posts' component={Posts} />
-        <Route exact path='/game' component={Game} />
-      </Switch>
-    </Router>
+    <>
+      <Router>
+        <Switch>
+          <Route exact path='/' component={Home} />
+          <Route exact path='/login' component={Login} />
+          <Route exact path='/posts' component={Posts} />
+          <Route exact path='/game' component={Game} />
+        </Switch>
+      </Router>
+    </>
   );
 }
 
