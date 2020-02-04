@@ -42,7 +42,7 @@ class Home extends Component {
       <>
         <div className='navBar'>
           <Link to='/'>
-            <button className='btn btn-success'>Home</button>
+            <button className='btn btn-info'>Home</button>
           </Link>
           <Link to='/login'>
             <button className='btn btn-success' disabled>
@@ -51,6 +51,9 @@ class Home extends Component {
           </Link>
           <Link to='/posts'>
             <button className='btn btn-success'>Forum Posts</button>
+          </Link>
+          <Link to='/mars'>
+            <button className='btn btn-success'>Mars Special</button>
           </Link>
           <Link to='/game'>
             <button className='btn btn-success'>

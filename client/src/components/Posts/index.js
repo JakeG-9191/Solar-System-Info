@@ -42,22 +42,42 @@ class Posts extends Component {
 
   render() {
     return (
-      <div>
-        <Link to='/'>
-          <button className='btn btn-success'>Home</button>
-        </Link>
-        <h1>Testing Posts</h1>
-        <button onClick={this.grabAllPosts}>Grab Posts</button>
-        <h2>
-          {this.state.posts.map(post => (
-            <div id='all-posts'>
-              <h4>Name: {post.name}</h4>
-              <h4>Comment: {post.text}</h4>
-              <h4>Date: {post.date}</h4>
-            </div>
-          ))}
-        </h2>
-      </div>
+      <>
+        <div className='navBar'>
+          <Link to='/'>
+            <button className='btn btn-success'>Home</button>
+          </Link>
+          <Link to='/login'>
+            <button className='btn btn-success' disabled>
+              Login
+            </button>
+          </Link>
+          <Link to='/posts'>
+            <button className='btn btn-info'>Forum Posts</button>
+          </Link>
+          <Link to='/mars'>
+            <button className='btn btn-success'>Mars Special</button>
+          </Link>
+          <Link to='/game'>
+            <button className='btn btn-success'>
+              Solar System Trivia Game
+            </button>
+          </Link>
+        </div>
+        <div>
+          <h1>Testing Posts</h1>
+          <button onClick={this.grabAllPosts}>Grab Posts</button>
+          <h2>
+            {this.state.posts.map(post => (
+              <div id='all-posts'>
+                <h4>Name: {post.name}</h4>
+                <h4>Comment: {post.text}</h4>
+                <h4>Date: {post.date}</h4>
+              </div>
+            ))}
+          </h2>
+        </div>
+      </>
     );
   }
 }

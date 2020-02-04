@@ -50,6 +50,12 @@ body {
   font-size: 20px;
 }
 
+.btn-info {
+  margin: 0 1rem;
+  float: right;
+  font-size: 20px;
+}
+
 .welcome {
   background: black;
   padding: 1rem;

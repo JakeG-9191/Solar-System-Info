@@ -3,6 +3,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Posts from './components/Posts';
 import Game from './components/Game';
+import Mars from './components/Mars';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
@@ -15,6 +16,7 @@ function App() {
           <Route exact path='/login' component={Login} />
           <Route exact path='/posts' component={Posts} />
           <Route exact path='/game' component={Game} />
+          <Route exact path='/mars' component={Mars} />
         </Switch>
       </Router>
     </>
