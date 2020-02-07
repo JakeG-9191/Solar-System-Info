@@ -6,7 +6,8 @@ import './style.css';
 class Game extends Component {
   state = {
     gameEdition: '',
-    gameStarted: false
+    gameStarted: false,
+    gameChoice: false
   };
 
   startGame = () => {
@@ -68,11 +69,17 @@ class Game extends Component {
         <div>
           <h1>Testing Game</h1>
           <h3>Game Directions to go here</h3>
+          <button onClick={this.startGame}>View All Game Choices</button>
+        </div>
+        <div>
           <button onClick={this.earthEdition}>Earth Edition</button>
           <button onClick={this.solarEdition}>
             General Solar System Edition
           </button>
           <button onClick={this.classifiedEdition}>Classified Edition</button>
+        </div>
+        <div>
+          <button onClick={this.startGame}>Confirm Game Choice</button>
         </div>
       </>
     );

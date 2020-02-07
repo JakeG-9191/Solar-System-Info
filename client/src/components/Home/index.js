@@ -4,6 +4,16 @@ import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import './style.css';
 
+const videoStyleTrue = {
+  width: '640px',
+  height: '360px'
+};
+
+const videoStyleFalse = {
+  width: '0px',
+  height: '0px'
+};
+
 class Home extends Component {
   state = {
     randomImage: '',
@@ -91,12 +101,13 @@ class Home extends Component {
                 id='randomImage'
                 src={this.state.randomImage ? this.state.randomImage : ''}
               ></img>
+              <h5 id='dailyInfo'>{this.state.randomDescription}</h5>
               <ReactPlayer
                 url={this.state.randomVideo ? this.state.randomVideo : ''}
                 playing
                 id='randomVideo'
+                style={videoStyleFalse}
               />
-              <h5 id='dailyInfo'>{this.state.randomDescription}</h5>
             </div>
           </div>
         </div>
