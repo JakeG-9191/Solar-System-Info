@@ -1,0 +1,22 @@
+[
+  {
+    "id": 0,
+    "title": "Test",
+    "body": "This is a test"
+  },
+  {
+    "id": 1,
+    "title": "Another Test",
+    "body": "Want to confirm"
+  },
+  {
+    "id": 2,
+    "title": "Factoid 3",
+    "body": "Space is neat"
+  },
+  {
+    "id": 3,
+    "title": "A new one",
+    "body": "how much can we add?"
+  }
+]

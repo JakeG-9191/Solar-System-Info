@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import API from '../../utils/API';
+import Facts from '../../json/facts.json';
 import { Link } from 'react-router-dom';
 import './style.css';
 
@@ -19,7 +20,9 @@ class Home extends Component {
     randomImage: '',
     randomVideo: '',
     randomDescription: '',
-    date: ''
+    date: '',
+    factTitle: '',
+    factBody: ''
   };
 
   componentDidMount() {
@@ -40,7 +43,16 @@ class Home extends Component {
         });
       }
     });
+    this.loadNewFact();
   }
+
+  loadNewFact = () => {
+    let newFact = Math.floor(Math.random() * 4);
+    this.setState({
+      factTitle: Facts[newFact].title,
+      factBody: Facts[newFact].body
+    });
+  };
 
   loadBackground = () => {
     let newBackground = Math.floor(Math.random() * 4);
@@ -108,6 +120,9 @@ class Home extends Component {
                 id='randomVideo'
                 style={videoStyleFalse}
               />
+              <h3>Solar System Facts!</h3>
+              <h4>{this.state.factTitle}</h4>
+              <h5>{this.state.factBody}</h5>
             </div>
           </div>
         </div>
