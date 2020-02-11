@@ -1,22 +1,72 @@
 [
   {
     "id": 0,
-    "title": "Test",
-    "body": "This is a test"
+    "title": "How Large Is Jupiter Compared To Earth?",
+    "body": "Jupiter has a diameter of about 88,695 miles (142,800 kilometers) which is more than 11 times the diameter of Earth. It's volume is over 1,300 times the volume of Earth. This means that Jupiter is so big that over 1,300 Earths could fit inside of it. Jupiter is so big that it weighs two and a half times the weight of all of the other eight planets put together!",
+    "source": "Cool Cosmos",
+    "url": "http://coolcosmos.ipac.caltech.edu/ask/92-How-large-is-Jupiter-compared-to-Earth-"
   },
   {
     "id": 1,
-    "title": "Another Test",
-    "body": "Want to confirm"
+    "title": "How Large Is The Sun Compared To Earth?",
+    "body": "Compared to Earth, the Sun is enormous! It contains 99.86% of all of the mass of the entire Solar System. The Sun is 864,400 miles (1,391,000 kilometers) across. This is about 109 times the diameter of Earth. The Sun weighs about 333,000 times as much as Earth. It is so large that about 1,300,000 planet Earths can fit inside of it. Earth is about the size of an average sunspot!",
+    "source": "Cool Cosmos",
+    "url": "http://coolcosmos.ipac.caltech.edu/ask/5-How-large-is-the-Sun-compared-to-Earth-"
   },
   {
     "id": 2,
-    "title": "Factoid 3",
-    "body": "Space is neat"
+    "title": "How Many Planets Does Our Solar System Have?",
+    "body": "Ever since the discovery of Pluto in 1930, kids grew up learning that the solar system has nine planets. That all changed in the late 1990s, when astronomers started arguing about whether Pluto was indeed a planet. In a highly controversial decision, the International Astronomical Union ultimately decided in 2006 to designate Pluto as a 'dwarf planet,' reducing the list of the solar system's true planets to just eight. Astronomers, however, are still hunting for another possible planet in our solar system, a true ninth planet, after mathematical evidence of its existence was revealed on Jan. 20, 2016. The alleged 'Planet Nine,' also called 'Planet X,' is believed to be about 10 times the mass of Earth and 5,000 times the mass of Pluto.",
+    "source": "Space.com",
+    "url": "https://www.space.com/16080-solar-system-planets.html"
   },
   {
     "id": 3,
-    "title": "A new one",
-    "body": "how much can we add?"
+    "title": "What Does NASA Stand For?",
+    "body": "NASA stands for National Aeronautics and Space Administration. NASA was started on October 1, 1958, as a part of the United States government. NASA is in charge of U.S. science and technology that has to do with airplanes or space.",
+    "source": "NASA",
+    "url": "https://www.nasa.gov/audience/forstudents/k-4/stories/nasa-knows/what-is-nasa-k4.html"
+  },
+  {
+    "id": 4,
+    "title": "Which Planet Has The Most Moons?",
+    "body": "The planet with the most moons in the Solar System is Jupiter, with a total of 63 confirmed moons (as of 2009). Of course, it’s always possible that more moons will be discovered orbiting Jupiter in the future, and that number will go up. Eight of Jupiter’s moons are regular satellites, with 4 large, spherical moons, and 4 smaller moons that orbit closer to Jupiter. Jupiter has an additional 55 tiny irregular satellites.",
+    "source": "Universetoday.com",
+    "url": "https://www.universetoday.com/38187/which-planet-has-the-most-moons/amp/"
+  },
+  {
+    "id": 5,
+    "title": "What Is The Oldest Planet In Our Solar System?",
+    "body": "Jupiter is oldest planet in solar system, ancient meteorites show. Jupiter formed in a geologic blink. Its rocky core coalesced less than a million years after the beginning of our solar system, scientists reported Monday in the Proceedings of the National Academy of Sciences. Within another 2 million or 3 million years, that core grew to 50 times the mass of Earth.",
+    "source": "Washington Post",
+    "url": "https://www.washingtonpost.com/news/speaking-of-science/wp/2017/06/12/jupiter-is-oldest-planet-in-solar-system-ancient-meteorites-show/"
+  },
+  {
+    "id": 6,
+    "title": "How Far Is Mars From Earth?",
+    "body": "The distances between planets will vary depending on where each planet is in its orbit around the Sun. Sometimes the distances will be closer and other times they will be farther away. The distance between Earth and Mars is 0.52 AU. That's approximately 78,340,000 km or 48,678,219 miles.",
+    "source": "The Planets",
+    "url": "https://theplanets.org/distances-between-planets/"
+  },
+  {
+    "id": 7,
+    "title": "What Is The Astroid Belt",
+    "body": "The asteroid belt is a region of space between the orbits of Mars and Jupiter where most of the asteroids in our Solar System are found orbiting the Sun. The asteroid belt probably contains millions of asteroids. Astronomers think that the asteroid belt is made up of material that was never able to form into a planet, or of the remains of a planet which broke apart a very long time ago. The asteroids in the asteroid belt come in a variety of sizes. Some are very small (less than a mile across), while others are quite large. The largest asteroid is called Ceres. It is about one-quarter the size of our moon. It is a dwarf planet.",
+    "source": "Cool Cosmos",
+    "url": "http://coolcosmos.ipac.caltech.edu/ask/185-What-is-the-asteroid-belt-"
+  },
+  {
+    "id": 8,
+    "title": "What Was The First Attempt To Send Spacecraft Outside of Earth's Orbit?",
+    "body": "Able 1, later called Pioneer 0, was the first-ever launch to the Moon — and humanity’s first attempt to send a spacecraft anywhere beyond Earth orbit. The plan was to orbit the Moon, but a malfunction doomed the spacecraft. The mission predated NASA by a few months and was launched by the U.S. Air Force. The mission launched about six and half months after Explorer 1, America’s first satellite. The spacecraft's booster rocket exploded 73.6 seconds after launch. The mission later became known as Pioneer 0, the start of the historic series of Pioneer missions that included Pioneer 10 and Pioneer 11.",
+    "source": "NASA",
+    "url": "https://solarsystem.nasa.gov/missions/pioneer-0/in-depth/"
+  },
+  {
+    "id": 9,
+    "title": "What Is The Kuiper Belt",
+    "body": "Similar to the asteroid belt, the Kuiper Belt is a region of leftovers from the solar system's early history. Like asteroid belt, it has also been shaped by a giant planet, although it's more of a thick disk (like a donut) than a thin belt. Both Arrokoth (recently visited by NASA's New Horizons mission) and Pluto are in the Kuiper Belt — a donut-shaped region of icy bodies beyond the orbit of Neptune. There may be millions of these icy objects, collectively referred to as Kuiper Belt objects (KBOs) or trans-Neptunian objects (TNOs), in this distant region of our solar system.",
+    "source": "NASA",
+    "url": "https://solarsystem.nasa.gov/solar-system/kuiper-belt/overview/"
   }
 ]
