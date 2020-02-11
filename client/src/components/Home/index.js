@@ -5,16 +5,6 @@ import Facts from '../../json/facts.json';
 import { Link } from 'react-router-dom';
 import './style.css';
 
-const videoStyleTrue = {
-  width: '640px',
-  height: '360px'
-};
-
-const videoStyleFalse = {
-  width: '0px',
-  height: '0px'
-};
-
 class Home extends Component {
   state = {
     randomImage: '',
@@ -22,7 +12,9 @@ class Home extends Component {
     randomDescription: '',
     date: '',
     factTitle: '',
-    factBody: ''
+    factBody: '',
+    factSource: '',
+    factURL: ''
   };
 
   componentDidMount() {
@@ -47,10 +39,12 @@ class Home extends Component {
   }
 
   loadNewFact = () => {
-    let newFact = Math.floor(Math.random() * 4);
+    let newFact = Math.floor(Math.random() * 10);
     this.setState({
       factTitle: Facts[newFact].title,
-      factBody: Facts[newFact].body
+      factBody: Facts[newFact].body,
+      factSource: Facts[newFact].source,
+      factURL: Facts[newFact].url
     });
   };
 
@@ -83,7 +77,7 @@ class Home extends Component {
             </button>
           </Link>
         </div>
-        <div>
+        <div id='intro-banner'>
           <h1>Welcome To My Solar System!</h1>
         </div>
         <div className='container'>
@@ -109,22 +103,33 @@ class Home extends Component {
             <div className='welcome'>
               <h2>NASA Photo / Video Of The Day!</h2>
               <h3>{this.state.date}</h3>
-              <img
-                id='randomImage'
-                src={this.state.randomImage ? this.state.randomImage : ''}
-              ></img>
+              <a target='_blank' href={this.state.randomImage}>
+                <img
+                  id='randomImage'
+                  src={this.state.randomImage ? this.state.randomImage : ''}
+                ></img>
+              </a>
               <h5 id='dailyInfo'>{this.state.randomDescription}</h5>
               <ReactPlayer
                 url={this.state.randomVideo ? this.state.randomVideo : ''}
                 playing
                 id='randomVideo'
-                style={videoStyleFalse}
+                style={
+                  this.state.randomVideo
+                    ? { width: '640px', height: '360px' }
+                    : {}
+                }
               />
-              <h3>Solar System Facts!</h3>
-              <h4>{this.state.factTitle}</h4>
-              <h5>{this.state.factBody}</h5>
             </div>
           </div>
+        </div>
+        <div className='facts'>
+          <h4>{this.state.factTitle}</h4>
+          <h5 id='facts-body'>{this.state.factBody}</h5>
+          <h5>Source: {this.state.factSource}</h5>
+          <a target='_blank' href={this.state.factURL}>
+            {this.state.factURL}
+          </a>
         </div>
       </>
     );

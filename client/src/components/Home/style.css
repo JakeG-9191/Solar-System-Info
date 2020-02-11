@@ -62,7 +62,32 @@ body {
   border-radius: 18px;
   border-style: solid;
   margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.facts {
+  background: black;
+  padding: 1rem;
+  border-radius: 18px;
+  border-style: solid;
   margin-bottom: 10%;
+  width: 25%;
+  margin-top: -77%;
+}
+
+#facts-body {
+  background: white;
+  color: black;
+  padding: 1rem;
+  border-radius: 18px;
+  text-align: justify;
+}
+
+#intro-banner {
+  background: black;
+  margin-top: 1%;
+  border-radius: 18px;
+  padding: 1rem;
 }
 
 #randomVideo {
