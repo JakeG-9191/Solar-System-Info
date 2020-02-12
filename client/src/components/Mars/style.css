@@ -1,0 +1,6 @@
+.mars0 {
+  background-image: url('../../utils/mars/0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  background-attachment: fixed;
+}

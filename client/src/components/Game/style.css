@@ -1,0 +1,6 @@
+.game0 {
+  background-image: url('../../utils/trivia/0.jpg');
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  background-attachment: fixed;
+}

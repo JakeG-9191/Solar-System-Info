@@ -83,13 +83,6 @@ body {
   text-align: justify;
 }
 
-#intro-banner {
-  background: black;
-  margin-top: 1%;
-  border-radius: 18px;
-  padding: 1rem;
-}
-
 #randomVideo {
   margin: auto;
 }

@@ -50,6 +50,8 @@ class Home extends Component {
 
   loadBackground = () => {
     let newBackground = Math.floor(Math.random() * 4);
+    document.body.classList.remove(`game${0}`);
+    document.body.classList.remove(`mars${0}`);
     document.body.classList.add(`backdrop${newBackground}`);
   };
 
@@ -121,9 +123,9 @@ class Home extends Component {
           </div>
         </div>
         <div className='facts'>
-          <h4>{this.state.factTitle}</h4>
-          <h5 id='facts-body'>{this.state.factBody}</h5>
-          <h5>Source: {this.state.factSource}</h5>
+          <h2>{this.state.factTitle}</h2>
+          <h4 id='facts-body'>{this.state.factBody}</h4>
+          <h6>Source: {this.state.factSource}</h6>
           <a target='_blank' href={this.state.factURL}>
             {this.state.factURL}
           </a>

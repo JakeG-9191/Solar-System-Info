@@ -10,6 +10,20 @@ class Game extends Component {
     gameChoice: false
   };
 
+  componentDidMount() {
+    this.loadBackground();
+  }
+
+  loadBackground = () => {
+    let newBackground = Math.floor(Math.random() * 1);
+    document.body.classList.remove(`backdrop${0}`);
+    document.body.classList.remove(`backdrop${1}`);
+    document.body.classList.remove(`backdrop${2}`);
+    document.body.classList.remove(`backdrop${3}`);
+    document.body.classList.remove(`mars${0}`);
+    document.body.classList.add(`game${newBackground}`);
+  };
+
   startGame = () => {
     if (this.state.gameEdition === 'Earth') {
       console.log('Testing');
