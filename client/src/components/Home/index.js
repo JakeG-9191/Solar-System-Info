@@ -114,11 +114,8 @@ class Home extends Component {
                 url={this.state.randomVideo ? this.state.randomVideo : ''}
                 playing
                 id='randomVideo'
-                style={
-                  this.state.randomVideo
-                    ? { width: '640px', height: '360px' }
-                    : {}
-                }
+                width={this.state.randomVideo ? '640px' : '0px'}
+                height={this.state.randomVideo ? '360px' : '0px'}
               />
             </div>
           </div>
