@@ -48,6 +48,12 @@ class Game extends Component {
     });
   };
 
+  selectionReset = () => {
+    this.setState({
+      initialGameState: true
+    });
+  };
+
   earthEdition = e => {
     e.preventDefault();
     this.setState({
@@ -97,6 +103,9 @@ class Game extends Component {
         <div>
           <h1>Testing Game</h1>
           <h3>Game Directions to go here</h3>
+          <button onClick={this.selectionReset}>
+            Return To All Game Modes
+          </button>
           <div>
             {this.state.initialGameState ? (
               <button onClick={this.showGame}>View All Game Choices</button>
