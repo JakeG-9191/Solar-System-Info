@@ -52,6 +52,7 @@ class Home extends Component {
     let newBackground = Math.floor(Math.random() * 4);
     document.body.classList.remove(`game${0}`);
     document.body.classList.remove(`mars${0}`);
+    document.body.classList.remove(`post${0}`);
     document.body.classList.add(`backdrop${newBackground}`);
   };
 

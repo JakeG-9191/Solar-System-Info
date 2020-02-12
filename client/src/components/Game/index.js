@@ -21,6 +21,7 @@ class Game extends Component {
     document.body.classList.remove(`backdrop${2}`);
     document.body.classList.remove(`backdrop${3}`);
     document.body.classList.remove(`mars${0}`);
+    document.body.classList.remove(`post${0}`);
     document.body.classList.add(`game${newBackground}`);
   };
 
