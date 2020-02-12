@@ -6,8 +6,9 @@ import './style.css';
 class Game extends Component {
   state = {
     gameEdition: '',
-    gameStarted: false,
-    gameChoice: false
+    gameStart: false,
+    gameChoice: false,
+    initialGameState: true
   };
 
   componentDidMount() {
@@ -25,21 +26,33 @@ class Game extends Component {
     document.body.classList.add(`game${newBackground}`);
   };
 
+  showGame = e => {
+    e.preventDefault();
+    this.setState({
+      gameChoice: true
+    });
+  };
+
   startGame = () => {
     if (this.state.gameEdition === 'Earth') {
-      console.log('Testing');
+      console.log('Earth');
     } else if (this.state.gameEdition === 'Solar System') {
-      console.log('Test For Solar System');
+      console.log('Solar');
     } else if (this.state.gameEdition === 'Classified') {
-      console.log('Classified Edition');
+      console.log('Classified');
     }
+    this.setState({
+      gameStart: false,
+      gameChoice: false,
+      initialGameState: false
+    });
   };
 
   earthEdition = e => {
     e.preventDefault();
     this.setState({
       gameEdition: 'Earth',
-      gameStarted: true
+      gameStart: true
     });
   };
 
@@ -47,7 +60,7 @@ class Game extends Component {
     e.preventDefault();
     this.setState({
       gameEdition: 'Solar System',
-      gameStarted: true
+      gameStart: true
     });
   };
 
@@ -55,7 +68,7 @@ class Game extends Component {
     e.preventDefault();
     this.setState({
       gameEdition: 'Classified',
-      gameStarted: true
+      gameStart: true
     });
   };
 
@@ -84,17 +97,45 @@ class Game extends Component {
         <div>
           <h1>Testing Game</h1>
           <h3>Game Directions to go here</h3>
-          <button onClick={this.startGame}>View All Game Choices</button>
+          <div>
+            {this.state.initialGameState ? (
+              <button onClick={this.showGame}>View All Game Choices</button>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
         <div>
-          <button onClick={this.earthEdition}>Earth Edition</button>
-          <button onClick={this.solarEdition}>
-            General Solar System Edition
-          </button>
-          <button onClick={this.classifiedEdition}>Classified Edition</button>
+          <div>
+            {this.state.gameChoice ? (
+              <button onClick={this.earthEdition}>Earth Edition</button>
+            ) : (
+              ''
+            )}
+          </div>
+          <div>
+            {this.state.gameChoice ? (
+              <button onClick={this.solarEdition}>Solar Edition</button>
+            ) : (
+              ''
+            )}
+          </div>
+          <div>
+            {this.state.gameChoice ? (
+              <button onClick={this.classifiedEdition}>
+                Classified Edition
+              </button>
+            ) : (
+              ''
+            )}
+          </div>
         </div>
         <div>
-          <button onClick={this.startGame}>Confirm Game Choice</button>
+          {this.state.gameStart ? (
+            <button onClick={this.startGame}>Start New Game</button>
+          ) : (
+            ''
+          )}
         </div>
       </>
     );
