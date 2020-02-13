@@ -9,6 +9,7 @@ class Game extends Component {
     gameChoice: false,
     initialGameState: true,
     playerScore: 0,
+    rightCount: 0,
     startEarth: false
   };
 
@@ -81,15 +82,26 @@ class Game extends Component {
 
   addPoints = () => {
     this.setState({
-      playerScore: this.state.playerScore + 1
+      playerScore: this.state.playerScore + this.state.rightCount
     });
-    console.log(this.state.playerScore);
   };
 
   earthGameStart = () => {
     this.setState({
       startEarth: true
     });
+  };
+
+  rightAnswerSelected = () => {
+    this.setState({
+      rightCount: this.state.rightCount + 1
+    });
+  };
+
+  wrongAnswerSelected = () => {};
+
+  submitAnswer = () => {
+    this.addPoints();
   };
 
   render() {
@@ -117,6 +129,7 @@ class Game extends Component {
         <div>
           <h1>Testing Game</h1>
           <h3>Game Directions to go here</h3>
+          <h3>Score: {this.state.playerScore}</h3>
           {this.state.initialGameState ? (
             ''
           ) : (
@@ -167,16 +180,47 @@ class Game extends Component {
         <div className='earth-game-questions'>
           {this.state.startEarth ? (
             <>
-              <h2>What is the Choice?</h2>
-              <button>One</button>
-              <button onClick={this.addPoints}>Two</button>
-              <button>Three</button>
-              <button>Four</button>
+              <div>
+                <h2>What is the Choice?</h2>
+                <button onClick={this.wrongAnswerSelected}>One</button>
+                <button onClick={this.rightAnswerSelected}>Two</button>
+                <button onClick={this.wrongAnswerSelected}>Three</button>
+                <button onClick={this.wrongAnswerSelected}>Four</button>
+              </div>
+              <div>
+                <h2>What is the Choice?</h2>
+                <button onClick={this.wrongAnswerSelected}>One</button>
+                <button onClick={this.rightAnswerSelected}>Two</button>
+                <button onClick={this.wrongAnswerSelected}>Three</button>
+                <button onClick={this.wrongAnswerSelected}>Four</button>
+              </div>
+              <div>
+                <h2>What is the Choice?</h2>
+                <button onClick={this.wrongAnswerSelected}>One</button>
+                <button onClick={this.rightAnswerSelected}>Two</button>
+                <button onClick={this.wrongAnswerSelected}>Three</button>
+                <button onClick={this.wrongAnswerSelected}>Four</button>
+              </div>
+              <div>
+                <h2>What is the Choice?</h2>
+                <button onClick={this.wrongAnswerSelected}>One</button>
+                <button onClick={this.rightAnswerSelected}>Two</button>
+                <button onClick={this.wrongAnswerSelected}>Three</button>
+                <button onClick={this.wrongAnswerSelected}>Four</button>
+              </div>
+              <div>
+                <h2>What is the Choice?</h2>
+                <button onClick={this.wrongAnswerSelected}>One</button>
+                <button onClick={this.rightAnswerSelected}>Two</button>
+                <button onClick={this.wrongAnswerSelected}>Three</button>
+                <button onClick={this.wrongAnswerSelected}>Four</button>
+              </div>
             </>
           ) : (
             ''
           )}
         </div>
+        <button onClick={this.submitAnswer}>Submit Answer</button>
       </>
     );
   }
