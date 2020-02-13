@@ -9,7 +9,6 @@ class Game extends Component {
     gameChoice: false,
     initialGameState: true,
     playerScore: 0,
-    rightCount: 0,
     startEarth: false
   };
 
@@ -35,6 +34,7 @@ class Game extends Component {
     });
   };
 
+  // depending on what selection is made, kicks off game
   startGame = () => {
     if (this.state.gameEdition === 'Earth') {
       this.earthGameStart();
@@ -50,12 +50,16 @@ class Game extends Component {
     });
   };
 
+  // Reset game selection so all game modes are available to choose from
+  // Reset player score
   selectionReset = () => {
     this.setState({
-      initialGameState: true
+      initialGameState: true,
+      playerScore: 0
     });
   };
 
+  // select Earth Game edition
   earthEdition = e => {
     e.preventDefault();
     this.setState({
@@ -80,29 +84,23 @@ class Game extends Component {
     });
   };
 
-  addPoints = () => {
-    this.setState({
-      playerScore: this.state.playerScore + this.state.rightCount
-    });
-  };
-
+  // set Earth Game edition to Start
   earthGameStart = () => {
     this.setState({
       startEarth: true
     });
   };
 
-  rightAnswerSelected = () => {
-    this.setState({
-      rightCount: this.state.rightCount + 1
-    });
-  };
+  // Game Logic - should be reusable for any game mode
 
-  wrongAnswerSelected = () => {};
-
-  submitAnswer = () => {
-    this.addPoints();
-  };
+  // Need to display all applicable questions based on game mode
+  // Need to be able to allow player to select 1 of 4 answers
+  // Should allow for players to change thier answers before they submit if they wish
+  // Submission of answers should check if selected choices are correct
+  // if correct, add one to player score
+  // if incorrect, do nothing
+  // Display Score for Player
+  // Ask if Player wants to play again
 
   render() {
     return (
@@ -182,45 +180,17 @@ class Game extends Component {
             <>
               <div>
                 <h2>What is the Choice?</h2>
-                <button onClick={this.wrongAnswerSelected}>One</button>
-                <button onClick={this.rightAnswerSelected}>Two</button>
-                <button onClick={this.wrongAnswerSelected}>Three</button>
-                <button onClick={this.wrongAnswerSelected}>Four</button>
+                <button>One</button>
+                <button>Two</button>
+                <button>Three</button>
+                <button>Four</button>
               </div>
-              <div>
-                <h2>What is the Choice?</h2>
-                <button onClick={this.wrongAnswerSelected}>One</button>
-                <button onClick={this.rightAnswerSelected}>Two</button>
-                <button onClick={this.wrongAnswerSelected}>Three</button>
-                <button onClick={this.wrongAnswerSelected}>Four</button>
-              </div>
-              <div>
-                <h2>What is the Choice?</h2>
-                <button onClick={this.wrongAnswerSelected}>One</button>
-                <button onClick={this.rightAnswerSelected}>Two</button>
-                <button onClick={this.wrongAnswerSelected}>Three</button>
-                <button onClick={this.wrongAnswerSelected}>Four</button>
-              </div>
-              <div>
-                <h2>What is the Choice?</h2>
-                <button onClick={this.wrongAnswerSelected}>One</button>
-                <button onClick={this.rightAnswerSelected}>Two</button>
-                <button onClick={this.wrongAnswerSelected}>Three</button>
-                <button onClick={this.wrongAnswerSelected}>Four</button>
-              </div>
-              <div>
-                <h2>What is the Choice?</h2>
-                <button onClick={this.wrongAnswerSelected}>One</button>
-                <button onClick={this.rightAnswerSelected}>Two</button>
-                <button onClick={this.wrongAnswerSelected}>Three</button>
-                <button onClick={this.wrongAnswerSelected}>Four</button>
-              </div>
+              <button>Submit Answer</button>
             </>
           ) : (
             ''
           )}
         </div>
-        <button onClick={this.submitAnswer}>Submit Answer</button>
       </>
     );
   }
