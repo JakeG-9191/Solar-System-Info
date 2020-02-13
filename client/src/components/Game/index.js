@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import './style.css';
 
@@ -8,7 +7,9 @@ class Game extends Component {
     gameEdition: '',
     gameStart: false,
     gameChoice: false,
-    initialGameState: true
+    initialGameState: true,
+    playerScore: 0,
+    startEarth: false
   };
 
   componentDidMount() {
@@ -35,7 +36,7 @@ class Game extends Component {
 
   startGame = () => {
     if (this.state.gameEdition === 'Earth') {
-      console.log('Earth');
+      this.earthGameStart();
     } else if (this.state.gameEdition === 'Solar System') {
       console.log('Solar');
     } else if (this.state.gameEdition === 'Classified') {
@@ -78,6 +79,19 @@ class Game extends Component {
     });
   };
 
+  addPoints = () => {
+    this.setState({
+      playerScore: this.state.playerScore + 1
+    });
+    console.log(this.state.playerScore);
+  };
+
+  earthGameStart = () => {
+    this.setState({
+      startEarth: true
+    });
+  };
+
   render() {
     return (
       <>
@@ -103,9 +117,13 @@ class Game extends Component {
         <div>
           <h1>Testing Game</h1>
           <h3>Game Directions to go here</h3>
-          <button onClick={this.selectionReset}>
-            Return To All Game Modes
-          </button>
+          {this.state.initialGameState ? (
+            ''
+          ) : (
+            <button onClick={this.selectionReset}>
+              Return To All Game Modes
+            </button>
+          )}
           <div>
             {this.state.initialGameState ? (
               <button onClick={this.showGame}>View All Game Choices</button>
@@ -142,6 +160,19 @@ class Game extends Component {
         <div>
           {this.state.gameStart ? (
             <button onClick={this.startGame}>Start New Game</button>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className='earth-game-questions'>
+          {this.state.startEarth ? (
+            <>
+              <h2>What is the Choice?</h2>
+              <button>One</button>
+              <button onClick={this.addPoints}>Two</button>
+              <button>Three</button>
+              <button>Four</button>
+            </>
           ) : (
             ''
           )}
