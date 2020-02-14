@@ -232,18 +232,33 @@ class Game extends Component {
           </Link>
         </div>
         <div>
-          <h1>Testing Game</h1>
-          <h3>Game Directions to go here</h3>
+          <h1>Welcome To The Trivia Games!</h1>
+          <h3 className='game-directions'>
+            To play, select the button below to display all game choices, then
+            make a selection and start a new game. Quesitons will be posted with
+            4 answers to choose from, make your selection carefully as there is
+            no way to return to the last question. After the last questions in
+            the quiz is answered, your results will be displayed and you will be
+            allowed to play again. These questions are currently not timed.
+          </h3>
           {this.state.initialGameState ? (
             ''
           ) : (
-            <button onClick={this.selectionReset}>
+            <button
+              className='btn btn-primary game-utility'
+              onClick={this.selectionReset}
+            >
               Return To All Game Modes
             </button>
           )}
           <div>
             {this.state.initialGameState ? (
-              <button onClick={this.showGame}>View All Game Choices</button>
+              <button
+                className='btn btn-primary game-utility'
+                onClick={this.showGame}
+              >
+                View All Game Choices
+              </button>
             ) : (
               ''
             )}
@@ -252,21 +267,34 @@ class Game extends Component {
         <div>
           <div>
             {this.state.gameChoice ? (
-              <button onClick={this.earthEdition}>Earth Edition</button>
+              <button
+                className='btn btn-primary game-utility'
+                onClick={this.earthEdition}
+              >
+                Earth Edition
+              </button>
             ) : (
               ''
             )}
           </div>
           <div>
             {this.state.gameChoice ? (
-              <button onClick={this.solarEdition}>Solar Edition</button>
+              <button
+                className='btn btn-primary game-utility'
+                onClick={this.solarEdition}
+              >
+                Solar Edition
+              </button>
             ) : (
               ''
             )}
           </div>
           <div>
             {this.state.gameChoice ? (
-              <button onClick={this.classifiedEdition}>
+              <button
+                className='btn btn-primary game-utility'
+                onClick={this.classifiedEdition}
+              >
                 Classified Edition
               </button>
             ) : (
@@ -276,7 +304,12 @@ class Game extends Component {
         </div>
         <div>
           {this.state.gameStart ? (
-            <button onClick={this.startGame}>Start New Game</button>
+            <button
+              className='btn btn-primary game-utility'
+              onClick={this.startGame}
+            >
+              Start New Game
+            </button>
           ) : (
             ''
           )}
@@ -371,8 +404,10 @@ class Game extends Component {
               <div>
                 {!this.state.gameReset ? (
                   <>
-                    <h3>Num: {this.state.questionNum}</h3>
-                    <h2>{this.state.question}</h2>
+                    <h3 className='game-question-number'>
+                      Q. {this.state.questionNum}
+                    </h3>
+                    <h2 className='game-question'>{this.state.question}</h2>
                     <button
                       className='btn btn-primary game-buttons'
                       onClick={this.checkAnswer}
@@ -407,13 +442,20 @@ class Game extends Component {
                 )}
               </div>
               <div>
-                {this.state.gameReset ? (
-                  <button onClick={this.selectionReset}>Game Reset</button>
+                {/* {this.state.gameReset ? (
+                  <button
+                    className='btn btn-primary game-utility'
+                    onClick={this.selectionReset}
+                  >
+                    Game Reset
+                  </button>
                 ) : (
                   ''
-                )}
+                )} */}
                 {this.state.gameReset ? (
-                  <h1>Final Player Score = {this.state.playerScore}</h1>
+                  <h1 className='game-player-score'>
+                    Final Score - {this.state.playerScore}
+                  </h1>
                 ) : (
                   ''
                 )}
