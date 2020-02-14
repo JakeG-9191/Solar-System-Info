@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import EarthQuestions from '../../json/earthGame';
 import './style.css';
 
 class Game extends Component {
@@ -9,7 +10,25 @@ class Game extends Component {
     gameChoice: false,
     initialGameState: true,
     playerScore: 0,
-    startEarth: false
+    startEarth: false,
+    questionNum: 0,
+    question: '',
+    right: '',
+    a1: '',
+    a2: '',
+    a3: '',
+    a4: ''
+  };
+
+  loadNewQuestion = () => {
+    this.setState({
+      question: EarthQuestions[this.state.questionNum].question,
+      a1: EarthQuestions[this.state.questionNum].a1,
+      a2: EarthQuestions[this.state.questionNum].a2,
+      a3: EarthQuestions[this.state.questionNum].a3,
+      a4: EarthQuestions[this.state.questionNum].a4,
+      right: EarthQuestions[this.state.questionNum].right
+    });
   };
 
   componentDidMount() {
@@ -89,6 +108,7 @@ class Game extends Component {
     this.setState({
       startEarth: true
     });
+    this.loadNewQuestion();
   };
 
   // Game Logic - should be reusable for any game mode
@@ -96,6 +116,25 @@ class Game extends Component {
   // Need to display all applicable questions based on game mode
   // Need to be able to allow player to select 1 of 4 answers
   // Should allow for players to change thier answers before they submit if they wish
+  checkAnswer = e => {
+    let id = e.target.getAttribute('data_id');
+    if (id === this.state.right) {
+      this.setState({
+        playerScore: this.state.playerScore + 1
+      });
+    }
+    this.submitAnswer();
+    console.log(id);
+  };
+
+  submitAnswer = () => {
+    if (this.state.questionNum < 2) {
+      this.setState({
+        questionNum: this.state.questionNum + 1
+      });
+      this.loadNewQuestion();
+    }
+  };
   // Submission of answers should check if selected choices are correct
   // if correct, add one to player score
   // if incorrect, do nothing
@@ -179,11 +218,20 @@ class Game extends Component {
           {this.state.startEarth ? (
             <>
               <div>
-                <h2>What is the Choice?</h2>
-                <button>One</button>
-                <button>Two</button>
-                <button>Three</button>
-                <button>Four</button>
+                <h3>Num: {this.state.questionNum + 1}</h3>
+                <h2>{this.state.question}</h2>
+                <button onClick={this.checkAnswer} data_id='1'>
+                  {this.state.a1}
+                </button>
+                <button onClick={this.checkAnswer} data_id='2'>
+                  {this.state.a2}
+                </button>
+                <button onClick={this.checkAnswer} data_id='3'>
+                  {this.state.a3}
+                </button>
+                <button onClick={this.checkAnswer} data_id='4'>
+                  {this.state.a4}
+                </button>
               </div>
               <button>Submit Answer</button>
             </>
