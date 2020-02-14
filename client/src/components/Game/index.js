@@ -106,7 +106,8 @@ class Game extends Component {
   // set Earth Game edition to Start
   earthGameStart = () => {
     this.setState({
-      startEarth: true
+      startEarth: true,
+      questionNum: this.state.questionNum + 1
     });
     this.loadNewQuestion();
   };
@@ -117,24 +118,27 @@ class Game extends Component {
   // Need to be able to allow player to select 1 of 4 answers
   // Should allow for players to change thier answers before they submit if they wish
   checkAnswer = e => {
+    this.setState({
+      questionNum: this.state.questionNum + 1
+    });
+    this.otherCheck(e);
+  };
+
+  otherCheck = e => {
     let id = e.target.getAttribute('data_id');
     if (id === this.state.right) {
       this.setState({
         playerScore: this.state.playerScore + 1
       });
     }
-    this.submitAnswer();
-    console.log(id);
-  };
-
-  submitAnswer = () => {
-    if (this.state.questionNum < 2) {
-      this.setState({
-        questionNum: this.state.questionNum + 1
-      });
+    //moves num from 0 to 1
+    console.log('quesitonNum', this.state.questionNum);
+    // if num is less than total quesiton, do new question
+    if (this.state.questionNum < 4) {
       this.loadNewQuestion();
     }
   };
+
   // Submission of answers should check if selected choices are correct
   // if correct, add one to player score
   // if incorrect, do nothing
@@ -218,7 +222,7 @@ class Game extends Component {
           {this.state.startEarth ? (
             <>
               <div>
-                <h3>Num: {this.state.questionNum + 1}</h3>
+                <h3>Num: {this.state.questionNum}</h3>
                 <h2>{this.state.question}</h2>
                 <button onClick={this.checkAnswer} data_id='1'>
                   {this.state.a1}
