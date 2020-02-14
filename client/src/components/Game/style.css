@@ -41,6 +41,7 @@
   padding: 1rem;
   margin: 1rem;
   width: 30%;
+  font-size: x-large;
 }
 
 .game-utility:hover {
@@ -50,16 +51,16 @@
 
 .game-player-score {
   width: 50%;
-  margin: 1% 25%;
-  padding: 1rem;
+  margin: 5% 25%;
+  padding: 5rem;
   border-radius: 18px;
   animation: shifting 20s infinite;
   border-width: 1px;
   border-style: solid;
 }
 
-.game-player-score:hover {
-  transform: scale(1.2);
+#game-intro {
+  margin-top: 2%;
 }
 
 @keyframes shifting {
@@ -68,6 +69,7 @@
   }
   50% {
     background-image: url('https://i.pinimg.com/originals/9f/13/26/9f1326506ea3b39c473669cc9b5a1e41.jpg');
+    border-color: black;
   }
   100% {
     background-image: url('https://wallpaperhd.wiki/wp-content/uploads/1080p-wallpaper-181225.jpg');

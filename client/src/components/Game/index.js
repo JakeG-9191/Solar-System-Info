@@ -232,7 +232,7 @@ class Game extends Component {
           </Link>
         </div>
         <div>
-          <h1>Welcome To The Trivia Games!</h1>
+          <h1 id='game-intro'>Welcome To Solar System Trivia!</h1>
           <h3 className='game-directions'>
             To play, select the button below to display all game choices, then
             make a selection and start a new game. Quesitons will be posted with
@@ -320,18 +320,36 @@ class Game extends Component {
               <div>
                 {!this.state.gameReset ? (
                   <>
-                    <h3>Num: {this.state.questionNum}</h3>
-                    <h2>{this.state.question}</h2>
-                    <button onClick={this.checkAnswer} data_id='1'>
+                    <h3 className='game-question-number'>
+                      Q. {this.state.questionNum}
+                    </h3>
+                    <h2 className='game-question'>{this.state.question}</h2>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='1'
+                    >
                       {this.state.a1}
                     </button>
-                    <button onClick={this.checkAnswer} data_id='2'>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='2'
+                    >
                       {this.state.a2}
                     </button>
-                    <button onClick={this.checkAnswer} data_id='3'>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='3'
+                    >
                       {this.state.a3}
                     </button>
-                    <button onClick={this.checkAnswer} data_id='4'>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='4'
+                    >
                       {this.state.a4}
                     </button>
                   </>
@@ -341,12 +359,9 @@ class Game extends Component {
               </div>
               <div>
                 {this.state.gameReset ? (
-                  <button onClick={this.selectionReset}>Game Reset</button>
-                ) : (
-                  ''
-                )}
-                {this.state.gameReset ? (
-                  <h1>Final Player Score = {this.state.playerScore}</h1>
+                  <h1 className='game-player-score'>
+                    Final Score - {this.state.playerScore}
+                  </h1>
                 ) : (
                   ''
                 )}
@@ -362,18 +377,36 @@ class Game extends Component {
               <div>
                 {!this.state.gameReset ? (
                   <>
-                    <h3>Num: {this.state.questionNum}</h3>
-                    <h2>{this.state.question}</h2>
-                    <button onClick={this.checkAnswer} data_id='1'>
+                    <h3 className='game-question-number'>
+                      Q. {this.state.questionNum}
+                    </h3>
+                    <h2 className='game-question'>{this.state.question}</h2>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='1'
+                    >
                       {this.state.a1}
                     </button>
-                    <button onClick={this.checkAnswer} data_id='2'>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='2'
+                    >
                       {this.state.a2}
                     </button>
-                    <button onClick={this.checkAnswer} data_id='3'>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='3'
+                    >
                       {this.state.a3}
                     </button>
-                    <button onClick={this.checkAnswer} data_id='4'>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='4'
+                    >
                       {this.state.a4}
                     </button>
                   </>
@@ -383,12 +416,9 @@ class Game extends Component {
               </div>
               <div>
                 {this.state.gameReset ? (
-                  <button onClick={this.selectionReset}>Game Reset</button>
-                ) : (
-                  ''
-                )}
-                {this.state.gameReset ? (
-                  <h1>Final Player Score = {this.state.playerScore}</h1>
+                  <h1 className='game-player-score'>
+                    Final Score - {this.state.playerScore}
+                  </h1>
                 ) : (
                   ''
                 )}
@@ -442,16 +472,6 @@ class Game extends Component {
                 )}
               </div>
               <div>
-                {/* {this.state.gameReset ? (
-                  <button
-                    className='btn btn-primary game-utility'
-                    onClick={this.selectionReset}
-                  >
-                    Game Reset
-                  </button>
-                ) : (
-                  ''
-                )} */}
                 {this.state.gameReset ? (
                   <h1 className='game-player-score'>
                     Final Score - {this.state.playerScore}
