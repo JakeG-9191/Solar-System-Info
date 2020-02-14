@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import EarthQuestions from '../../json/earthGame';
+import SolarQuestions from '../../json/solarGame';
 import './style.css';
 
 class Game extends Component {
@@ -12,6 +13,7 @@ class Game extends Component {
     playerScore: 0,
     gameReset: false,
     startEarth: false,
+    startSolar: false,
     questionNum: 0,
     question: '',
     right: '',
@@ -22,14 +24,26 @@ class Game extends Component {
   };
 
   loadNewQuestion = () => {
-    this.setState({
-      question: EarthQuestions[this.state.questionNum].question,
-      a1: EarthQuestions[this.state.questionNum].a1,
-      a2: EarthQuestions[this.state.questionNum].a2,
-      a3: EarthQuestions[this.state.questionNum].a3,
-      a4: EarthQuestions[this.state.questionNum].a4,
-      right: EarthQuestions[this.state.questionNum].right
-    });
+    if (this.state.gameEdition === 'Earth') {
+      this.setState({
+        question: EarthQuestions[this.state.questionNum].question,
+        a1: EarthQuestions[this.state.questionNum].a1,
+        a2: EarthQuestions[this.state.questionNum].a2,
+        a3: EarthQuestions[this.state.questionNum].a3,
+        a4: EarthQuestions[this.state.questionNum].a4,
+        right: EarthQuestions[this.state.questionNum].right
+      });
+    }
+    if (this.state.gameEdition === 'Solar System') {
+      this.setState({
+        question: SolarQuestions[this.state.questionNum].question,
+        a1: SolarQuestions[this.state.questionNum].a1,
+        a2: SolarQuestions[this.state.questionNum].a2,
+        a3: SolarQuestions[this.state.questionNum].a3,
+        a4: SolarQuestions[this.state.questionNum].a4,
+        right: SolarQuestions[this.state.questionNum].right
+      });
+    }
   };
 
   componentDidMount() {
@@ -59,7 +73,7 @@ class Game extends Component {
     if (this.state.gameEdition === 'Earth') {
       this.earthGameStart();
     } else if (this.state.gameEdition === 'Solar System') {
-      console.log('Solar');
+      this.solarGameStart();
     } else if (this.state.gameEdition === 'Classified') {
       console.log('Classified');
     }
@@ -78,7 +92,9 @@ class Game extends Component {
       playerScore: 0,
       gameReset: false,
       startEarth: false,
-      initialGameState: true
+      startSolar: false,
+      initialGameState: true,
+      questionNum: 0
     });
   };
 
@@ -111,6 +127,14 @@ class Game extends Component {
   earthGameStart = () => {
     this.setState({
       startEarth: true,
+      questionNum: this.state.questionNum + 1
+    });
+    this.loadNewQuestion();
+  };
+
+  solarGameStart = () => {
+    this.setState({
+      startSolar: true,
       questionNum: this.state.questionNum + 1
     });
     this.loadNewQuestion();
@@ -237,6 +261,42 @@ class Game extends Component {
         </div>
         <div className='earth-game-questions'>
           {this.state.startEarth ? (
+            <>
+              <div>
+                <h3>Num: {this.state.questionNum}</h3>
+                <h2>{this.state.question}</h2>
+                <button onClick={this.checkAnswer} data_id='1'>
+                  {this.state.a1}
+                </button>
+                <button onClick={this.checkAnswer} data_id='2'>
+                  {this.state.a2}
+                </button>
+                <button onClick={this.checkAnswer} data_id='3'>
+                  {this.state.a3}
+                </button>
+                <button onClick={this.checkAnswer} data_id='4'>
+                  {this.state.a4}
+                </button>
+              </div>
+              <div>
+                {this.state.gameReset ? (
+                  <button onClick={this.selectionReset}>Game Reset</button>
+                ) : (
+                  ''
+                )}
+                {this.state.gameReset ? (
+                  <h1>Final Player Score = {this.state.playerScore}</h1>
+                ) : (
+                  ''
+                )}
+              </div>
+            </>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className='solar-game-questions'>
+          {this.state.startSolar ? (
             <>
               <div>
                 <h3>Num: {this.state.questionNum}</h3>
