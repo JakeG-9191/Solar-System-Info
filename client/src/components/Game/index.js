@@ -10,6 +10,7 @@ class Game extends Component {
     gameChoice: false,
     initialGameState: true,
     playerScore: 0,
+    gameReset: false,
     startEarth: false,
     questionNum: 0,
     question: '',
@@ -74,7 +75,10 @@ class Game extends Component {
   selectionReset = () => {
     this.setState({
       initialGameState: true,
-      playerScore: 0
+      playerScore: 0,
+      gameReset: false,
+      startEarth: false,
+      initialGameState: true
     });
   };
 
@@ -116,7 +120,7 @@ class Game extends Component {
 
   // Need to display all applicable questions based on game mode
   // Need to be able to allow player to select 1 of 4 answers
-  // Should allow for players to change thier answers before they submit if they wish
+  // Should allow for players to change thier answers before they submit if they wish - NOT CURRENLTY SUPPORTED
   checkAnswer = e => {
     this.setState({
       questionNum: this.state.questionNum + 1
@@ -136,7 +140,21 @@ class Game extends Component {
     // if num is less than total quesiton, do new question
     if (this.state.questionNum < 4) {
       this.loadNewQuestion();
+    } else {
+      this.gameOver();
     }
+  };
+
+  gameOver = () => {
+    console.log('Game over');
+    this.setState({
+      questionNum: 0,
+      a1: '',
+      a2: '',
+      a3: '',
+      a4: '',
+      gameReset: true
+    });
   };
 
   // Submission of answers should check if selected choices are correct
@@ -170,7 +188,6 @@ class Game extends Component {
         <div>
           <h1>Testing Game</h1>
           <h3>Game Directions to go here</h3>
-          <h3>Score: {this.state.playerScore}</h3>
           {this.state.initialGameState ? (
             ''
           ) : (
@@ -237,7 +254,18 @@ class Game extends Component {
                   {this.state.a4}
                 </button>
               </div>
-              <button>Submit Answer</button>
+              <div>
+                {this.state.gameReset ? (
+                  <button onClick={this.selectionReset}>Game Reset</button>
+                ) : (
+                  ''
+                )}
+                {this.state.gameReset ? (
+                  <h1>Final Player Score = {this.state.playerScore}</h1>
+                ) : (
+                  ''
+                )}
+              </div>
             </>
           ) : (
             ''
