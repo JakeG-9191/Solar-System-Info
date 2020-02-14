@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import EarthQuestions from '../../json/earthGame';
 import SolarQuestions from '../../json/solarGame';
+import ClassifiedQuestions from '../../json/classifiedGame';
 import './style.css';
 
 class Game extends Component {
@@ -14,6 +15,7 @@ class Game extends Component {
     gameReset: false,
     startEarth: false,
     startSolar: false,
+    startClassified: false,
     questionNum: 0,
     question: '',
     right: '',
@@ -42,6 +44,16 @@ class Game extends Component {
         a3: SolarQuestions[this.state.questionNum].a3,
         a4: SolarQuestions[this.state.questionNum].a4,
         right: SolarQuestions[this.state.questionNum].right
+      });
+    }
+    if (this.state.gameEdition === 'Classified') {
+      this.setState({
+        question: ClassifiedQuestions[this.state.questionNum].question,
+        a1: ClassifiedQuestions[this.state.questionNum].a1,
+        a2: ClassifiedQuestions[this.state.questionNum].a2,
+        a3: ClassifiedQuestions[this.state.questionNum].a3,
+        a4: ClassifiedQuestions[this.state.questionNum].a4,
+        right: ClassifiedQuestions[this.state.questionNum].right
       });
     }
   };
@@ -75,7 +87,7 @@ class Game extends Component {
     } else if (this.state.gameEdition === 'Solar System') {
       this.solarGameStart();
     } else if (this.state.gameEdition === 'Classified') {
-      console.log('Classified');
+      this.classifiedGameStart();
     }
     this.setState({
       gameStart: false,
@@ -93,6 +105,7 @@ class Game extends Component {
       gameReset: false,
       startEarth: false,
       startSolar: false,
+      startClassified: false,
       initialGameState: true,
       questionNum: 0
     });
@@ -140,6 +153,14 @@ class Game extends Component {
     this.loadNewQuestion();
   };
 
+  classifiedGameStart = () => {
+    this.setState({
+      startClassified: true,
+      questionNum: this.state.questionNum + 1
+    });
+    this.loadNewQuestion();
+  };
+
   // Game Logic - should be reusable for any game mode
 
   // Need to display all applicable questions based on game mode
@@ -162,6 +183,7 @@ class Game extends Component {
     //moves num from 0 to 1
     console.log('quesitonNum', this.state.questionNum);
     // if num is less than total quesiton, do new question
+    // this value needs to be manually updated currently, can likely automate based on return values of json call in future
     if (this.state.questionNum < 4) {
       this.loadNewQuestion();
     } else {
@@ -263,20 +285,26 @@ class Game extends Component {
           {this.state.startEarth ? (
             <>
               <div>
-                <h3>Num: {this.state.questionNum}</h3>
-                <h2>{this.state.question}</h2>
-                <button onClick={this.checkAnswer} data_id='1'>
-                  {this.state.a1}
-                </button>
-                <button onClick={this.checkAnswer} data_id='2'>
-                  {this.state.a2}
-                </button>
-                <button onClick={this.checkAnswer} data_id='3'>
-                  {this.state.a3}
-                </button>
-                <button onClick={this.checkAnswer} data_id='4'>
-                  {this.state.a4}
-                </button>
+                {!this.state.gameReset ? (
+                  <>
+                    <h3>Num: {this.state.questionNum}</h3>
+                    <h2>{this.state.question}</h2>
+                    <button onClick={this.checkAnswer} data_id='1'>
+                      {this.state.a1}
+                    </button>
+                    <button onClick={this.checkAnswer} data_id='2'>
+                      {this.state.a2}
+                    </button>
+                    <button onClick={this.checkAnswer} data_id='3'>
+                      {this.state.a3}
+                    </button>
+                    <button onClick={this.checkAnswer} data_id='4'>
+                      {this.state.a4}
+                    </button>
+                  </>
+                ) : (
+                  ''
+                )}
               </div>
               <div>
                 {this.state.gameReset ? (
@@ -299,20 +327,84 @@ class Game extends Component {
           {this.state.startSolar ? (
             <>
               <div>
-                <h3>Num: {this.state.questionNum}</h3>
-                <h2>{this.state.question}</h2>
-                <button onClick={this.checkAnswer} data_id='1'>
-                  {this.state.a1}
-                </button>
-                <button onClick={this.checkAnswer} data_id='2'>
-                  {this.state.a2}
-                </button>
-                <button onClick={this.checkAnswer} data_id='3'>
-                  {this.state.a3}
-                </button>
-                <button onClick={this.checkAnswer} data_id='4'>
-                  {this.state.a4}
-                </button>
+                {!this.state.gameReset ? (
+                  <>
+                    <h3>Num: {this.state.questionNum}</h3>
+                    <h2>{this.state.question}</h2>
+                    <button onClick={this.checkAnswer} data_id='1'>
+                      {this.state.a1}
+                    </button>
+                    <button onClick={this.checkAnswer} data_id='2'>
+                      {this.state.a2}
+                    </button>
+                    <button onClick={this.checkAnswer} data_id='3'>
+                      {this.state.a3}
+                    </button>
+                    <button onClick={this.checkAnswer} data_id='4'>
+                      {this.state.a4}
+                    </button>
+                  </>
+                ) : (
+                  ''
+                )}
+              </div>
+              <div>
+                {this.state.gameReset ? (
+                  <button onClick={this.selectionReset}>Game Reset</button>
+                ) : (
+                  ''
+                )}
+                {this.state.gameReset ? (
+                  <h1>Final Player Score = {this.state.playerScore}</h1>
+                ) : (
+                  ''
+                )}
+              </div>
+            </>
+          ) : (
+            ''
+          )}
+        </div>
+        <div className='classified-game-questions'>
+          {this.state.startClassified ? (
+            <>
+              <div>
+                {!this.state.gameReset ? (
+                  <>
+                    <h3>Num: {this.state.questionNum}</h3>
+                    <h2>{this.state.question}</h2>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='1'
+                    >
+                      {this.state.a1}
+                    </button>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='2'
+                    >
+                      {this.state.a2}
+                    </button>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='3'
+                    >
+                      {this.state.a3}
+                    </button>
+                    <button
+                      className='btn btn-primary game-buttons'
+                      onClick={this.checkAnswer}
+                      data_id='4'
+                    >
+                      {this.state.a4}
+                    </button>
+                  </>
+                ) : (
+                  ''
+                )}
               </div>
               <div>
                 {this.state.gameReset ? (

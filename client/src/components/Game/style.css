@@ -4,3 +4,9 @@
   background-size: cover, contain;
   background-attachment: fixed;
 }
+
+.game-buttons:hover {
+  background-color: red;
+  border-style: solid;
+  border-color: black;
+}
