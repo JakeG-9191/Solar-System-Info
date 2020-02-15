@@ -184,7 +184,7 @@ class Game extends Component {
     console.log('quesitonNum', this.state.questionNum);
     // if num is less than total quesiton, do new question
     // this value needs to be manually updated currently, can likely automate based on return values of json call in future
-    if (this.state.questionNum < 4) {
+    if (this.state.questionNum < 12) {
       this.loadNewQuestion();
     } else {
       this.gameOver();
@@ -235,11 +235,12 @@ class Game extends Component {
           <h1 id='game-intro'>Welcome To Solar System Trivia!</h1>
           <h3 className='game-directions'>
             To play, select the button below to display all game choices, then
-            make a selection and start a new game. Quesitons will be posted with
+            make a selection and start a new game. Questions will be posted with
             4 answers to choose from, make your selection carefully as there is
-            no way to return to the last question. After the last questions in
-            the quiz is answered, your results will be displayed and you will be
-            allowed to play again. These questions are currently not timed.
+            no way to return to the last question. After the last questions is
+            answered, your results will be displayed. The "Classified Edition"
+            has the toughest questions of the three game modes. *Hint, some
+            questions are covered in quick facts on Home page!*
           </h3>
           {this.state.initialGameState ? (
             ''
@@ -283,7 +284,7 @@ class Game extends Component {
                 className='btn btn-primary game-utility'
                 onClick={this.solarEdition}
               >
-                Solar Edition
+                Solar System Edition
               </button>
             ) : (
               ''
@@ -359,9 +360,15 @@ class Game extends Component {
               </div>
               <div>
                 {this.state.gameReset ? (
-                  <h1 className='game-player-score'>
-                    Final Score - {this.state.playerScore}
-                  </h1>
+                  <>
+                    <div className='game-player-score'>
+                      <h1>Final Score - {this.state.playerScore} / 12</h1>
+                      <hr></hr>
+                      <h3>
+                        {((this.state.playerScore / 12) * 100).toFixed(2)}%
+                      </h3>
+                    </div>
+                  </>
                 ) : (
                   ''
                 )}
@@ -416,9 +423,15 @@ class Game extends Component {
               </div>
               <div>
                 {this.state.gameReset ? (
-                  <h1 className='game-player-score'>
-                    Final Score - {this.state.playerScore}
-                  </h1>
+                  <>
+                    <div className='game-player-score'>
+                      <h1>Final Score - {this.state.playerScore} / 12</h1>
+                      <hr></hr>
+                      <h3>
+                        {((this.state.playerScore / 12) * 100).toFixed(2)}%
+                      </h3>
+                    </div>
+                  </>
                 ) : (
                   ''
                 )}
@@ -473,9 +486,15 @@ class Game extends Component {
               </div>
               <div>
                 {this.state.gameReset ? (
-                  <h1 className='game-player-score'>
-                    Final Score - {this.state.playerScore}
-                  </h1>
+                  <>
+                    <div className='game-player-score'>
+                      <h1>Final Score - {this.state.playerScore} / 12</h1>
+                      <hr></hr>
+                      <h3>
+                        {((this.state.playerScore / 12) * 100).toFixed(2)}%
+                      </h3>
+                    </div>
+                  </>
                 ) : (
                   ''
                 )}
