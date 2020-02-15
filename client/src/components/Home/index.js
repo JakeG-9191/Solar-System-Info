@@ -85,9 +85,9 @@ class Home extends Component {
         </div>
         <div className='container'>
           <div className='row'>
-            <div id='aboutWebsite'>
+            <div id='aboutWebsite' className='col-md-4'>
               <h2>About This Website</h2>
-              <h4 id='websiteInfo'>
+              <h5 id='websiteInfo'>
                 My Solar System! is a website about our very own Solar System,
                 which is home to our own planet Earth, as well as 7 other
                 planets, thier moons and numerous other objects, the most
@@ -97,13 +97,22 @@ class Home extends Component {
                 to leave messages and comments, and a series of games that will
                 test your knowledge about planets, space and our Solar System.
                 Thank you for stopping by!
-              </h4>
+              </h5>
               <h6>
                 Special Thanks to NASA Open APIs for providing much of the
                 imagery for various aspects of the website.
               </h6>
             </div>
-            <div className='welcome'>
+            <div className='col-md-1'></div>
+            <div className='facts col-md-7'>
+              <h2>{this.state.factTitle}</h2>
+              <h5 id='facts-body'>{this.state.factBody}</h5>
+              <h6>Source: {this.state.factSource}</h6>
+              <a target='_blank' href={this.state.factURL}>
+                {this.state.factURL}
+              </a>
+            </div>
+            <div className='welcome col-md-12'>
               <h2>NASA Photo / Video Of The Day!</h2>
               <h3>{this.state.date}</h3>
               <a target='_blank' href={this.state.randomImage}>
@@ -122,14 +131,6 @@ class Home extends Component {
               />
             </div>
           </div>
-        </div>
-        <div className='facts'>
-          <h2>{this.state.factTitle}</h2>
-          <h4 id='facts-body'>{this.state.factBody}</h4>
-          <h6>Source: {this.state.factSource}</h6>
-          <a target='_blank' href={this.state.factURL}>
-            {this.state.factURL}
-          </a>
         </div>
       </>
     );
