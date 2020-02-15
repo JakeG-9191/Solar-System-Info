@@ -5,6 +5,7 @@ import Posts from './components/Posts';
 import Game from './components/Game';
 import Mars from './components/Mars';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import ReactPlayer from 'react-player';
 import './App.css';
 
 function App() {
