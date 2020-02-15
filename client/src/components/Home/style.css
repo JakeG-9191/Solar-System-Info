@@ -110,6 +110,22 @@ body {
   margin-top: 3%;
 }
 
+#intro-banner {
+  margin-top: 1%;
+  padding: 1rem;
+}
+
+#nasa-videos {
+  margin-bottom: 5%;
+  background: black;
+  text-align: center;
+  width: 30%;
+  margin-left: 35%;
+  padding: 1rem;
+  border-radius: 18px;
+  border-style: solid;
+}
+
 @media (min-width: 1200px) {
   .container {
     max-width: 90%;

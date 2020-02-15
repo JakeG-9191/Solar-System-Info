@@ -130,6 +130,17 @@ class Home extends Component {
                 height={this.state.randomVideo ? '360px' : '0px'}
               />
             </div>
+            <div className='col-md-1'></div>
+          </div>
+          <div id='nasa-videos'>
+            <ReactPlayer
+              url={
+                'https://images-assets.nasa.gov/video/GSFC_20180720_Parker_m12911_trailer.en_US/GSFC_20180720_Parker_m12911_trailer.en_US~orig.mp4'
+              }
+              playing
+              muted
+              loop={true}
+            />
           </div>
         </div>
       </>
