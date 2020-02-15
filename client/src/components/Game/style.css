@@ -44,9 +44,26 @@
   font-size: x-large;
 }
 
+.game-start {
+  padding: 1rem;
+  margin: 1rem;
+  width: 30%;
+  font-size: x-large;
+  background-color: orange;
+  border-color: orange;
+  color: black;
+}
+
 .game-utility:hover {
   background-color: chartreuse;
+  border-color: chartreuse;
   color: black;
+}
+
+.game-start:hover {
+  background-color: black;
+  border-color: black;
+  color: chartreuse;
 }
 
 .game-player-score {

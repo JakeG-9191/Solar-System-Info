@@ -106,7 +106,6 @@ class Game extends Component {
       startEarth: false,
       startSolar: false,
       startClassified: false,
-      initialGameState: true,
       questionNum: 0
     });
   };
@@ -162,10 +161,9 @@ class Game extends Component {
   };
 
   // Game Logic - should be reusable for any game mode
-
   // Need to display all applicable questions based on game mode
   // Need to be able to allow player to select 1 of 4 answers
-  // Should allow for players to change thier answers before they submit if they wish - NOT CURRENLTY SUPPORTED
+
   checkAnswer = e => {
     this.setState({
       questionNum: this.state.questionNum + 1
@@ -207,7 +205,6 @@ class Game extends Component {
   // if correct, add one to player score
   // if incorrect, do nothing
   // Display Score for Player
-  // Ask if Player wants to play again
 
   render() {
     return (
@@ -240,7 +237,7 @@ class Game extends Component {
             no way to return to the last question. After the last questions is
             answered, your results will be displayed. The "Classified Edition"
             has the toughest questions of the three game modes. *Hint, some
-            questions are covered in quick facts on Home page!*
+            questions are covered in the quick facts on Home page!*
           </h3>
           {this.state.initialGameState ? (
             ''
@@ -306,7 +303,7 @@ class Game extends Component {
         <div>
           {this.state.gameStart ? (
             <button
-              className='btn btn-primary game-utility'
+              className='btn btn-primary game-start'
               onClick={this.startGame}
             >
               Start New Game
