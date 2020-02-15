@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
 import API from '../../utils/API';
 import Facts from '../../json/facts.json';
+import NasaVid from '../../json/nasaVideos';
 import { Link } from 'react-router-dom';
 import './style.css';
 
@@ -14,11 +15,14 @@ class Home extends Component {
     factTitle: '',
     factBody: '',
     factSource: '',
-    factURL: ''
+    factURL: '',
+    nasaVideoURL: '',
+    nasaVideoDate: ''
   };
 
   componentDidMount() {
     this.loadBackground();
+    this.loadNasaVideo();
     API.getDailyImage().then(data => {
       console.log(data);
       if (data.data.media_type === 'video') {
@@ -38,8 +42,16 @@ class Home extends Component {
     this.loadNewFact();
   }
 
+  loadNasaVideo = () => {
+    let newVideo = Math.floor(Math.random() * NasaVid.length);
+    this.setState({
+      nasaVideoURL: NasaVid[newVideo].url,
+      nasaVideoDate: NasaVid[newVideo].date_created
+    });
+  };
+
   loadNewFact = () => {
-    let newFact = Math.floor(Math.random() * 10);
+    let newFact = Math.floor(Math.random() * Facts.length);
     this.setState({
       factTitle: Facts[newFact].title,
       factBody: Facts[newFact].body,
@@ -85,7 +97,7 @@ class Home extends Component {
         </div>
         <div className='container'>
           <div className='row'>
-            <div id='aboutWebsite' className='col-md-4'>
+            <div id='aboutWebsite' className='col-md-3'>
               <h2>About This Website</h2>
               <h5 id='websiteInfo'>
                 My Solar System! is a website about our very own Solar System,
@@ -104,13 +116,24 @@ class Home extends Component {
               </h6>
             </div>
             <div className='col-md-1'></div>
-            <div className='facts col-md-7'>
+            <div className='facts col-md-4'>
               <h2>{this.state.factTitle}</h2>
               <h5 id='facts-body'>{this.state.factBody}</h5>
               <h6>Source: {this.state.factSource}</h6>
               <a target='_blank' href={this.state.factURL}>
                 {this.state.factURL}
               </a>
+            </div>
+            <div className='col-md-1'></div>
+            <div id='nasa-videos' className='col-md-3'>
+              <ReactPlayer
+                url={this.state.nasaVideoURL}
+                playing
+                muted
+                loop={true}
+                width={'fit-content'}
+                height={'fit-content'}
+              />
             </div>
             <div className='welcome col-md-12'>
               <h2>NASA Photo / Video Of The Day!</h2>
@@ -130,17 +153,6 @@ class Home extends Component {
                 height={this.state.randomVideo ? '360px' : '0px'}
               />
             </div>
-            <div className='col-md-1'></div>
-          </div>
-          <div id='nasa-videos'>
-            <ReactPlayer
-              url={
-                'https://images-assets.nasa.gov/video/GSFC_20180720_Parker_m12911_trailer.en_US/GSFC_20180720_Parker_m12911_trailer.en_US~orig.mp4'
-              }
-              playing
-              muted
-              loop={true}
-            />
           </div>
         </div>
       </>
