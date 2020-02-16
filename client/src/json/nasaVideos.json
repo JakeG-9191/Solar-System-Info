@@ -2,16 +2,37 @@
   {
     "video_id": 1,
     "url": "https://images-assets.nasa.gov/video/GSFC_20180720_Parker_m12911_trailer.en_US/GSFC_20180720_Parker_m12911_trailer.en_US~orig.mp4",
+    "title": "Parker Solar Probe Trailer",
     "date_created": "2018-07-20"
   },
   {
     "video_id": 2,
     "url": "https://images-assets.nasa.gov/video/NHQ_2018_1109_Parker%20Solar%20Probe%20%E2%80%9CA-okay%E2%80%9D%20After%20Close%20Solar%20Approach%20on%20This%20Week%20@NASA%20%E2%80%93%20November%209,%202018/NHQ_2018_1109_Parker%20Solar%20Probe%20%E2%80%9CA-okay%E2%80%9D%20After%20Close%20Solar%20Approach%20on%20This%20Week%20@NASA%20%E2%80%93%20November%209,%202018~orig.mp4",
+    "title": "Parker Solar Probe “A-okay” After Close Solar Approach on This Week @NASA",
     "date_created": "2018-11-09"
   },
   {
     "video_id": 3,
     "url": "https://images-assets.nasa.gov/video/NHQ_2019_0322_NASA%20ASTRONAUTS%20WALK%20IN%20SPACE%20OUTSIDE%20THE%20SPACE%20STATION/NHQ_2019_0322_NASA%20ASTRONAUTS%20WALK%20IN%20SPACE%20OUTSIDE%20THE%20SPACE%20STATION~orig.mp4",
+    "title": "NASA ASTRONAUTS WALK IN SPACE OUTSIDE THE SPACE STATION",
     "date_created": "2019-03-26"
+  },
+  {
+    "video_id": 4,
+    "url": "https://images-assets.nasa.gov/video/A%20Quick%20Look%20at%20Supernova%201987A/A%20Quick%20Look%20at%20Supernova%201987A~orig.mp4",
+    "title": "A Quick Look at Supernova 1987A",
+    "date_created": "2017-02-24"
+  },
+  {
+    "video_id": 5,
+    "url": "https://images-assets.nasa.gov/video/00%20ISS%20Facts%20and%20Figures%20-%20FINAL_10292015_1080_Youtube/00%20ISS%20Facts%20and%20Figures%20-%20FINAL_10292015_1080_Youtube~orig.mp4",
+    "title": "ISS Facts and Figures",
+    "date_created": "2017-02-22"
+  },
+  {
+    "video_id": 6,
+    "url": "https://images-assets.nasa.gov/video/GSFC_20170721_LRO_m12648_SolarEclipse/GSFC_20170721_LRO_m12648_SolarEclipse~orig.mp4",
+    "title": "The Moon's Role in a Solar Eclipse",
+    "date_created": "2017-07-21"
   }
 ]

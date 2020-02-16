@@ -17,6 +17,7 @@ class Game extends Component {
     startSolar: false,
     startClassified: false,
     questionNum: 0,
+    totalQuestions: 0,
     question: '',
     right: '',
     a1: '',
@@ -33,7 +34,8 @@ class Game extends Component {
         a2: EarthQuestions[this.state.questionNum].a2,
         a3: EarthQuestions[this.state.questionNum].a3,
         a4: EarthQuestions[this.state.questionNum].a4,
-        right: EarthQuestions[this.state.questionNum].right
+        right: EarthQuestions[this.state.questionNum].right,
+        totalQuestions: EarthQuestions.length
       });
     }
     if (this.state.gameEdition === 'Solar System') {
@@ -43,7 +45,8 @@ class Game extends Component {
         a2: SolarQuestions[this.state.questionNum].a2,
         a3: SolarQuestions[this.state.questionNum].a3,
         a4: SolarQuestions[this.state.questionNum].a4,
-        right: SolarQuestions[this.state.questionNum].right
+        right: SolarQuestions[this.state.questionNum].right,
+        totalQuestions: SolarQuestions.length
       });
     }
     if (this.state.gameEdition === 'Classified') {
@@ -53,7 +56,8 @@ class Game extends Component {
         a2: ClassifiedQuestions[this.state.questionNum].a2,
         a3: ClassifiedQuestions[this.state.questionNum].a3,
         a4: ClassifiedQuestions[this.state.questionNum].a4,
-        right: ClassifiedQuestions[this.state.questionNum].right
+        right: ClassifiedQuestions[this.state.questionNum].right,
+        totalQuestions: ClassifiedQuestions.length
       });
     }
   };
@@ -182,7 +186,7 @@ class Game extends Component {
     console.log('quesitonNum', this.state.questionNum);
     // if num is less than total quesiton, do new question
     // this value needs to be manually updated currently, can likely automate based on return values of json call in future
-    if (this.state.questionNum < 12) {
+    if (this.state.questionNum < this.state.totalQuestions) {
       this.loadNewQuestion();
     } else {
       this.gameOver();
@@ -359,10 +363,17 @@ class Game extends Component {
                 {this.state.gameReset ? (
                   <>
                     <div className='game-player-score'>
-                      <h1>Final Score - {this.state.playerScore} / 12</h1>
+                      <h1>
+                        Final Score - {this.state.playerScore} /{' '}
+                        {this.state.totalQuestions}
+                      </h1>
                       <hr></hr>
                       <h3>
-                        {((this.state.playerScore / 12) * 100).toFixed(2)}%
+                        {(
+                          (this.state.playerScore / this.state.totalQuestions) *
+                          100
+                        ).toFixed(2)}
+                        %
                       </h3>
                     </div>
                   </>
@@ -422,10 +433,17 @@ class Game extends Component {
                 {this.state.gameReset ? (
                   <>
                     <div className='game-player-score'>
-                      <h1>Final Score - {this.state.playerScore} / 12</h1>
+                      <h1>
+                        Final Score - {this.state.playerScore} /{' '}
+                        {this.state.totalQuestions}
+                      </h1>
                       <hr></hr>
                       <h3>
-                        {((this.state.playerScore / 12) * 100).toFixed(2)}%
+                        {(
+                          (this.state.playerScore / this.state.totalQuestions) *
+                          100
+                        ).toFixed(2)}
+                        %
                       </h3>
                     </div>
                   </>
@@ -485,10 +503,17 @@ class Game extends Component {
                 {this.state.gameReset ? (
                   <>
                     <div className='game-player-score'>
-                      <h1>Final Score - {this.state.playerScore} / 12</h1>
+                      <h1>
+                        Final Score - {this.state.playerScore} /{' '}
+                        {this.state.totalQuestions}
+                      </h1>
                       <hr></hr>
                       <h3>
-                        {((this.state.playerScore / 12) * 100).toFixed(2)}%
+                        {(
+                          (this.state.playerScore / this.state.totalQuestions) *
+                          100
+                        ).toFixed(2)}
+                        %
                       </h3>
                     </div>
                   </>

@@ -17,7 +17,8 @@ class Home extends Component {
     factSource: '',
     factURL: '',
     nasaVideoURL: '',
-    nasaVideoDate: ''
+    nasaVideoDate: '',
+    nasaVideoTitle: ''
   };
 
   componentDidMount() {
@@ -46,7 +47,8 @@ class Home extends Component {
     let newVideo = Math.floor(Math.random() * NasaVid.length);
     this.setState({
       nasaVideoURL: NasaVid[newVideo].url,
-      nasaVideoDate: NasaVid[newVideo].date_created
+      nasaVideoDate: NasaVid[newVideo].date_created,
+      nasaVideoTitle: NasaVid[newVideo].title
     });
   };
 
@@ -120,16 +122,28 @@ class Home extends Component {
               <h2>{this.state.factTitle}</h2>
               <h5 id='facts-body'>{this.state.factBody}</h5>
               <h6>Source: {this.state.factSource}</h6>
-              <a target='_blank' href={this.state.factURL}>
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href={this.state.factURL}
+              >
                 {this.state.factURL}
               </a>
             </div>
             <div className='col-md-1'></div>
             <div id='nasa-videos' className='col-md-3'>
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href={this.state.nasaVideoURL}
+              >
+                <h5>{this.state.nasaVideoTitle}</h5>
+              </a>
               <ReactPlayer
                 url={this.state.nasaVideoURL}
                 playing
                 muted
+                controls={true}
                 loop={true}
                 width={'fit-content'}
                 height={'fit-content'}
@@ -138,9 +152,14 @@ class Home extends Component {
             <div className='welcome col-md-12'>
               <h2>NASA Photo / Video Of The Day!</h2>
               <h3>{this.state.date}</h3>
-              <a target='_blank' href={this.state.randomImage}>
+              <a
+                target='_blank'
+                rel='noopener noreferrer'
+                href={this.state.randomImage}
+              >
                 <img
                   id='randomImage'
+                  alt='An issue occured while trying to load this image'
                   src={this.state.randomImage ? this.state.randomImage : ''}
                 ></img>
               </a>
