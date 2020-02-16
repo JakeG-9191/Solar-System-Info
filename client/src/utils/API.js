@@ -14,5 +14,10 @@ export default {
   getDailyImage: () =>
     axios.get(
       `https://api.nasa.gov/planetary/apod?api_key=6c8dTYwFcHRpLfZXRxCLC2F6obnFUWrGAJnvRc2u`
+    ),
+
+  getMarsWeather: () =>
+    axios.get(
+      'https://api.nasa.gov/insight_weather/?api_key=6c8dTYwFcHRpLfZXRxCLC2F6obnFUWrGAJnvRc2u&feedtype=json&ver=1.0'
     )
 };

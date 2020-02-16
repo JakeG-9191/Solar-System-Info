@@ -148,6 +148,7 @@ class Home extends Component {
                 width={'fit-content'}
                 height={'fit-content'}
               />
+              <h6>Source: NASA</h6>
             </div>
             <div className='welcome col-md-12'>
               <h2>NASA Photo / Video Of The Day!</h2>

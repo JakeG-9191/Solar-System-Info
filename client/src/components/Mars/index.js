@@ -1,13 +1,36 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import API from '../../utils/API';
 import './style.css';
 
 class Mars extends Component {
-  state = {};
+  state = {
+    marsDates: [],
+    marsFixedDates: []
+  };
 
   componentDidMount() {
     this.loadBackground();
+    API.getMarsWeather().then(data => {
+      console.log(data.data);
+      console.log(data.data.sol_keys);
+      console.log(data.data[428].AT.av);
+      this.setState({
+        marsDates: data.data.sol_keys
+      });
+    });
   }
+
+  fixDates = () => {
+    let allDates = [];
+    let dates = this.state.marsDates.map(date => {
+      let fixedDates = parseInt(date);
+      return allDates.push(fixedDates);
+    });
+    this.setState({
+      marsFixedDates: allDates
+    });
+  };
 
   loadBackground = () => {
     let newBackground = Math.floor(Math.random() * 1);
@@ -46,6 +69,15 @@ class Mars extends Component {
         </div>
         <div>
           <h1>The Mars Special</h1>
+          <iframe
+            src='https://mars.nasa.gov/layout/embed/image/insightweather/'
+            width='800'
+            height='530'
+            scrolling='no'
+            frameborder='0'
+          ></iframe>
+          <h3>{this.state.marsDates}</h3>
+          <button onClick={this.fixDates}>test dates</button>
         </div>
       </>
     );
