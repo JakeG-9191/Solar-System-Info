@@ -76,7 +76,7 @@ class Mars extends Component {
             scrolling='no'
             frameborder='0'
           ></iframe>
-          <h3>{this.state.marsDates}</h3>
+          <h3>{this.state.marsFixedDates}</h3>
           <button onClick={this.fixDates}>test dates</button>
         </div>
       </>
