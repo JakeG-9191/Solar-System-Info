@@ -6,20 +6,26 @@ import './style.css';
 class Mars extends Component {
   state = {
     marsDates: [],
-    marsFixedDates: []
+    marsFixedDates: [],
+    marsUpdatedWeather: []
   };
 
   componentDidMount() {
     this.loadBackground();
+    this.getUpdatedWeather();
+  }
+
+  getUpdatedWeather = () => {
     API.getMarsWeather().then(data => {
       console.log(data.data);
       console.log(data.data.sol_keys);
-      console.log(data.data[428].AT.av);
+      console.log(data.data[430].AT.av);
       this.setState({
         marsDates: data.data.sol_keys
       });
+      this.fixDates();
     });
-  }
+  };
 
   fixDates = () => {
     let allDates = [];
@@ -30,6 +36,18 @@ class Mars extends Component {
     this.setState({
       marsFixedDates: allDates
     });
+    this.airTempAverage();
+  };
+
+  airTempAverage = () => {
+    let tempGauge = this.state.marsFixedDates;
+    let allTemps = tempGauge.length;
+    for (let i = 0; i < allTemps; i++) {
+      let sol = tempGauge[i];
+      API.getMarsWeather().then(data => {
+        console.log(data.data[sol].AT.av);
+      });
+    }
   };
 
   loadBackground = () => {
@@ -76,7 +94,12 @@ class Mars extends Component {
             scrolling='no'
             frameborder='0'
           ></iframe>
-          <h3>{this.state.marsFixedDates}</h3>
+          <h3>
+            {this.state.marsFixedDates.map(date => {
+              return `Sol ${date}\n| `;
+            })}
+          </h3>
+          <h3>{this.state.marsUpdatedWeather}</h3>
           <button onClick={this.fixDates}>test dates</button>
         </div>
       </>

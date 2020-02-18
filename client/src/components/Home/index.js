@@ -105,12 +105,12 @@ class Home extends Component {
                 My Solar System! is a website about our very own Solar System,
                 which is home to our own planet Earth, as well as 7 other
                 planets, thier moons and numerous other objects, the most
-                massive of which is star at the center of it all, the Sun! This
-                website has additional information on various parts of the Solar
-                System, including a page dedicated entirely to Mars, the ability
-                to leave messages and comments, and a series of games that will
-                test your knowledge about planets, space and our Solar System.
-                Thank you for stopping by!
+                massive of which is our star at the center of it all, the Sun!
+                This website has additional information on various parts of the
+                Solar System, including a page dedicated entirely to Mars, the
+                ability to leave messages and comments, and a series of games
+                that will test your knowledge about planets, space and our Solar
+                System. Thank you for stopping by!
               </h5>
               <h6>
                 Special Thanks to NASA Open APIs for providing much of the
