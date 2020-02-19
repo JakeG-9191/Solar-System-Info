@@ -41,21 +41,23 @@ class Mars extends Component {
 
   airTempAverage = () => {
     let tempGauge = this.state.marsFixedDates;
-    let allTemps = tempGauge.length;
-    let updatedArray = [];
-    for (let i = 0; i < allTemps; i++) {
-      let sol = tempGauge[i];
-      let testArray = [];
+    let total = tempGauge.length;
+    let i = 0;
+    let testing = [];
+    while (i < total) {
+      let place = i;
+      let temp = {};
       API.getMarsWeather().then(data => {
-        console.log(data.data[sol].AT.av);
-        testArray.push(...testArray, data.data[sol].AT.av);
+        return testing[data.data[tempGauge[place]].AT.av];
       });
-      console.log(testArray);
-      return updatedArray.push(testArray);
+      testing.push(temp);
+      i++;
     }
+    console.log(testing);
     this.setState({
-      marsUpdatedWeather: updatedArray
+      marsUpdatedWeather: testing
     });
+    console.log(this.state.marsUpdatedWeather);
   };
 
   loadBackground = () => {
@@ -107,11 +109,7 @@ class Mars extends Component {
               return `Sol ${date}\n| `;
             })}
           </h3>
-          <h4>
-            {this.state.marsUpdatedWeather.map(test => {
-              return `test ${test}`;
-            })}
-          </h4>
+          <h4>{this.state.marsUpdatedWeather}</h4>
           <button onClick={this.fixDates}>test dates</button>
         </div>
       </>
