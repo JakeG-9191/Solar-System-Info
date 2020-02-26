@@ -5,59 +5,45 @@ import './style.css';
 
 class Mars extends Component {
   state = {
-    marsDates: [],
-    marsFixedDates: [],
-    marsUpdatedWeather: []
+    marsUpdatedWeather: [],
+    marsUpdatedSols: []
   };
 
+  // Loads background, this is a function because it needs to clear previous backgrounds
+  // Loads inital weather grab, which sets state of sols or martian days to grab weather with
   componentDidMount() {
     this.loadBackground();
     this.getUpdatedWeather();
   }
 
+  // Grab sols and update state of MarsDates with array of sols
   getUpdatedWeather = () => {
     API.getMarsWeather().then(data => {
-      console.log(data.data);
-      console.log(data.data.sol_keys);
-      console.log(data.data[430].AT.av);
+      // console.log(data.data);
+      // console.log(data.data.sol_keys);
+      // console.log(parseInt(data.data.sol_keys[1]));
+      // console.log(data.data[443].AT.av);
+
+      let dates = data.data.sol_keys;
+      let newDates = [];
+      for (let i = 0; i < dates.length; i++) {
+        newDates.push(parseInt(dates[i]));
+      }
+
+      // console.log(newDates);
+
+      let totalDates = newDates.length;
+      let allSolWeather = [];
+      for (let j = 0; j < totalDates; j++) {
+        allSolWeather.push(data.data[newDates[j]].AT.av);
+      }
+      console.log(allSolWeather);
+
       this.setState({
-        marsDates: data.data.sol_keys
+        marsUpdatedSols: newDates,
+        marsUpdatedWeather: allSolWeather
       });
-      this.fixDates();
     });
-  };
-
-  fixDates = () => {
-    let allDates = [];
-    let dates = this.state.marsDates.map(date => {
-      let fixedDates = parseInt(date);
-      return allDates.push(fixedDates);
-    });
-    this.setState({
-      marsFixedDates: allDates
-    });
-    this.airTempAverage();
-  };
-
-  airTempAverage = () => {
-    let tempGauge = this.state.marsFixedDates;
-    let total = tempGauge.length;
-    let i = 0;
-    let testing = [];
-    while (i < total) {
-      let place = i;
-      let temp = {};
-      API.getMarsWeather().then(data => {
-        return testing[data.data[tempGauge[place]].AT.av];
-      });
-      testing.push(temp);
-      i++;
-    }
-    console.log(testing);
-    this.setState({
-      marsUpdatedWeather: testing
-    });
-    console.log(this.state.marsUpdatedWeather);
   };
 
   loadBackground = () => {
@@ -102,15 +88,14 @@ class Mars extends Component {
             width='800'
             height='530'
             scrolling='no'
-            frameborder='0'
+            frameBorder='0'
           ></iframe>
+          <h3>{this.state.marsUpdatedSols.map(sols => `Sol ${sols} | `)}</h3>
           <h3>
-            {this.state.marsFixedDates.map(date => {
-              return `Sol ${date}\n| `;
-            })}
+            {this.state.marsUpdatedWeather.map(
+              weather => `Air Temp: ${weather} | `
+            )}
           </h3>
-          <h4>{this.state.marsUpdatedWeather}</h4>
-          <button onClick={this.fixDates}>test dates</button>
         </div>
       </>
     );
