@@ -16,7 +16,7 @@ class Mars extends Component {
     this.getUpdatedWeather();
   }
 
-  // Grab sols and update state of MarsDates with array of sols
+  // Uses API pull to grab all sol/day data and corresponding weather data
   getUpdatedWeather = () => {
     API.getMarsWeather().then(data => {
       // console.log(data.data);
@@ -90,12 +90,16 @@ class Mars extends Component {
             scrolling='no'
             frameBorder='0'
           ></iframe>
-          <h3>{this.state.marsUpdatedSols.map(sols => `Sol ${sols} | `)}</h3>
-          <h3>
-            {this.state.marsUpdatedWeather.map(
-              weather => `Air Temp: ${weather} | `
-            )}
-          </h3>
+          <div>
+            <div>
+              {this.state.marsUpdatedSols.map(sols => `Sol ${sols} | `)}
+            </div>
+            <div>
+              {this.state.marsUpdatedWeather.map(
+                weather => `Air Temp: ${weather} | `
+              )}
+            </div>
+          </div>
         </div>
       </>
     );
