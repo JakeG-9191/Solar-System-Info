@@ -4,27 +4,19 @@ import API from '../../utils/API';
 import './style.css';
 
 class Mars extends Component {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = { value: '' };
-
-  //   this.handleChange = this.handleChange.bind(this);
-  //   this.handleSubmit = this.handleSubmit.bind(this);
-  // }
-
   state = {
+    userDateInput: '',
     marsUpdatedWeather: [],
     marsUpdatedSols: []
   };
 
-  // handleChange(event) {
-  //   this.setState({ value: event.target.value });
-  // }
-
-  // handleSubmit(event) {
-  //   event.preventDefault();
-  //   alert(`This was provided ${this.state.value}`);
-  // }
+  handleInputChange = event => {
+    event.preventDefault();
+    const { name, value } = event.target;
+    this.setState({
+      [name]: value
+    });
+  };
 
   // Loads background, this is a function because it needs to clear previous backgrounds
   // Loads inital weather grab, which sets state of sols or martian days to grab weather with
@@ -65,7 +57,7 @@ class Mars extends Component {
 
   getRoverPhotos = e => {
     e.preventDefault();
-    let date = '2016-06-03';
+    let date = this.state.userDateInput;
     API.getMarsPhotos(date).then(data => {
       console.log(data.data);
     });
@@ -127,13 +119,12 @@ class Mars extends Component {
               <label>
                 Input Earth Date:
                 <input
-                  type='date'
-                  name='earthDate'
-                  value={this.state.value}
-                  onChange={this.handleChange}
+                  type='text'
+                  name='userDateInput'
+                  value={this.state.userDateInput}
+                  onChange={this.handleInputChange}
                 />
               </label>
-              <input type='submit' value='Submit' />
             </form>
             <button onClick={this.getRoverPhotos}>Get Mars Photos</button>
           </div>
