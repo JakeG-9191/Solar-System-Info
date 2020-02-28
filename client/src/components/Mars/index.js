@@ -19,6 +19,25 @@ const options = [
   }
 ];
 
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    borderBottom: '1px dotted pink',
+    color: state.isSelected ? 'red' : 'blue',
+    padding: 20
+  }),
+  control: () => ({
+    // none of react-select's styles are passed to <Control />
+    width: 200
+  }),
+  singleValue: (provided, state) => {
+    const opacity = state.isDisabled ? 0.5 : 1;
+    const transition = 'opacity 300ms';
+
+    return { ...provided, opacity, transition };
+  }
+};
+
 class Mars extends Component {
   state = {
     userDateInput: '',
@@ -130,38 +149,56 @@ class Mars extends Component {
         </div>
         <div>
           <h1>The Mars Special</h1>
-          <iframe
-            src='https://mars.nasa.gov/layout/embed/image/insightweather/'
-            width='800'
-            height='530'
-            scrolling='no'
-            frameBorder='0'
-          ></iframe>
-          <div>
-            <h2>{this.state.marsUpdatedSols.map(sols => `Sol ${sols} | `)}</h2>
-            <h4>
-              {this.state.marsUpdatedWeather.map(
-                weather => `Average Air Temp: ${weather} | `
-              )}
-            </h4>
-            <form>
-              <label>
-                Input Earth Date:
-                <input
-                  type='date'
-                  name='userDateInput'
-                  value={this.state.userDateInput}
-                  onChange={this.handleInputChange}
+          <div className='container'>
+            <div className='row'>
+              <div className='nasa-weather col-md-6'>
+                <iframe
+                  src='https://mars.nasa.gov/layout/embed/image/insightweather/'
+                  width='800'
+                  height='530'
+                  scrolling='no'
+                  frameBorder='0'
+                ></iframe>
+              </div>
+              <div className='col-md-1'></div>
+              <div className='martian-weather col-md-5'>
+                <h5>{`Sol ${this.state.marsUpdatedSols[0]} | Average Air Temp: ${this.state.marsUpdatedWeather[0]}`}</h5>
+                <h5>{`Sol ${this.state.marsUpdatedSols[1]} | Average Air Temp: ${this.state.marsUpdatedWeather[1]}`}</h5>
+                <h5>{`Sol ${this.state.marsUpdatedSols[2]} | Average Air Temp: ${this.state.marsUpdatedWeather[2]}`}</h5>
+                <h5>{`Sol ${this.state.marsUpdatedSols[3]} | Average Air Temp: ${this.state.marsUpdatedWeather[3]}`}</h5>
+                <h5>{`Sol ${this.state.marsUpdatedSols[4]} | Average Air Temp: ${this.state.marsUpdatedWeather[4]}`}</h5>
+                <h5>{`Sol ${this.state.marsUpdatedSols[5]} | Average Air Temp: ${this.state.marsUpdatedWeather[5]}`}</h5>
+                <h5>{`Sol ${this.state.marsUpdatedSols[6]} | Average Air Temp: ${this.state.marsUpdatedWeather[6]}`}</h5>
+              </div>
+              <div className='col-md-12'>
+                <form>
+                  <label>
+                    Input Earth Date:
+                    <input
+                      type='date'
+                      name='userDateInput'
+                      value={this.state.userDateInput}
+                      onChange={this.handleInputChange}
+                    />
+                  </label>
+                </form>
+                <Select
+                  options={options}
+                  onChange={this.handleChange}
+                  value={userCameraInput}
+                  placeholder='Select an option'
+                  styles={customStyles}
                 />
-              </label>
-            </form>
-            <Select
-              options={options}
-              onChange={this.handleChange}
-              value={userCameraInput}
-              placeholder='Select an option'
-            />
-            <button onClick={this.getRoverPhotos}>Get Mars Photos</button>
+                <button
+                  disabled={
+                    !(this.state.userDateInput && this.state.userCameraInput)
+                  }
+                  onClick={this.getRoverPhotos}
+                >
+                  Get Mars Photos
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </>
