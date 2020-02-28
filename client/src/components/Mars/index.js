@@ -20,21 +20,28 @@ const options = [
 ];
 
 const customStyles = {
+  container: provided => ({
+    ...provided,
+    background: 'black',
+    color: 'white'
+  }),
   option: (provided, state) => ({
     ...provided,
-    borderBottom: '1px dotted pink',
-    color: state.isSelected ? 'red' : 'blue',
-    padding: 20
+    background: 'black',
+    color: state.isSelected ? 'red' : 'white',
+    border: '1px white solid',
+    padding: 15
   }),
   control: () => ({
     // none of react-select's styles are passed to <Control />
     width: 200
   }),
   singleValue: (provided, state) => {
-    const opacity = state.isDisabled ? 0.5 : 1;
+    const opacity = state.isDisabled ? 1 : 1;
     const transition = 'opacity 300ms';
+    const color = 'color white';
 
-    return { ...provided, opacity, transition };
+    return { ...provided, opacity, transition, color };
   }
 };
 
@@ -151,7 +158,7 @@ class Mars extends Component {
           <h1>The Mars Special</h1>
           <div className='container'>
             <div className='row'>
-              <div className='nasa-weather col-md-6'>
+              <div className='nasa-weather col-md-5'>
                 <iframe
                   src='https://mars.nasa.gov/layout/embed/image/insightweather/'
                   width='800'
@@ -160,8 +167,7 @@ class Mars extends Component {
                   frameBorder='0'
                 ></iframe>
               </div>
-              <div className='col-md-1'></div>
-              <div className='martian-weather col-md-5'>
+              <div className='martian-weather col-md-3'>
                 <h5>{`Sol ${this.state.marsUpdatedSols[0]} | Average Air Temp: ${this.state.marsUpdatedWeather[0]}`}</h5>
                 <h5>{`Sol ${this.state.marsUpdatedSols[1]} | Average Air Temp: ${this.state.marsUpdatedWeather[1]}`}</h5>
                 <h5>{`Sol ${this.state.marsUpdatedSols[2]} | Average Air Temp: ${this.state.marsUpdatedWeather[2]}`}</h5>
@@ -170,7 +176,7 @@ class Mars extends Component {
                 <h5>{`Sol ${this.state.marsUpdatedSols[5]} | Average Air Temp: ${this.state.marsUpdatedWeather[5]}`}</h5>
                 <h5>{`Sol ${this.state.marsUpdatedSols[6]} | Average Air Temp: ${this.state.marsUpdatedWeather[6]}`}</h5>
               </div>
-              <div className='col-md-12'>
+              <div className='col-md-4'>
                 <form>
                   <label>
                     Input Earth Date:
@@ -182,21 +188,24 @@ class Mars extends Component {
                     />
                   </label>
                 </form>
-                <Select
-                  options={options}
-                  onChange={this.handleChange}
-                  value={userCameraInput}
-                  placeholder='Select an option'
-                  styles={customStyles}
-                />
-                <button
-                  disabled={
-                    !(this.state.userDateInput && this.state.userCameraInput)
-                  }
-                  onClick={this.getRoverPhotos}
-                >
-                  Get Mars Photos
-                </button>
+                <div className='select-custom'>
+                  <Select
+                    styles={customStyles}
+                    menuColor='red'
+                    options={options}
+                    onChange={this.handleChange}
+                    value={userCameraInput}
+                    placeholder='Select an option'
+                  />
+                  <button
+                    disabled={
+                      !(this.state.userDateInput && this.state.userCameraInput)
+                    }
+                    onClick={this.getRoverPhotos}
+                  >
+                    Get Mars Photos
+                  </button>
+                </div>
               </div>
             </div>
           </div>
