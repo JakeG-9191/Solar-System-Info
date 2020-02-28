@@ -21,8 +21,8 @@ export default {
       'https://api.nasa.gov/insight_weather/?api_key=6c8dTYwFcHRpLfZXRxCLC2F6obnFUWrGAJnvRc2u&feedtype=json&ver=1.0'
     ),
 
-  getMarsPhotos: date =>
+  getMarsPhotos: (date, camera) =>
     axios.get(
-      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&api_key=6c8dTYwFcHRpLfZXRxCLC2F6obnFUWrGAJnvRc2u`
+      `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&camera=${camera}&api_key=6c8dTYwFcHRpLfZXRxCLC2F6obnFUWrGAJnvRc2u`
     )
 };

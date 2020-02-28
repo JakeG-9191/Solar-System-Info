@@ -1,13 +1,39 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Select from 'react-select';
 import API from '../../utils/API';
 import './style.css';
+
+const options = [
+  { value: 'fhaz', label: 'Front Hazard Avoidance Camera' },
+  { value: 'rhaz', label: 'Rear Hazard Avoidance Camera' },
+  { value: 'mast', label: 'Mast Camera' },
+  { value: 'chemcam', label: 'Chemestry Camera' },
+  { value: 'mahli', label: 'Mars Hand Lens Imager' },
+  { value: 'mardi', label: 'Mars Descent Imager' },
+  { value: 'navcam', label: 'Navigation Camera' },
+  { value: 'pancam', label: 'Panoramic Camera' },
+  {
+    value: 'minities',
+    label: 'Minature Thermal Emission Spectrometer (Mini-TES)'
+  }
+];
 
 class Mars extends Component {
   state = {
     userDateInput: '',
+    userCameraInput: null,
     marsUpdatedWeather: [],
     marsUpdatedSols: []
+  };
+
+  handleChange = userCameraInput => {
+    this.setState(
+      {
+        userCameraInput
+      },
+      () => console.log(`option selected: `, this.state.userCameraInput)
+    );
   };
 
   handleInputChange = event => {
@@ -57,8 +83,9 @@ class Mars extends Component {
 
   getRoverPhotos = e => {
     e.preventDefault();
+    let camera = this.state.userCameraInput.value;
     let date = this.state.userDateInput;
-    API.getMarsPhotos(date).then(data => {
+    API.getMarsPhotos(date, camera).then(data => {
       console.log(data.data);
     });
   };
@@ -76,6 +103,8 @@ class Mars extends Component {
   };
 
   render() {
+    const { userCameraInput } = this.state;
+
     return (
       <>
         <div className='navBar'>
@@ -119,13 +148,19 @@ class Mars extends Component {
               <label>
                 Input Earth Date:
                 <input
-                  type='text'
+                  type='date'
                   name='userDateInput'
                   value={this.state.userDateInput}
                   onChange={this.handleInputChange}
                 />
               </label>
             </form>
+            <Select
+              options={options}
+              onChange={this.handleChange}
+              value={userCameraInput}
+              placeholder='Select an option'
+            />
             <button onClick={this.getRoverPhotos}>Get Mars Photos</button>
           </div>
         </div>
