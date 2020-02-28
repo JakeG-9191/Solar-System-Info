@@ -499,28 +499,26 @@ class Game extends Component {
                   ''
                 )}
               </div>
-              <div>
-                {this.state.gameReset ? (
-                  <>
-                    <div className='game-player-score'>
-                      <h1>
-                        Final Score - {this.state.playerScore} /{' '}
-                        {this.state.totalQuestions}
-                      </h1>
-                      <hr></hr>
-                      <h3>
-                        {(
-                          (this.state.playerScore / this.state.totalQuestions) *
-                          100
-                        ).toFixed(2)}
-                        %
-                      </h3>
-                    </div>
-                  </>
-                ) : (
-                  ''
-                )}
-              </div>
+              {this.state.gameReset ? (
+                <>
+                  <div className='game-player-score'>
+                    <h1>
+                      Final Score - {this.state.playerScore} /{' '}
+                      {this.state.totalQuestions}
+                    </h1>
+                    <hr></hr>
+                    <h3>
+                      {(
+                        (this.state.playerScore / this.state.totalQuestions) *
+                        100
+                      ).toFixed(2)}
+                      %
+                    </h3>
+                  </div>
+                </>
+              ) : (
+                ''
+              )}
             </>
           ) : (
             ''
