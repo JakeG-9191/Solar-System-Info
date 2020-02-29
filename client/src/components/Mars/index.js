@@ -57,7 +57,11 @@ class Mars extends Component {
     roverName: [],
     roverPhoto: [],
     photosDisplayed: false,
-    date: new Date()
+    date: new Date(),
+    martianImage: '',
+    martianDescription: '',
+    martianMeta: '',
+    martianCount: 0
   };
 
   onChange = date => this.setState({ date });
@@ -84,6 +88,7 @@ class Mars extends Component {
   componentDidMount() {
     this.loadBackground();
     this.getUpdatedWeather();
+    this.getNewMartianPhotos();
   }
 
   // Uses API pull to grab all sol/day data and corresponding weather data
@@ -121,7 +126,7 @@ class Mars extends Component {
     e.preventDefault();
     let camera = this.state.userCameraInput.value;
     let date = this.state.userDateInput;
-    API.getMarsPhotos(date, camera).then(data => {
+    API.getMarsRoverPhotos(date, camera).then(data => {
       // console.log(data.data);
       // console.log(data.data.photos);
       // console.log(data.data.photos.length);
@@ -144,6 +149,49 @@ class Mars extends Component {
           roverPhoto: imgSource,
           photosDisplayed: true
         });
+      }
+    });
+  };
+
+  getNewMartianPhotos = () => {
+    let loadedImage = '';
+    let loadedInfo = '';
+    let loadedMeta = '';
+    let totalImage;
+
+    API.getMarsPhotos().then(data => {
+      console.log(data.data);
+      console.log(
+        data.data.collection.items[this.state.martianCount].data[0].photographer
+      );
+      console.log(
+        data.data.collection.items[this.state.martianCount].data[0].description
+      );
+      console.log(
+        data.data.collection.items[this.state.martianCount].links[0].href
+      );
+
+      totalImage = data.data.collection.items.length;
+      loadedImage =
+        data.data.collection.items[this.state.martianCount].links[0].href;
+      loadedInfo =
+        data.data.collection.items[this.state.martianCount].data[0].description;
+      loadedMeta =
+        data.data.collection.items[this.state.martianCount].data[0]
+          .photographer;
+
+      this.setState({
+        martianImage: loadedImage,
+        martianDescription: loadedInfo,
+        martianMeta: loadedMeta,
+        martianCount: this.state.martianCount + 1
+      });
+
+      if (this.state.martianCount < totalImage) {
+        console.log(
+          `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
+        );
+        setTimeout(this.getNewMartianPhotos, 10000);
       }
     });
   };
@@ -237,11 +285,19 @@ class Mars extends Component {
                     : 'No Data Available For This Sol'}
                 </h5>
               </div>
-              <div className='col-md-8'>Placeholder</div>
+              <div className='col-md-4'>
+                There can be some static and dynamic information generated and
+                placed here
+              </div>
+              <div className='col-md-4'>
+                <h4>{this.state.martianMeta}</h4>
+                <img id='rolling-photos' src={this.state.martianImage}></img>
+                <h5>{this.state.martianDescription}</h5>
+              </div>
               <div className='col-md-12 photo-top'>
                 <h2>
                   {!this.state.photosDisplayed
-                    ? 'Search For Amazing Martian Photos Below'
+                    ? 'Search For Amazing Martian Rover Photos Below'
                     : ''}
                 </h2>
               </div>

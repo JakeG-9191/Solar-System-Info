@@ -71,3 +71,7 @@ label {
   margin-top: 2%;
   margin-bottom: 2%;
 }
+
+#rolling-photos {
+  height: 300px;
+}
