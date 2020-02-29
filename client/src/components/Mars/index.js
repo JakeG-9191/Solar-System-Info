@@ -61,7 +61,8 @@ class Mars extends Component {
     martianImage: '',
     martianDescription: '',
     martianMeta: '',
-    martianCount: 0
+    martianCount: 0,
+    martianMotion: true
   };
 
   onChange = date => this.setState({ date });
@@ -159,46 +160,50 @@ class Mars extends Component {
     let loadedMeta = '';
     let totalImage;
 
-    API.getMarsPhotos().then(data => {
-      // console.log(data.data);
-      // console.log(
-      //   data.data.collection.items[this.state.martianCount].data[0].photographer
-      // );
-      // console.log(
-      //   data.data.collection.items[this.state.martianCount].data[0].description
-      // );
-      // console.log(
-      //   data.data.collection.items[this.state.martianCount].links[0].href
-      // );
+    if (!this.state.martianMotion) {
+      return;
+    } else {
+      API.getMarsPhotos().then(data => {
+        // console.log(data.data);
+        // console.log(
+        //   data.data.collection.items[this.state.martianCount].data[0].photographer
+        // );
+        // console.log(
+        //   data.data.collection.items[this.state.martianCount].data[0].description
+        // );
+        // console.log(
+        //   data.data.collection.items[this.state.martianCount].links[0].href
+        // );
 
-      totalImage = data.data.collection.items.length;
-      loadedImage =
-        data.data.collection.items[this.state.martianCount].links[0].href;
-      loadedInfo =
-        data.data.collection.items[this.state.martianCount].data[0].description;
-      loadedMeta =
-        data.data.collection.items[this.state.martianCount].data[0]
-          .photographer;
+        totalImage = data.data.collection.items.length;
+        loadedImage =
+          data.data.collection.items[this.state.martianCount].links[0].href;
+        loadedInfo =
+          data.data.collection.items[this.state.martianCount].data[0]
+            .description;
+        loadedMeta =
+          data.data.collection.items[this.state.martianCount].data[0]
+            .photographer;
 
-      this.setState({
-        martianImage: loadedImage,
-        martianDescription: loadedInfo,
-        martianMeta: loadedMeta,
-        martianCount: this.state.martianCount + 1
-      });
-
-      if (this.state.martianCount < totalImage) {
-        console.log(
-          `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
-        );
-        setTimeout(this.getNewMartianPhotos, 10000);
-      } else {
         this.setState({
-          martianCount: 0
+          martianImage: loadedImage,
+          martianDescription: loadedInfo,
+          martianMeta: loadedMeta,
+          martianCount: this.state.martianCount + 1
         });
-        setTimeout(this.getNewMartianPhotos, 5000);
-      }
-    });
+
+        if (!this.state.martianMotion) {
+          return;
+        }
+
+        if (this.state.martianCount < totalImage && this.state.martianMotion) {
+          console.log(
+            `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
+          );
+          setTimeout(this.getNewMartianPhotos, 10000);
+        }
+      });
+    }
   };
 
   resetImageSearch = () => {
@@ -220,6 +225,10 @@ class Mars extends Component {
     document.body.classList.remove(`post${0}`);
     document.body.classList.add(`mars${newBackground}`);
   };
+
+  componentWillUnmount() {
+    clearTimeout(this.getNewMartianPhotos);
+  }
 
   render() {
     const { userCameraInput } = this.state;
