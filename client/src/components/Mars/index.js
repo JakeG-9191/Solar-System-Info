@@ -56,8 +56,11 @@ class Mars extends Component {
     marsUpdatedSols: [],
     roverName: [],
     roverPhoto: [],
-    photosDisplayed: false
+    photosDisplayed: false,
+    date: new Date()
   };
+
+  onChange = date => this.setState({ date });
 
   handleChange = userCameraInput => {
     this.setState(
@@ -197,6 +200,7 @@ class Mars extends Component {
             <div className='row'>
               <div className='martian-weather col-md-4'>
                 <h4>7 Day Martian Forecast</h4>
+                <hr />
                 <h5>
                   {this.state.marsUpdatedSols[0]
                     ? `Sol ${this.state.marsUpdatedSols[0]} | Average Air Temp: ${this.state.marsUpdatedWeather[0]} F`
@@ -234,8 +238,12 @@ class Mars extends Component {
                 </h5>
               </div>
               <div className='col-md-8'>Placeholder</div>
-              <div className='col-md-12'>
-                <h2>Search For Amazing Martian Photos Below</h2>
+              <div className='col-md-12 photo-top'>
+                <h2>
+                  {!this.state.photosDisplayed
+                    ? 'Search For Amazing Martian Photos Below'
+                    : ''}
+                </h2>
               </div>
               {!this.state.photosDisplayed ? (
                 <div className='col-md-12 picture-bucket'>
@@ -276,26 +284,50 @@ class Mars extends Component {
                 ''
               )}
               <div className='col-md-12'>
-                <h3>
+                <h3 id='no-image-found'>
                   {this.state.roverName[0]
                     ? `Camera Name: ${this.state.roverName[0]}`
                     : 'Select A Camera And Date In Order To See Photos'}
                 </h3>
-                <h3>
+                <h3 id='no-image-found2'>
                   {this.state.roverName[0]
                     ? ''
                     : 'If No Images Load, Please Try Another Date/Camera Combo'}
                 </h3>
-                <img className='rover-image' src={this.state.roverPhoto[0]} />
-                <img className='rover-image' src={this.state.roverPhoto[1]} />
-                <img className='rover-image' src={this.state.roverPhoto[2]} />
-                <img className='rover-image' src={this.state.roverPhoto[3]} />
+                <img
+                  className='rover-image'
+                  src={this.state.roverPhoto[0] ? this.state.roverPhoto[0] : ''}
+                />
+                <img
+                  className='rover-image'
+                  src={this.state.roverPhoto[1] ? this.state.roverPhoto[1] : ''}
+                />
+                <img
+                  className='rover-image'
+                  src={this.state.roverPhoto[2] ? this.state.roverPhoto[2] : ''}
+                />
+                <img
+                  className='rover-image'
+                  src={this.state.roverPhoto[3] ? this.state.roverPhoto[3] : ''}
+                />
               </div>
               <div className='col-md-12'>
-                <img className='rover-image' src={this.state.roverPhoto[4]} />
-                <img className='rover-image' src={this.state.roverPhoto[5]} />
-                <img className='rover-image' src={this.state.roverPhoto[6]} />
-                <img className='rover-image' src={this.state.roverPhoto[7]} />
+                <img
+                  className='rover-image'
+                  src={this.state.roverPhoto[4] ? this.state.roverPhoto[4] : ''}
+                />
+                <img
+                  className='rover-image'
+                  src={this.state.roverPhoto[5] ? this.state.roverPhoto[5] : ''}
+                />
+                <img
+                  className='rover-image'
+                  src={this.state.roverPhoto[6] ? this.state.roverPhoto[6] : ''}
+                />
+                <img
+                  className='rover-image'
+                  src={this.state.roverPhoto[7] ? this.state.roverPhoto[7] : ''}
+                />
               </div>
               <div className='col-md-12'>
                 {!this.state.photosDisplayed ? (

@@ -46,3 +46,15 @@ label {
   padding: 2rem;
   font-size: 150%;
 }
+
+.photo-top {
+  padding: 1rem;
+}
+
+#no-image-found {
+  margin-top: 5%;
+}
+
+#no-image-found2 {
+  margin-bottom: 5%;
+}
