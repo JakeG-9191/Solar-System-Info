@@ -4,3 +4,8 @@
   background-size: cover, contain;
   background-attachment: fixed;
 }
+
+.rover-image {
+  height: 500px;
+  padding: 1rem;
+}
