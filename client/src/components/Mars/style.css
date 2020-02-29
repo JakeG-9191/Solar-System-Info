@@ -9,3 +9,40 @@
   height: 500px;
   padding: 1rem;
 }
+
+.rover-image:hover {
+  transform: scale(1.5);
+}
+
+.photo-buttons {
+  width: 30%;
+  margin: 2%;
+  padding: 2rem;
+  font-size: x-large;
+  background: black;
+  color: white;
+  border-style: none;
+}
+
+.photo-buttons:hover {
+  background-color: maroon;
+  border-style: none;
+  color: white;
+}
+
+.select-custom {
+  font-size: 150%;
+}
+
+.martian-weather {
+  background-color: maroon;
+}
+
+.picture-bucket {
+  background-color: red;
+}
+
+label {
+  padding: 2rem;
+  font-size: 150%;
+}

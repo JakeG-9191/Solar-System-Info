@@ -30,7 +30,7 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     background: 'black',
-    color: state.isSelected ? 'red' : 'white',
+    color: state.isSelected ? 'maroon' : 'white',
     border: '1px white solid',
     padding: 15
   }),
@@ -55,7 +55,8 @@ class Mars extends Component {
     marsUpdatedWeather: [],
     marsUpdatedSols: [],
     roverName: [],
-    roverPhoto: []
+    roverPhoto: [],
+    photosDisplayed: false
   };
 
   handleChange = userCameraInput => {
@@ -121,7 +122,7 @@ class Mars extends Component {
       // console.log(data.data);
       // console.log(data.data.photos);
       // console.log(data.data.photos.length);
-      // console.log(data.data.photos[0].camera.name);
+      // console.log(data.data.photos[0].camera.full_name);
       // console.log(data.data.photos[0].img_src);
 
       let results = data.data;
@@ -129,7 +130,7 @@ class Mars extends Component {
       let cameraName = [];
       let imgSource = [];
       for (let i = 0; i < totalPhotos; i++) {
-        let singleName = results.photos[i].camera.name;
+        let singleName = results.photos[i].camera.full_name;
         let singleImg = results.photos[i].img_src;
         cameraName.push(singleName);
         imgSource.push(singleImg);
@@ -137,11 +138,18 @@ class Mars extends Component {
       if (cameraName.length > 0) {
         this.setState({
           roverName: cameraName,
-          roverPhoto: imgSource
+          roverPhoto: imgSource,
+          photosDisplayed: true
         });
       }
-      console.log(this.state.roverName);
-      console.log(this.state.roverPhoto);
+    });
+  };
+
+  resetImageSearch = () => {
+    this.setState({
+      roverName: [],
+      roverPhoto: [],
+      photosDisplayed: false
     });
   };
 
@@ -187,7 +195,8 @@ class Mars extends Component {
           <h1>The Mars Special</h1>
           <div className='container'>
             <div className='row'>
-              <div className='martian-weather col-md-6'>
+              <div className='martian-weather col-md-4'>
+                <h4>7 Day Martian Forecast</h4>
                 <h5>
                   {this.state.marsUpdatedSols[0]
                     ? `Sol ${this.state.marsUpdatedSols[0]} | Average Air Temp: ${this.state.marsUpdatedWeather[0]} F`
@@ -224,39 +233,59 @@ class Mars extends Component {
                     : 'No Data Available For This Sol'}
                 </h5>
               </div>
-              <div className='col-md-6'>
-                <form>
-                  <label>
-                    Input Earth Date:
-                    <input
-                      type='date'
-                      name='userDateInput'
-                      value={this.state.userDateInput}
-                      onChange={this.handleInputChange}
-                    />
-                  </label>
-                </form>
-                <div className='select-custom'>
-                  <Select
-                    styles={customStyles}
-                    menuColor='red'
-                    options={options}
-                    onChange={this.handleChange}
-                    value={userCameraInput}
-                    placeholder='Select an option'
-                  />
-                  <button
-                    disabled={
-                      !(this.state.userDateInput && this.state.userCameraInput)
-                    }
-                    onClick={this.getRoverPhotos}
-                  >
-                    Get Mars Photos
-                  </button>
-                </div>
-              </div>
+              <div className='col-md-8'>Placeholder</div>
               <div className='col-md-12'>
-                <h3>{this.state.roverName[0]}</h3>
+                <h2>Search For Amazing Martian Photos Below</h2>
+              </div>
+              {!this.state.photosDisplayed ? (
+                <div className='col-md-12 picture-bucket'>
+                  <form>
+                    <label>
+                      Input Earth Date:
+                      <input
+                        type='date'
+                        name='userDateInput'
+                        value={this.state.userDateInput}
+                        onChange={this.handleInputChange}
+                      />
+                    </label>
+                  </form>
+                  <div className='select-custom'>
+                    <Select
+                      styles={customStyles}
+                      menuColor='red'
+                      options={options}
+                      onChange={this.handleChange}
+                      value={userCameraInput}
+                      placeholder='Select an option'
+                    />
+                    <button
+                      className='photo-buttons'
+                      disabled={
+                        !(
+                          this.state.userDateInput && this.state.userCameraInput
+                        )
+                      }
+                      onClick={this.getRoverPhotos}
+                    >
+                      Get Mars Photos
+                    </button>
+                  </div>
+                </div>
+              ) : (
+                ''
+              )}
+              <div className='col-md-12'>
+                <h3>
+                  {this.state.roverName[0]
+                    ? `Camera Name: ${this.state.roverName[0]}`
+                    : 'Select A Camera And Date In Order To See Photos'}
+                </h3>
+                <h3>
+                  {this.state.roverName[0]
+                    ? ''
+                    : 'If No Images Load, Please Try Another Date/Camera Combo'}
+                </h3>
                 <img className='rover-image' src={this.state.roverPhoto[0]} />
                 <img className='rover-image' src={this.state.roverPhoto[1]} />
                 <img className='rover-image' src={this.state.roverPhoto[2]} />
@@ -267,6 +296,18 @@ class Mars extends Component {
                 <img className='rover-image' src={this.state.roverPhoto[5]} />
                 <img className='rover-image' src={this.state.roverPhoto[6]} />
                 <img className='rover-image' src={this.state.roverPhoto[7]} />
+              </div>
+              <div className='col-md-12'>
+                {!this.state.photosDisplayed ? (
+                  ''
+                ) : (
+                  <button
+                    className='photo-buttons'
+                    onClick={this.resetImageSearch}
+                  >
+                    Look At More Images
+                  </button>
+                )}
               </div>
             </div>
           </div>
