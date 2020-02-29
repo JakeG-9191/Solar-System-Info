@@ -30,7 +30,7 @@ const customStyles = {
   option: (provided, state) => ({
     ...provided,
     background: 'black',
-    color: state.isSelected ? 'maroon' : 'white',
+    color: state.isSelected ? '#d36939' : 'white',
     border: '1px white solid',
     padding: 15
   }),
@@ -160,16 +160,16 @@ class Mars extends Component {
     let totalImage;
 
     API.getMarsPhotos().then(data => {
-      console.log(data.data);
-      console.log(
-        data.data.collection.items[this.state.martianCount].data[0].photographer
-      );
-      console.log(
-        data.data.collection.items[this.state.martianCount].data[0].description
-      );
-      console.log(
-        data.data.collection.items[this.state.martianCount].links[0].href
-      );
+      // console.log(data.data);
+      // console.log(
+      //   data.data.collection.items[this.state.martianCount].data[0].photographer
+      // );
+      // console.log(
+      //   data.data.collection.items[this.state.martianCount].data[0].description
+      // );
+      // console.log(
+      //   data.data.collection.items[this.state.martianCount].links[0].href
+      // );
 
       totalImage = data.data.collection.items.length;
       loadedImage =
@@ -192,6 +192,11 @@ class Mars extends Component {
           `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
         );
         setTimeout(this.getNewMartianPhotos, 10000);
+      } else {
+        this.setState({
+          martianCount: 0
+        });
+        setTimeout(this.getNewMartianPhotos, 5000);
       }
     });
   };
@@ -291,7 +296,11 @@ class Mars extends Component {
               </div>
               <div className='col-md-4'>
                 <h4>{this.state.martianMeta}</h4>
-                <img id='rolling-photos' src={this.state.martianImage}></img>
+                <img
+                  alt={this.state.martianDescription}
+                  id='rolling-photos'
+                  src={this.state.martianImage}
+                ></img>
                 <h5>{this.state.martianDescription}</h5>
               </div>
               <div className='col-md-12 photo-top'>
@@ -351,36 +360,44 @@ class Mars extends Component {
                     : 'If No Images Load, Please Try Another Date/Camera Combo'}
                 </h3>
                 <img
+                  alt=''
                   className='rover-image'
                   src={this.state.roverPhoto[0] ? this.state.roverPhoto[0] : ''}
                 />
                 <img
+                  alt=''
                   className='rover-image'
                   src={this.state.roverPhoto[1] ? this.state.roverPhoto[1] : ''}
                 />
                 <img
+                  alt=''
                   className='rover-image'
                   src={this.state.roverPhoto[2] ? this.state.roverPhoto[2] : ''}
                 />
                 <img
+                  alt=''
                   className='rover-image'
                   src={this.state.roverPhoto[3] ? this.state.roverPhoto[3] : ''}
                 />
               </div>
               <div className='col-md-12'>
                 <img
+                  alt=''
                   className='rover-image'
                   src={this.state.roverPhoto[4] ? this.state.roverPhoto[4] : ''}
                 />
                 <img
+                  alt=''
                   className='rover-image'
                   src={this.state.roverPhoto[5] ? this.state.roverPhoto[5] : ''}
                 />
                 <img
+                  alt=''
                   className='rover-image'
                   src={this.state.roverPhoto[6] ? this.state.roverPhoto[6] : ''}
                 />
                 <img
+                  alt=''
                   className='rover-image'
                   src={this.state.roverPhoto[7] ? this.state.roverPhoto[7] : ''}
                 />

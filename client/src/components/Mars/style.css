@@ -25,7 +25,7 @@
 }
 
 .photo-buttons:hover {
-  background-color: maroon;
+  background-color: #1a4280;
   border-style: none;
   color: white;
 }
@@ -44,10 +44,13 @@
   background: white;
   color: black;
   border-radius: 18px;
+  padding: 1rem;
 }
 
 .picture-bucket {
-  background-color: red;
+  background-color: #d36939;
+  border-radius: 18px;
+  opacity: 0.9;
 }
 
 label {
@@ -57,6 +60,8 @@ label {
 
 .photo-top {
   padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #no-image-found {
@@ -73,5 +78,14 @@ label {
 }
 
 #rolling-photos {
-  height: 300px;
+  height: 500px;
+  padding: 1rem;
+  background: #d36939;
+  width: 500px;
+  border-radius: 18px;
+  margin-bottom: 2rem;
+}
+
+input {
+  margin-left: 1rem;
 }
