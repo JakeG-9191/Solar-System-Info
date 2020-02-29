@@ -195,43 +195,43 @@ class Mars extends Component {
           </Link>
         </div>
         <div>
-          <h1>The Mars Special</h1>
+          <h1 id='mars-intro'>The Mars Special</h1>
           <div className='container'>
             <div className='row'>
               <div className='martian-weather col-md-4'>
-                <h4>7 Day Martian Forecast</h4>
+                <h4 className='weather-app'>7 Day Martian Forecast</h4>
                 <hr />
-                <h5>
+                <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[0]
                     ? `Sol ${this.state.marsUpdatedSols[0]} | Average Air Temp: ${this.state.marsUpdatedWeather[0]} F`
                     : 'No Data Available For This Sol'}
                 </h5>
-                <h5>
+                <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[1]
                     ? `Sol ${this.state.marsUpdatedSols[1]} | Average Air Temp: ${this.state.marsUpdatedWeather[1]} F`
                     : 'No Data Available For This Sol'}
                 </h5>
-                <h5>
+                <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[2]
                     ? `Sol ${this.state.marsUpdatedSols[2]} | Average Air Temp: ${this.state.marsUpdatedWeather[2]} F`
                     : 'No Data Available For This Sol'}
                 </h5>
-                <h5>
+                <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[3]
                     ? `Sol ${this.state.marsUpdatedSols[3]} | Average Air Temp: ${this.state.marsUpdatedWeather[3]} F`
                     : 'No Data Available For This Sol'}
                 </h5>
-                <h5>
+                <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[4]
                     ? `Sol ${this.state.marsUpdatedSols[4]} | Average Air Temp: ${this.state.marsUpdatedWeather[4]} F`
                     : 'No Data Available For This Sol'}
                 </h5>
-                <h5>
+                <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[5]
                     ? `Sol ${this.state.marsUpdatedSols[5]} | Average Air Temp: ${this.state.marsUpdatedWeather[5]} F`
                     : 'No Data Available For This Sol'}
                 </h5>
-                <h5>
+                <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[6]
                     ? `Sol ${this.state.marsUpdatedSols[6]} | Average Air Temp: ${this.state.marsUpdatedWeather[6]} F`
                     : 'No Data Available For This Sol'}

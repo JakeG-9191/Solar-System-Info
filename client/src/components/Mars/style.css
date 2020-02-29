@@ -35,7 +35,15 @@
 }
 
 .martian-weather {
-  background-color: maroon;
+  background-image: url('https://image.freepik.com/free-vector/weather-satellite-with-meteorology-equipment-space-dark-background-with-earth-planets-stars_1284-27326.jpg');
+  padding: 1rem;
+  border-radius: 18px;
+}
+
+.weather-app {
+  background: white;
+  color: black;
+  border-radius: 18px;
 }
 
 .picture-bucket {
@@ -57,4 +65,9 @@ label {
 
 #no-image-found2 {
   margin-bottom: 5%;
+}
+
+#mars-intro {
+  margin-top: 2%;
+  margin-bottom: 2%;
 }
