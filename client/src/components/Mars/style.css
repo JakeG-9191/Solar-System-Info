@@ -11,7 +11,7 @@
 }
 
 .rover-image:hover {
-  transform: scale(1.5);
+  transform: scale(1.6);
 }
 
 .photo-buttons {
@@ -38,11 +38,12 @@
   background-image: url('https://image.freepik.com/free-vector/weather-satellite-with-meteorology-equipment-space-dark-background-with-earth-planets-stars_1284-27326.jpg');
   padding: 1rem;
   border-radius: 18px;
+  background-repeat: no-repeat;
 }
 
 .weather-app {
-  background: white;
-  color: black;
+  background: black;
+  color: white;
   border-radius: 18px;
   padding: 1rem;
 }
@@ -88,4 +89,46 @@ label {
 
 input {
   margin-left: 1rem;
+}
+
+.jumbotron {
+  margin-bottom: 0;
+  background-color: #d36939;
+  border-radius: 18px;
+  opacity: 0.9;
+  padding: 1rem;
+}
+
+#martian-nasa-facts {
+  background: black;
+  padding: 1rem;
+  border-radius: 18px;
+}
+
+#martian-static-facts {
+  background: black;
+  padding: 1rem;
+  border-radius: 18px;
+}
+
+.hr-fix {
+  background-color: white;
+  width: 80%;
+}
+
+.css-1hwfws3 {
+  width: 40vw;
+}
+
+.css-1ustxrt-container {
+  border-radius: 18px;
+}
+
+.css-1okebmr-indicatorSeparator {
+  background-color: none;
+}
+
+svg {
+  height: 30px;
+  width: 30px;
 }

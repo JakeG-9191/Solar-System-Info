@@ -272,7 +272,7 @@ class Mars extends Component {
           <h1 id='mars-intro'>The Mars Special</h1>
           <div className='container'>
             <div className='row'>
-              <div className='martian-weather col-md-4'>
+              <div className='martian-weather col-md-3'>
                 <h4 className='weather-app'>7 Day Martian Forecast</h4>
                 <hr />
                 <h5 className='weather-app'>
@@ -311,23 +311,36 @@ class Mars extends Component {
                     : 'No Data Available For This Sol'}
                 </h5>
               </div>
-              <div className='col-md-4 jumbotron'>
+              <div className='col-md-1'></div>
+              <div className='col-md-3 jumbotron'>
                 <div id='martian-static-facts'>
-                  {' '}
-                  There can be some static and dynamic information generated and
-                  placed here
-                </div>
-                <hr />
-                <div id='martian-nasa-facts'>
-                  <h3>{this.state.martianFactTitle}</h3>
-                  <h4>{this.state.martianFactBody}</h4>
+                  <h4>
+                    Mars is one of the most explored bodies in our solar system,
+                    and it's the only planet where we've sent rovers to roam the
+                    alien landscape. NASA currently has three spacecraft in
+                    orbit, one rover and one lander on the surface and another
+                    rover under construction here on Earth. India and ESA also
+                    have spacecraft in orbit above Mars.
+                  </h4>
                   <a
                     target='_blank'
                     href='https://solarsystem.nasa.gov/planets/mars/overview/'
                   >
                     Source - NASA
                   </a>
-                  <hr />
+                </div>
+                <hr />
+                <div id='martian-nasa-facts'>
+                  <h4>{this.state.martianFactTitle}</h4>
+                  <hr className='hr-fix' />
+                  <h5>{this.state.martianFactBody}</h5>
+                  <a
+                    target='_blank'
+                    href='https://solarsystem.nasa.gov/planets/mars/overview/'
+                  >
+                    Source - NASA
+                  </a>
+                  <hr className='hr-fix' />
                   <h4>Additional Links</h4>
                   <a
                     target='_blank'
@@ -335,14 +348,14 @@ class Mars extends Component {
                   >
                     NASA - Moon To Mars
                   </a>
-                  <hr />
+                  <hr className='hr-fix' />
                   <a
                     target='_blank'
                     href='https://www.nasa.gov/mission_pages/mars/main/index.html'
                   >
                     NASA - Mars Today
                   </a>
-                  <hr />
+                  <hr className='hr-fix' />
                   <a
                     target='_blank'
                     href='https://www.nasa.gov/mission_pages/mars/overview/index.html'
@@ -351,6 +364,7 @@ class Mars extends Component {
                   </a>
                 </div>
               </div>
+              <div className='col-md-1'></div>
               <div className='col-md-4'>
                 <h4>{this.state.martianMeta}</h4>
                 <img
@@ -358,7 +372,7 @@ class Mars extends Component {
                   id='rolling-photos'
                   src={this.state.martianImage}
                 ></img>
-                <h5>{this.state.martianDescription}</h5>
+                <h4>{this.state.martianDescription}</h4>
               </div>
               <div className='col-md-12 photo-top'>
                 <h2>
