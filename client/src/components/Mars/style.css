@@ -35,10 +35,9 @@
 }
 
 .martian-weather {
-  background-image: url('https://image.freepik.com/free-vector/weather-satellite-with-meteorology-equipment-space-dark-background-with-earth-planets-stars_1284-27326.jpg');
+  animation: shiftingMars 20s infinite;
   padding: 1rem;
   border-radius: 18px;
-  background-repeat: no-repeat;
 }
 
 .weather-app {
@@ -46,6 +45,7 @@
   color: white;
   border-radius: 18px;
   padding: 1rem;
+  margin-top: 3rem;
 }
 
 .picture-bucket {
@@ -63,6 +63,9 @@ label {
   padding: 1rem;
   margin-top: 1rem;
   margin-bottom: 1rem;
+  background: #d36939;
+  border-radius: 18px;
+  opacity: 0.9;
 }
 
 #no-image-found {
@@ -103,12 +106,16 @@ input {
   background: black;
   padding: 1rem;
   border-radius: 18px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 #martian-static-facts {
   background: black;
   padding: 1rem;
   border-radius: 18px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .hr-fix {
@@ -135,14 +142,33 @@ svg {
 
 .btn-primary {
   margin: 1%;
+  background-color: #d36939;
+  border-style: none;
 }
 
 .btn-primary:hover {
-  background-color: #d36939;
+  background-image: url('https://t4.ftcdn.net/jpg/02/18/28/27/240_F_218282711_3ZYksP9qhFH9vtFdJgaKeS6kl4nFKpVE.jpg');
   border-style: none;
   transform: scale(1.5);
+  color: black;
 }
 
 #photo-meta {
   padding: 1rem;
+}
+
+#curious-note {
+  margin-top: 1%;
+}
+
+@keyframes shiftingMars {
+  0% {
+    background-image: url('https://i.redd.it/y26xnh9b39d01.png');
+  }
+  50% {
+    background-image: url('https://images.wallpapersden.com/image/download/scifi-astronaut-space-mars_57674_1920x1080.jpg');
+  }
+  100% {
+    background-image: url('https://i.redd.it/y26xnh9b39d01.png');
+  }
 }

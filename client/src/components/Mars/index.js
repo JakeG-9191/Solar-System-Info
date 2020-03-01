@@ -201,14 +201,12 @@ class Mars extends Component {
         martianCount: this.state.martianCount + 1
       });
 
-      if (this.state.martianCount < totalImage) {
+      if (this.state.martianCount <= totalImage) {
         console.log(
           `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
         );
         this.id = setTimeout(this.getNewMartianPhotos, 10000);
-      }
-
-      if (this.state.martianFactBody >= totalImage) {
+      } else {
         console.log('total value reached, restarting');
         this.setState({
           martianCount: 0
@@ -367,7 +365,7 @@ class Mars extends Component {
                     target='_blank'
                     href='https://solarsystem.nasa.gov/planets/mars/overview/'
                   >
-                    Source - NASA
+                    *Source - NASA
                   </a>
                 </div>
                 <hr />
@@ -380,7 +378,7 @@ class Mars extends Component {
                     target='_blank'
                     href='https://solarsystem.nasa.gov/planets/mars/overview/'
                   >
-                    Source - NASA
+                    *Source - NASA
                   </a>
                   <hr className='hr-fix' />
                   <h4>Additional Links</h4>
@@ -441,18 +439,25 @@ class Mars extends Component {
                   id='rolling-photos'
                   src={this.state.martianImage}
                 ></img>
-                <h4>{this.state.martianDescription}</h4>
+                <h4>{this.state.martianDescription.substr(0, 400)}...</h4>
               </div>
               <div className='col-md-12 photo-top'>
                 <h2>
                   {!this.state.photosDisplayed
-                    ? 'Search For Amazing Martian Rover Photos Below'
+                    ? 'Search For Amazing Mars Curiousity Rover Photos Below'
                     : ''}
                 </h2>
               </div>
               {!this.state.photosDisplayed ? (
                 <div className='col-md-12 picture-bucket'>
                   <form>
+                    <h6 id='curious-note'>
+                      *Note - Curiousity Landed Aug. 5, 2012
+                    </h6>
+                    <a target='_blank' href='https://mars.nasa.gov/msl/home/'>
+                      Mars Curiousity
+                    </a>
+                    <hr />
                     <label>
                       Input Earth Date:
                       <input
