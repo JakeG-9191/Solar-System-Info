@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "title": "Small Planet",
+    "body": "If the Sun were as tall as a typical front door, Earth would be the size of a dime, and Mars would be about as big as an aspirin tablet."
+  },
+  {
+    "id": 1,
+    "title": "Longer Days",
+    "body": "One day on Mars takes a little over 24 hours. Mars makes a complete orbit around the Sun (a year in Martian time) in 687 Earth days."
+  },
+  {
+    "id": 2,
+    "title": "Double Moons",
+    "body": "Mars has two moons named Phobos and Deimos."
+  },
+  {
+    "id": 3,
+    "title": "Many Missions",
+    "body": "Several missions have visited this planet, from flybys and orbiters to rovers on the surface.The first true Mars mission success was the Mariner 4 flyby in 1965."
+  },
+  {
+    "id": 4,
+    "title": "Rusty Planet",
+    "body": "Mars is known as the Red Planet because iron minerals in the Martian soil oxidize, or rust, causing the soil and atmosphere to look red."
+  }
+]

@@ -1,5 +1,8 @@
 import axios from 'axios';
 
+const CancelToken = axios.CancelToken;
+const source = CancelToken.source();
+
 export default {
   getUsers: () => axios.get('/api/users'),
 
@@ -26,5 +29,16 @@ export default {
       `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=${date}&camera=${camera}&api_key=6c8dTYwFcHRpLfZXRxCLC2F6obnFUWrGAJnvRc2u`
     ),
 
-  getMarsPhotos: () => axios.get('https://images-api.nasa.gov/search?q=martian')
+  getMarsPhotos: () =>
+    axios
+      .get('https://images-api.nasa.gov/search?q=martian', {
+        cancelToken: source.token
+      })
+      .catch(function(thrown) {
+        if (axios.isCancel(thrown)) {
+          console.log('request canceled', thrown.message);
+        } else {
+          console.log('there is an error that needs to be handled');
+        }
+      })
 };

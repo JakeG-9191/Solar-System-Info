@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Select from 'react-select';
+import MarsFacts from '../../json/marsFacts';
 import API from '../../utils/API';
 import './style.css';
 
@@ -62,7 +63,17 @@ class Mars extends Component {
     martianDescription: '',
     martianMeta: '',
     martianCount: 0,
-    martianMotion: true
+    martianMotion: true,
+    martianFactTitle: '',
+    martianFactBody: ''
+  };
+
+  loadNewMarsFact = () => {
+    let newMarsFact = Math.floor(Math.random() * MarsFacts.length);
+    this.setState({
+      martianFactTitle: MarsFacts[newMarsFact].title,
+      martianFactBody: MarsFacts[newMarsFact].body
+    });
   };
 
   onChange = date => this.setState({ date });
@@ -90,6 +101,7 @@ class Mars extends Component {
     this.loadBackground();
     this.getUpdatedWeather();
     this.getNewMartianPhotos();
+    this.loadNewMarsFact();
   }
 
   // Uses API pull to grab all sol/day data and corresponding weather data
@@ -154,56 +166,56 @@ class Mars extends Component {
     });
   };
 
+  checkMartianPhotos = () => {
+    if (this.state.martianMotion) {
+      console.log('still shooting');
+      this.getNewMartianPhotos();
+    } else {
+      return console.log('done now');
+    }
+  };
+
   getNewMartianPhotos = () => {
     let loadedImage = '';
     let loadedInfo = '';
     let loadedMeta = '';
     let totalImage;
 
-    if (!this.state.martianMotion) {
-      return;
-    } else {
-      API.getMarsPhotos().then(data => {
-        // console.log(data.data);
-        // console.log(
-        //   data.data.collection.items[this.state.martianCount].data[0].photographer
-        // );
-        // console.log(
-        //   data.data.collection.items[this.state.martianCount].data[0].description
-        // );
-        // console.log(
-        //   data.data.collection.items[this.state.martianCount].links[0].href
-        // );
+    API.getMarsPhotos().then(data => {
+      // console.log(data.data);
+      // console.log(
+      //   data.data.collection.items[this.state.martianCount].data[0].photographer
+      // );
+      // console.log(
+      //   data.data.collection.items[this.state.martianCount].data[0].description
+      // );
+      // console.log(
+      //   data.data.collection.items[this.state.martianCount].links[0].href
+      // );
 
-        totalImage = data.data.collection.items.length;
-        loadedImage =
-          data.data.collection.items[this.state.martianCount].links[0].href;
-        loadedInfo =
-          data.data.collection.items[this.state.martianCount].data[0]
-            .description;
-        loadedMeta =
-          data.data.collection.items[this.state.martianCount].data[0]
-            .photographer;
+      totalImage = data.data.collection.items.length;
+      loadedImage =
+        data.data.collection.items[this.state.martianCount].links[0].href;
+      loadedInfo =
+        data.data.collection.items[this.state.martianCount].data[0].description;
+      loadedMeta =
+        data.data.collection.items[this.state.martianCount].data[0]
+          .photographer;
 
-        this.setState({
-          martianImage: loadedImage,
-          martianDescription: loadedInfo,
-          martianMeta: loadedMeta,
-          martianCount: this.state.martianCount + 1
-        });
-
-        if (!this.state.martianMotion) {
-          return;
-        }
-
-        if (this.state.martianCount < totalImage && this.state.martianMotion) {
-          console.log(
-            `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
-          );
-          setTimeout(this.getNewMartianPhotos, 10000);
-        }
+      this.setState({
+        martianImage: loadedImage,
+        martianDescription: loadedInfo,
+        martianMeta: loadedMeta,
+        martianCount: this.state.martianCount + 1
       });
-    }
+
+      if (this.state.martianCount < totalImage) {
+        console.log(
+          `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
+        );
+        setTimeout(this.checkMartianPhotos, 10000);
+      }
+    });
   };
 
   resetImageSearch = () => {
@@ -227,7 +239,7 @@ class Mars extends Component {
   };
 
   componentWillUnmount() {
-    clearTimeout(this.getNewMartianPhotos);
+    clearTimeout(this.checkMartianPhotos);
   }
 
   render() {
@@ -299,9 +311,45 @@ class Mars extends Component {
                     : 'No Data Available For This Sol'}
                 </h5>
               </div>
-              <div className='col-md-4'>
-                There can be some static and dynamic information generated and
-                placed here
+              <div className='col-md-4 jumbotron'>
+                <div id='martian-static-facts'>
+                  {' '}
+                  There can be some static and dynamic information generated and
+                  placed here
+                </div>
+                <hr />
+                <div id='martian-nasa-facts'>
+                  <h3>{this.state.martianFactTitle}</h3>
+                  <h4>{this.state.martianFactBody}</h4>
+                  <a
+                    target='_blank'
+                    href='https://solarsystem.nasa.gov/planets/mars/overview/'
+                  >
+                    Source - NASA
+                  </a>
+                  <hr />
+                  <h4>Additional Links</h4>
+                  <a
+                    target='_blank'
+                    href='https://www.nasa.gov/specials/moon2mars/'
+                  >
+                    NASA - Moon To Mars
+                  </a>
+                  <hr />
+                  <a
+                    target='_blank'
+                    href='https://www.nasa.gov/mission_pages/mars/main/index.html'
+                  >
+                    NASA - Mars Today
+                  </a>
+                  <hr />
+                  <a
+                    target='_blank'
+                    href='https://www.nasa.gov/mission_pages/mars/overview/index.html'
+                  >
+                    NASA - Mars Program Overview
+                  </a>
+                </div>
               </div>
               <div className='col-md-4'>
                 <h4>{this.state.martianMeta}</h4>
