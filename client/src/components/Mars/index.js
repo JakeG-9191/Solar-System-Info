@@ -63,7 +63,6 @@ class Mars extends Component {
     martianDescription: '',
     martianMeta: '',
     martianCount: 0,
-    martianMotion: true,
     martianFactTitle: '',
     martianFactBody: ''
   };
@@ -166,15 +165,6 @@ class Mars extends Component {
     });
   };
 
-  checkMartianPhotos = () => {
-    if (this.state.martianMotion) {
-      console.log('still shooting');
-      this.getNewMartianPhotos();
-    } else {
-      return console.log('done now');
-    }
-  };
-
   getNewMartianPhotos = () => {
     let loadedImage = '';
     let loadedInfo = '';
@@ -213,7 +203,15 @@ class Mars extends Component {
         console.log(
           `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
         );
-        setTimeout(this.checkMartianPhotos, 10000);
+        this.id = setTimeout(this.getNewMartianPhotos, 10000);
+      }
+
+      if (this.state.martianFactBody >= totalImage) {
+        console.log('total value reached, restarting');
+        this.setState({
+          martianCount: 0
+        });
+        this.id = setTimeout(this.getNewMartianPhotos, 10000);
       }
     });
   };
@@ -239,7 +237,7 @@ class Mars extends Component {
   };
 
   componentWillUnmount() {
-    clearTimeout(this.checkMartianPhotos);
+    clearTimeout(this.id);
   }
 
   render() {
@@ -323,6 +321,7 @@ class Mars extends Component {
                     have spacecraft in orbit above Mars.
                   </h4>
                   <a
+                    rel='noopener noreferrer'
                     target='_blank'
                     href='https://solarsystem.nasa.gov/planets/mars/overview/'
                   >
@@ -335,6 +334,7 @@ class Mars extends Component {
                   <hr className='hr-fix' />
                   <h5>{this.state.martianFactBody}</h5>
                   <a
+                    rel='noopener noreferrer'
                     target='_blank'
                     href='https://solarsystem.nasa.gov/planets/mars/overview/'
                   >
@@ -343,6 +343,7 @@ class Mars extends Component {
                   <hr className='hr-fix' />
                   <h4>Additional Links</h4>
                   <a
+                    rel='noopener noreferrer'
                     target='_blank'
                     href='https://www.nasa.gov/specials/moon2mars/'
                   >
@@ -350,6 +351,7 @@ class Mars extends Component {
                   </a>
                   <hr className='hr-fix' />
                   <a
+                    rel='noopener noreferrer'
                     target='_blank'
                     href='https://www.nasa.gov/mission_pages/mars/main/index.html'
                   >
@@ -357,6 +359,7 @@ class Mars extends Component {
                   </a>
                   <hr className='hr-fix' />
                   <a
+                    rel='noopener noreferrer'
                     target='_blank'
                     href='https://www.nasa.gov/mission_pages/mars/overview/index.html'
                   >
