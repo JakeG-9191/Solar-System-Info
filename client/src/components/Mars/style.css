@@ -124,11 +124,25 @@ input {
   border-radius: 18px;
 }
 
-.css-1okebmr-indicatorSeparator {
-  background-color: none;
-}
-
 svg {
   height: 30px;
   width: 30px;
+}
+
+.mars-search {
+  padding: 1rem;
+}
+
+.btn-primary {
+  margin: 1%;
+}
+
+.btn-primary:hover {
+  background-color: #d36939;
+  border-style: none;
+  transform: scale(1.5);
+}
+
+#photo-meta {
+  padding: 1rem;
 }

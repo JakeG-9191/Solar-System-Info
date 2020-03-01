@@ -53,6 +53,7 @@ class Mars extends Component {
   state = {
     userDateInput: '',
     userCameraInput: null,
+    userSearch: 'martian',
     marsUpdatedWeather: [],
     marsUpdatedSols: [],
     roverName: [],
@@ -166,12 +167,13 @@ class Mars extends Component {
   };
 
   getNewMartianPhotos = () => {
+    let userSearch = this.state.userSearch;
     let loadedImage = '';
     let loadedInfo = '';
     let loadedMeta = '';
     let totalImage;
 
-    API.getMarsPhotos().then(data => {
+    API.getMarsPhotos(userSearch).then(data => {
       // console.log(data.data);
       // console.log(
       //   data.data.collection.items[this.state.martianCount].data[0].photographer
@@ -234,6 +236,46 @@ class Mars extends Component {
     document.body.classList.remove(`game${0}`);
     document.body.classList.remove(`post${0}`);
     document.body.classList.add(`mars${newBackground}`);
+  };
+
+  searchMartian = () => {
+    clearTimeout(this.id);
+    let userSearchNew = 'martian';
+    this.setState({
+      userSearch: userSearchNew,
+      martianCount: 0
+    });
+    setTimeout(this.getNewMartianPhotos, 1000);
+  };
+
+  searchMars = () => {
+    clearTimeout(this.id);
+    let userSearchNew = 'mars';
+    this.setState({
+      userSearch: userSearchNew,
+      martianCount: 0
+    });
+    setTimeout(this.getNewMartianPhotos, 1000);
+  };
+
+  searchMarsRover = () => {
+    clearTimeout(this.id);
+    let userSearchNew = 'mars-rover';
+    this.setState({
+      userSearch: userSearchNew,
+      martianCount: 0
+    });
+    setTimeout(this.getNewMartianPhotos, 1000);
+  };
+
+  searchMarsMission = () => {
+    clearTimeout(this.id);
+    let userSearchNew = 'mars-mission';
+    this.setState({
+      userSearch: userSearchNew,
+      martianCount: 0
+    });
+    setTimeout(this.getNewMartianPhotos, 1000);
   };
 
   componentWillUnmount() {
@@ -369,7 +411,31 @@ class Mars extends Component {
               </div>
               <div className='col-md-1'></div>
               <div className='col-md-4'>
-                <h4>{this.state.martianMeta}</h4>
+                <div className='search-buttons'>
+                  <h5>Click Buttons Below To Search New Images</h5>
+                  <button
+                    className='btn btn-primary'
+                    onClick={this.searchMartian}
+                  >
+                    "Martian"
+                  </button>
+                  <button className='btn btn-primary' onClick={this.searchMars}>
+                    "Mars"
+                  </button>
+                  <button
+                    className='btn btn-primary'
+                    onClick={this.searchMarsRover}
+                  >
+                    "Mars Rover"
+                  </button>
+                  <button
+                    className='btn btn-primary'
+                    onClick={this.searchMarsMission}
+                  >
+                    "Mars Mission"
+                  </button>
+                </div>
+                <h4 id='photo-meta'>{this.state.martianMeta}</h4>
                 <img
                   alt={this.state.martianDescription}
                   id='rolling-photos'
