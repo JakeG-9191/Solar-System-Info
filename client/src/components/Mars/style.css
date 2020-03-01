@@ -140,13 +140,13 @@ svg {
   padding: 1rem;
 }
 
-.btn-primary {
+.user-search {
   margin: 1%;
   background-color: #d36939;
   border-style: none;
 }
 
-.btn-primary:hover {
+.user-search:hover {
   background-image: url('https://t4.ftcdn.net/jpg/02/18/28/27/240_F_218282711_3ZYksP9qhFH9vtFdJgaKeS6kl4nFKpVE.jpg');
   border-style: none;
   transform: scale(1.5);

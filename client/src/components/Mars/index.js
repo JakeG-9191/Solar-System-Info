@@ -68,6 +68,7 @@ class Mars extends Component {
     martianFactBody: ''
   };
 
+  // loads a fact from pre-generated facts fetched from json file, no changes necessary if new facts are added to json file
   loadNewMarsFact = () => {
     let newMarsFact = Math.floor(Math.random() * MarsFacts.length);
     this.setState({
@@ -76,8 +77,10 @@ class Mars extends Component {
     });
   };
 
+  // updates state based on date chosen
   onChange = date => this.setState({ date });
 
+  // grabs value from camera selection available to user for looking up photos
   handleChange = userCameraInput => {
     this.setState(
       {
@@ -87,6 +90,7 @@ class Mars extends Component {
     );
   };
 
+  // grabs value generate from calander available to user for looking up photos
   handleInputChange = event => {
     event.preventDefault();
     const { name, value } = event.target;
@@ -166,6 +170,7 @@ class Mars extends Component {
     });
   };
 
+  // grabs new photos from photo fetching api call, defaults are set when component mounts, other info generated based on return of data from API call
   getNewMartianPhotos = () => {
     let userSearch = this.state.userSearch;
     let loadedImage = '';
@@ -194,28 +199,30 @@ class Mars extends Component {
         data.data.collection.items[this.state.martianCount].data[0]
           .photographer;
 
+      // should generate photos until total is reached, at which time else statement should kick in for reset of current image so photo rotation will continue
+      if (this.state.martianCount <= totalImage - 1) {
+        console.log(
+          `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
+        );
+        this.id = setTimeout(this.getNewMartianPhotos, 10000);
+      } else {
+        console.log('end of the line, restarting photo compilation');
+        this.setState({
+          martianCount: 0
+        });
+        this.id = setTimeout(this.getNewMartianPhotos, 10000);
+      }
+
       this.setState({
         martianImage: loadedImage,
         martianDescription: loadedInfo,
         martianMeta: loadedMeta,
         martianCount: this.state.martianCount + 1
       });
-
-      if (this.state.martianCount <= totalImage) {
-        console.log(
-          `shooting off, image count now ${this.state.martianCount} against ${totalImage}`
-        );
-        this.id = setTimeout(this.getNewMartianPhotos, 10000);
-      } else {
-        console.log('total value reached, restarting');
-        this.setState({
-          martianCount: 0
-        });
-        this.id = setTimeout(this.getNewMartianPhotos, 10000);
-      }
     });
   };
 
+  // upon user searching for rover images, a button will generate that will allow the reset of images and allow a new search
   resetImageSearch = () => {
     this.setState({
       roverName: [],
@@ -236,6 +243,7 @@ class Mars extends Component {
     document.body.classList.add(`mars${newBackground}`);
   };
 
+  // clears current list of photos begin shown, resets photo fetching function, sets new user search term, starts new request for photos based on user search term
   searchMartian = () => {
     clearTimeout(this.id);
     let userSearchNew = 'martian';
@@ -246,6 +254,7 @@ class Mars extends Component {
     setTimeout(this.getNewMartianPhotos, 1000);
   };
 
+  // see searchMartian comment
   searchMars = () => {
     clearTimeout(this.id);
     let userSearchNew = 'mars';
@@ -256,6 +265,7 @@ class Mars extends Component {
     setTimeout(this.getNewMartianPhotos, 1000);
   };
 
+  // see searchMartian comment
   searchMarsRover = () => {
     clearTimeout(this.id);
     let userSearchNew = 'mars-rover';
@@ -266,6 +276,7 @@ class Mars extends Component {
     setTimeout(this.getNewMartianPhotos, 1000);
   };
 
+  // see searchMartian comment
   searchMarsMission = () => {
     clearTimeout(this.id);
     let userSearchNew = 'mars-mission';
@@ -276,6 +287,7 @@ class Mars extends Component {
     setTimeout(this.getNewMartianPhotos, 1000);
   };
 
+  // clears photo fetching function when user leaves this component, this prevents a memory leak
   componentWillUnmount() {
     clearTimeout(this.id);
   }
@@ -412,22 +424,25 @@ class Mars extends Component {
                 <div className='search-buttons'>
                   <h5>Click Buttons Below To Search New Images</h5>
                   <button
-                    className='btn btn-primary'
+                    className='btn btn-primary user-search'
                     onClick={this.searchMartian}
                   >
                     "Martian"
                   </button>
-                  <button className='btn btn-primary' onClick={this.searchMars}>
+                  <button
+                    className='btn btn-primary user-search'
+                    onClick={this.searchMars}
+                  >
                     "Mars"
                   </button>
                   <button
-                    className='btn btn-primary'
+                    className='btn btn-primary user-search'
                     onClick={this.searchMarsRover}
                   >
                     "Mars Rover"
                   </button>
                   <button
-                    className='btn btn-primary'
+                    className='btn btn-primary user-search'
                     onClick={this.searchMarsMission}
                   >
                     "Mars Mission"

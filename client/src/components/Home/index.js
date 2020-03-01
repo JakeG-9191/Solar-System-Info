@@ -95,14 +95,14 @@ class Home extends Component {
           </Link>
         </div>
         <div id='intro-banner'>
-          <h1>Welcome To My Solar System!</h1>
+          <h1>Welcome To Our Solar System!</h1>
         </div>
         <div className='container'>
           <div className='row'>
             <div id='aboutWebsite' className='col-md-3'>
               <h2>About This Website</h2>
               <h5 id='websiteInfo'>
-                My Solar System! is a website about our very own Solar System,
+                Our Solar System! is a website about our very own Solar System,
                 which is home to our own planet Earth, as well as 7 other
                 planets, thier moons and numerous other objects, the most
                 massive of which is our star at the center of it all, the Sun!
