@@ -239,7 +239,7 @@ class Mars extends Component {
     document.body.classList.remove(`backdrop${2}`);
     document.body.classList.remove(`backdrop${3}`);
     document.body.classList.remove(`game${0}`);
-    document.body.classList.remove(`post${0}`);
+    document.body.classList.remove(`space-map${0}`);
     document.body.classList.add(`mars${newBackground}`);
   };
 
@@ -306,8 +306,8 @@ class Mars extends Component {
               Login
             </button>
           </Link>
-          <Link to='/posts'>
-            <button className='btn btn-success'>Forum Posts</button>
+          <Link to='/solar_map'>
+            <button className='btn btn-success'>Interactive Map</button>
           </Link>
           <Link to='/mars'>
             <button className='btn btn-info'>Mars Special</button>

@@ -3,13 +3,8 @@ import API from '../../utils/API';
 import { Link } from 'react-router-dom';
 import './style.css';
 
-class Posts extends Component {
-  state = {
-    posts: []
-  };
-
+class SpaceMap extends Component {
   componentDidMount() {
-    this.grabAllPosts();
     this.loadBackground();
   }
 
@@ -21,35 +16,7 @@ class Posts extends Component {
     document.body.classList.remove(`backdrop${3}`);
     document.body.classList.remove(`mars${0}`);
     document.body.classList.remove(`game${0}`);
-    document.body.classList.add(`post${newBackground}`);
-  };
-
-  grabAllPosts = () => {
-    API.getPosts().then(res => {
-      console.log(res);
-      let myArray = [];
-      for (let i = 0; i < res.data.length; i++) {
-        let name = res.data[i].name;
-        let text = res.data[i].text;
-        let date = res.data[i].date;
-
-        let obj = {
-          name: name,
-          text: text,
-          date: date
-        };
-
-        myArray.push(obj);
-      }
-
-      this.setState({
-        posts: myArray
-      });
-    });
-  };
-
-  newPost = id => {
-    API.addPost(id).then(res => {});
+    document.body.classList.add(`space-map${newBackground}`);
   };
 
   render() {
@@ -64,8 +31,8 @@ class Posts extends Component {
               Login
             </button>
           </Link>
-          <Link to='/posts'>
-            <button className='btn btn-info'>Forum Posts</button>
+          <Link to='/solar_map'>
+            <button className='btn btn-info'>Interactive Map</button>
           </Link>
           <Link to='/mars'>
             <button className='btn btn-success'>Mars Special</button>
@@ -77,21 +44,24 @@ class Posts extends Component {
           </Link>
         </div>
         <div>
-          <h1>Testing Posts</h1>
-          <button onClick={this.grabAllPosts}>Grab Posts</button>
-          <h2>
-            {this.state.posts.map(post => (
-              <div id='all-posts'>
-                <h4>Name: {post.name}</h4>
-                <h4>Comment: {post.text}</h4>
-                <h4>Date: {post.date}</h4>
-              </div>
-            ))}
-          </h2>
+          <h1>Testing Interactive Map</h1>
+          <ul>
+            <li>Several Interactive Elements, should be clicked on</li>
+            <li>
+              Have information upon hover, and then different information upon
+              click
+            </li>
+            <li>Once Clicked on, information should be displayed</li>
+            <li>This information is probably static, could be dynamic</li>
+            <li>
+              Could use png pictures to make clicking on element more
+              interactive
+            </li>
+          </ul>
         </div>
       </>
     );
   }
 }
 
-export default Posts;
+export default SpaceMap;

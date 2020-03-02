@@ -73,7 +73,7 @@ class Game extends Component {
     document.body.classList.remove(`backdrop${2}`);
     document.body.classList.remove(`backdrop${3}`);
     document.body.classList.remove(`mars${0}`);
-    document.body.classList.remove(`post${0}`);
+    document.body.classList.remove(`space-map${0}`);
     document.body.classList.add(`game${newBackground}`);
   };
 
@@ -222,8 +222,8 @@ class Game extends Component {
               Login
             </button>
           </Link>
-          <Link to='/posts'>
-            <button className='btn btn-success'>Forum Posts</button>
+          <Link to='/solar_map'>
+            <button className='btn btn-success'>Interactive Map</button>
           </Link>
           <Link to='/mars'>
             <button className='btn btn-success'>Mars Special</button>
