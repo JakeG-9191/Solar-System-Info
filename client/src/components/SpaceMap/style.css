@@ -1,5 +1,5 @@
 .space-map0 {
-  background-image: url('https://dailygalaxy.com/wp-content/uploads/2018/09/scarce-in-solar-system-nasa-astrobiologists-are-tracking-phosphorus-for-signs-of-other-life.jpg');
+  background-image: url('https://i.pinimg.com/originals/f6/20/a1/f620a179ca1acfd15a0754701677fb58.jpg');
   background-repeat: no-repeat;
   background-size: cover, contain;
   background-attachment: fixed;
@@ -16,10 +16,14 @@
   z-index: 7;
   background-color: white;
   color: black;
+  height: 350px;
+  width: 650px;
+  padding: 1rem;
+  border-radius: 18px;
 }
 
 .interactive-fix {
   position: fixed;
-  top: 1%;
+  top: 0px;
   z-index: 8;
 }

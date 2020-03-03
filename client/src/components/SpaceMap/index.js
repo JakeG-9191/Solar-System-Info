@@ -11,45 +11,96 @@ const MAP = {
   name: 'my-map',
   areas: [
     {
+      name: '0',
+      shape: 'poly',
+      coords: [21, 186, 18, 1102, 91, 913, 125, 623, 92, 376],
+      title: 'Sun',
+      otherInfo: 'testing this to see what kind of info can be placed',
+      onClick: 'Additional information About Sun'
+    },
+    {
       name: '1',
       shape: 'circle',
       coords: [350, 1020, 80],
-      preFillColor: 'green',
-      fillColor: 'blue'
+      title: 'Mercury',
+      otherInfo: 'testing this to see what kind of info can be placed',
+      onClick: 'Additional information About Mercury'
     },
     {
       name: '2',
       shape: 'circle',
       coords: [528, 947, 80],
-      preFillColor: 'pink'
+      title: 'Venus',
+      otherInfo: 'testing this to see what kind of info can be placed'
     },
     {
       name: '3',
       shape: 'circle',
       coords: [707, 873, 80],
-      preFillColor: 'orange'
+      title: 'Earth',
+      otherInfo: 'testing this to see what kind of info can be placed'
     },
     {
       name: '4',
       shape: 'circle',
       coords: [885, 797, 80],
-      preFillColor: 'orange',
-      fillColor: 'blue'
+      title: 'Mars',
+      otherInfo: 'testing this to see what kind of info can be placed'
     },
     {
       name: '5',
       shape: 'poly',
-      coords: [1050, 449, 1015, 702, 1065, 1077, 1119, 779],
-      preFillColor: 'green',
-      fillColor: 'blue'
+      coords: [1050, 449, 1015, 702, 1021, 909, 1065, 1077, 1119, 779],
+      title: 'Astroid Belt & Others',
+      otherInfo: 'testing this to see what kind of info can be placed'
     },
     {
       name: '6',
       shape: 'circle',
       coords: [1240, 645, 80],
-      fillColor: 'yellow',
-      preFillColor: 'green',
-      title: 'Mercury',
+      title: 'Jupiter',
+      otherInfo: 'testing this to see what kind of info can be placed'
+    },
+    {
+      name: '7',
+      shape: 'circle',
+      coords: [1417, 570, 80],
+      title: 'Saturn',
+      otherInfo: 'testing this to see what kind of info can be placed'
+    },
+    {
+      name: '8',
+      shape: 'circle',
+      coords: [1594, 494, 80],
+      title: 'Uranus',
+      otherInfo: 'testing this to see what kind of info can be placed'
+    },
+    {
+      name: '9',
+      shape: 'circle',
+      coords: [1771, 420, 80],
+      title: 'Neptune',
+      otherInfo: 'testing this to see what kind of info can be placed'
+    },
+    {
+      name: '10',
+      shape: 'poly',
+      coords: [1885, 270, 1885, 517, 2032, 517, 2032, 270],
+      title: 'Kuiper Belt & Others',
+      otherInfo: 'testing this to see what kind of info can be placed'
+    },
+    {
+      name: '11',
+      shape: 'circle',
+      coords: [2125, 266, 60],
+      title: 'Planet X',
+      otherInfo: 'testing this to see what kind of info can be placed'
+    },
+    {
+      name: '12',
+      shape: 'poly',
+      coords: [2278, 124, 2157, 518, 2150, 756, 2278, 1132],
+      title: 'Oort Cloud',
       otherInfo: 'testing this to see what kind of info can be placed'
     }
   ]
@@ -66,20 +117,12 @@ const calcHeight = window.screen.height * 0.9;
 class SpaceMap extends Component {
   state = {
     hoveredArea: null,
-    testHover: 'Hover Over Solar System Feature To See More',
+    hoverInfo:
+      'Hover over a Solar System feature to see additional information, click on these features for even more interesting facts',
     title: '',
     X: '',
     Y: ''
   };
-
-  // infoUpdate = () => {
-  //   MAP.areas[6].preFillColor = 'blue';
-  //   MAP.areas[6].coords = [
-  //     testWidth - testWidth * 0.5,
-  //     testHeight - testHeight * 0.5,
-  //     80
-  //   ];
-  // };
 
   componentDidMount() {
     this.loadBackground();
@@ -96,10 +139,16 @@ class SpaceMap extends Component {
     });
   };
 
+  clickArea(area) {
+    this.setState({
+      hoverInfo: area.onClick
+    });
+  }
+
   enterArea(area) {
     this.setState({
       hoveredArea: area,
-      testHover: area.otherInfo,
+      hoverInfo: area.otherInfo,
       title: area.title
     });
   }
@@ -107,7 +156,8 @@ class SpaceMap extends Component {
   leaveArea(area) {
     this.setState({
       hoveredArea: null,
-      testHover: 'Hover Over Solar System Feature To See More',
+      testHover:
+        'Hover over a Solar System feature to see additional information, click on these features for even more interesting facts',
       title: ''
     });
   }
@@ -132,12 +182,15 @@ class SpaceMap extends Component {
       <>
         <div>
           <ImageMapper
+            active={false}
             src={URL}
             map={MAP}
             width={calcWitdh}
             height={calcHeight}
+            lineWidth={0}
             onMouseEnter={area => this.enterArea(area)}
             onMouseLeave={area => this.leaveArea(area)}
+            onClick={area => this.clickArea(area)}
           />
           <div className='navBar interactive-fix'>
             <Link to='/'>
@@ -169,24 +222,9 @@ class SpaceMap extends Component {
             </span>
           )}
           <div className='testing-overlay'>
-            <h1>Testing Interactive Map</h1>
-            <h1>X: {this.state.X}</h1>
-            <h1>Y: {this.state.Y}</h1>
-            <ul>
-              <li>Several Interactive Elements, should be clicked on</li>
-              <li>
-                Have information upon hover, and then different information upon
-                click
-              </li>
-              <li>Once Clicked on, information should be displayed</li>
-              <li>This information is probably static, could be dynamic</li>
-              <li>
-                Could use png pictures to make clicking on element more
-                interactive
-              </li>
-            </ul>
+            <h1>Our Solar System</h1>
             <h1>{this.state.title}</h1>
-            <h2>{this.state.testHover}</h2>
+            <h2>{this.state.hoverInfo}</h2>
           </div>
         </div>
       </>

@@ -320,8 +320,8 @@ class Game extends Component {
           {(!this.state.gameReset &&
             this.state.questionNum > 0 &&
             this.state.startEarth) ||
-          this.state.startSolar ||
-          this.state.startClassified ? (
+          (this.state.questionNum > 0 && this.state.startSolar) ||
+          (this.state.questionNum > 0 && this.state.startClassified) ? (
             <div
               className='progress-bar progress-bar-danger'
               role='progressbar'
