@@ -12,61 +12,74 @@ const MAP = {
   areas: [
     {
       name: '1',
-      shape: 'poly',
-      coords: [25, 33, 27, 300, 128, 240, 128, 94],
+      shape: 'circle',
+      coords: [350, 1020, 80],
       preFillColor: 'green',
       fillColor: 'blue'
     },
     {
       name: '2',
       shape: 'circle',
-      coords: [2560 * 0.8 - 1000 * 0.955, 1440 * 0.94 - 808 * 0.96, 70],
+      coords: [528, 947, 80],
       preFillColor: 'pink'
     },
     {
       name: '3',
       shape: 'circle',
-      coords: [2560 * 0.8 - 1328 * 0.955, 1440 * 0.94 - 670 * 0.96, 70],
-      fillColor: 'orange'
+      coords: [707, 873, 80],
+      preFillColor: 'orange'
     },
     {
       name: '4',
       shape: 'circle',
-      coords: [2560 * 0.8 - 1490 * 0.955, 1440 * 0.94 - 602 * 0.96, 70],
+      coords: [885, 797, 80],
+      preFillColor: 'orange',
       fillColor: 'blue'
     },
     {
       name: '5',
-      shape: 'circle',
-      coords: [2560 * 0.8 - 1800 * 0.955, 1440 * 0.94 - 471 * 0.96, 70],
-      fillColor: 'yellow',
-      title: 'Mercury',
-      otherInfo: 'testing this to see what kind of info can be placed'
+      shape: 'poly',
+      coords: [1050, 449, 1015, 702, 1065, 1077, 1119, 779],
+      preFillColor: 'green',
+      fillColor: 'blue'
     },
     {
       name: '6',
       shape: 'circle',
-      fillColor: 'red',
-      coords: [2560 * 0.8 - 1648 * 0.955, 1440 * 0.94 - 536 * 0.96, 70]
+      coords: [1240, 645, 80],
+      fillColor: 'yellow',
+      preFillColor: 'green',
+      title: 'Mercury',
+      otherInfo: 'testing this to see what kind of info can be placed'
     }
   ]
 };
 
-const testWidth = window.screen.width;
-const testHeight = window.screen.height;
+const testWidth = window.screen.width; // 2560
+const testHeight = window.screen.height; // 1440
 
-const calcWitdh = window.screen.width - window.screen.width * 0.2;
+const calcWitdh = window.screen.width * 0.9;
+const calcHeight = window.screen.height * 0.9;
+
+// const calcWitdh = window.screen.width - window.screen.width * 0.2;
 
 class SpaceMap extends Component {
   state = {
     hoveredArea: null,
     testHover: 'Hover Over Solar System Feature To See More',
     title: '',
-    xStart: '',
-    yStart: '',
     X: '',
     Y: ''
   };
+
+  // infoUpdate = () => {
+  //   MAP.areas[6].preFillColor = 'blue';
+  //   MAP.areas[6].coords = [
+  //     testWidth - testWidth * 0.5,
+  //     testHeight - testHeight * 0.5,
+  //     80
+  //   ];
+  // };
 
   componentDidMount() {
     this.loadBackground();
@@ -117,67 +130,63 @@ class SpaceMap extends Component {
   render() {
     return (
       <>
-        <div className='navBar'>
-          <Link to='/'>
-            <button className='btn btn-success'>Home</button>
-          </Link>
-          <Link to='/login'>
-            <button className='btn btn-success' disabled>
-              Login
-            </button>
-          </Link>
-          <Link to='/solar_map'>
-            <button className='btn btn-info'>Interactive Map</button>
-          </Link>
-          <Link to='/mars'>
-            <button className='btn btn-success'>Mars Special</button>
-          </Link>
-          <Link to='/game'>
-            <button className='btn btn-success'>
-              Solar System Trivia Game
-            </button>
-          </Link>
-        </div>
-        <div className='container solar-fix'>
-          <div className='row'>
-            <div className='col-md-2'>
-              <h1>Testing Interactive Map</h1>
-              <h1>X: {this.state.X}</h1>
-              <h1>Y: {this.state.Y}</h1>
-              <ul>
-                <li>Several Interactive Elements, should be clicked on</li>
-                <li>
-                  Have information upon hover, and then different information
-                  upon click
-                </li>
-                <li>Once Clicked on, information should be displayed</li>
-                <li>This information is probably static, could be dynamic</li>
-                <li>
-                  Could use png pictures to make clicking on element more
-                  interactive
-                </li>
-              </ul>
-              <h1>{this.state.title}</h1>
-              <h2>{this.state.testHover}</h2>
-            </div>
-            <div id='solar-map' className='col-md-10 solar'>
-              <ImageMapper
-                id='solar-map'
-                src={URL}
-                map={MAP}
-                width={calcWitdh}
-                onMouseEnter={area => this.enterArea(area)}
-                onMouseLeave={area => this.leaveArea(area)}
-              />
-              {this.state.hoveredArea && (
-                <span
-                  className='tooltip'
-                  style={{ ...this.getTipPosition(this.state.hoveredArea) }}
-                >
-                  {this.state.hoveredArea && this.state.hoveredArea.name}
-                </span>
-              )}
-            </div>
+        <div>
+          <ImageMapper
+            src={URL}
+            map={MAP}
+            width={calcWitdh}
+            height={calcHeight}
+            onMouseEnter={area => this.enterArea(area)}
+            onMouseLeave={area => this.leaveArea(area)}
+          />
+          <div className='navBar interactive-fix'>
+            <Link to='/'>
+              <button className='btn btn-success'>Home</button>
+            </Link>
+            <Link to='/login'>
+              <button className='btn btn-success' disabled>
+                Login
+              </button>
+            </Link>
+            <Link to='/solar_map'>
+              <button className='btn btn-info'>Interactive Map</button>
+            </Link>
+            <Link to='/mars'>
+              <button className='btn btn-success'>Mars Special</button>
+            </Link>
+            <Link to='/game'>
+              <button className='btn btn-success'>
+                Solar System Trivia Game
+              </button>
+            </Link>
+          </div>
+          {this.state.hoveredArea && (
+            <span
+              className='tooltip'
+              style={{ ...this.getTipPosition(this.state.hoveredArea) }}
+            >
+              {this.state.hoveredArea && this.state.hoveredArea.name}
+            </span>
+          )}
+          <div className='testing-overlay'>
+            <h1>Testing Interactive Map</h1>
+            <h1>X: {this.state.X}</h1>
+            <h1>Y: {this.state.Y}</h1>
+            <ul>
+              <li>Several Interactive Elements, should be clicked on</li>
+              <li>
+                Have information upon hover, and then different information upon
+                click
+              </li>
+              <li>Once Clicked on, information should be displayed</li>
+              <li>This information is probably static, could be dynamic</li>
+              <li>
+                Could use png pictures to make clicking on element more
+                interactive
+              </li>
+            </ul>
+            <h1>{this.state.title}</h1>
+            <h2>{this.state.testHover}</h2>
           </div>
         </div>
       </>
