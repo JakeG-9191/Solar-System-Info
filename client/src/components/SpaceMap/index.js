@@ -19,26 +19,26 @@ const MAP = {
     },
     {
       name: '2',
-      shape: 'poly',
-      coords: [219, 118, 220, 210, 283, 210, 284, 119],
+      shape: 'circle',
+      coords: [2560 * 0.8 - 1000 * 0.955, 1440 * 0.94 - 808 * 0.96, 70],
       preFillColor: 'pink'
     },
     {
       name: '3',
-      shape: 'poly',
-      coords: [381, 241, 383, 94, 462, 53, 457, 282],
-      fillColor: 'yellow'
+      shape: 'circle',
+      coords: [2560 * 0.8 - 1328 * 0.955, 1440 * 0.94 - 670 * 0.96, 70],
+      fillColor: 'orange'
     },
     {
       name: '4',
-      shape: 'poly',
-      coords: [245, 285, 290, 285, 274, 239, 249, 238],
-      preFillColor: 'red'
+      shape: 'circle',
+      coords: [2560 * 0.8 - 1490 * 0.955, 1440 * 0.94 - 602 * 0.96, 70],
+      fillColor: 'blue'
     },
     {
       name: '5',
       shape: 'circle',
-      coords: [2560 - 759, 965 - 965 * 0.2, 70],
+      coords: [2560 * 0.8 - 1800 * 0.955, 1440 * 0.94 - 471 * 0.96, 70],
       fillColor: 'yellow',
       title: 'Mercury',
       otherInfo: 'testing this to see what kind of info can be placed'
@@ -47,7 +47,7 @@ const MAP = {
       name: '6',
       shape: 'circle',
       fillColor: 'red',
-      coords: [913 - 913 * 0.58, 900 - 900 * 0.058, 70]
+      coords: [2560 * 0.8 - 1648 * 0.955, 1440 * 0.94 - 536 * 0.96, 70]
     }
   ]
 };
