@@ -168,6 +168,8 @@ class Home extends Component {
               <ReactPlayer
                 url={this.state.randomVideo ? this.state.randomVideo : ''}
                 playing
+                muted
+                controls={true}
                 id='randomVideo'
                 width={this.state.randomVideo ? '640px' : '0px'}
                 height={this.state.randomVideo ? '360px' : '0px'}
