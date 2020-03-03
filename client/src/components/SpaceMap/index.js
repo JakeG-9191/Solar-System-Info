@@ -7,107 +7,9 @@ import './style.css';
 
 const URL = SolarSystem;
 const MAP = InteractiveMap;
-// const MAP = {
-//   name: 'my-map',
-//   areas: [
-//     {
-//       name: '0',
-//       shape: 'poly',
-//       coords: [21, 186, 18, 1102, 91, 913, 125, 623, 92, 376],
-//       title: 'Sun',
-//       otherInfo: 'testing this to see what kind of info can be placed',
-//       onClick: 'Additional information About Sun'
-//     },
-//     {
-//       name: '1',
-//       shape: 'circle',
-//       coords: [350, 1020, 80],
-//       title: 'Mercury',
-//       otherInfo: 'testing this to see what kind of info can be placed',
-//       onClick: 'Additional information About Mercury'
-//     },
-//     {
-//       name: '2',
-//       shape: 'circle',
-//       coords: [528, 947, 80],
-//       title: 'Venus',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '3',
-//       shape: 'circle',
-//       coords: [707, 873, 80],
-//       title: 'Earth',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '4',
-//       shape: 'circle',
-//       coords: [885, 797, 80],
-//       title: 'Mars',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '5',
-//       shape: 'poly',
-//       coords: [1050, 449, 1015, 702, 1021, 909, 1065, 1077, 1119, 779],
-//       title: 'Astroid Belt & Others',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '6',
-//       shape: 'circle',
-//       coords: [1240, 645, 80],
-//       title: 'Jupiter',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '7',
-//       shape: 'circle',
-//       coords: [1417, 570, 80],
-//       title: 'Saturn',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '8',
-//       shape: 'circle',
-//       coords: [1594, 494, 80],
-//       title: 'Uranus',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '9',
-//       shape: 'circle',
-//       coords: [1771, 420, 80],
-//       title: 'Neptune',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '10',
-//       shape: 'poly',
-//       coords: [1885, 270, 1885, 517, 2032, 517, 2032, 270],
-//       title: 'Kuiper Belt & Others',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '11',
-//       shape: 'circle',
-//       coords: [2125, 266, 60],
-//       title: 'Planet X',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     },
-//     {
-//       name: '12',
-//       shape: 'poly',
-//       coords: [2278, 124, 2157, 518, 2150, 756, 2278, 1132],
-//       title: 'Oort Cloud',
-//       otherInfo: 'testing this to see what kind of info can be placed'
-//     }
-//   ]
-// };
 
-const testWidth = window.screen.width; // 2560
-const testHeight = window.screen.height; // 1440
+// const testWidth = window.screen.width; // 2560
+// const testHeight = window.screen.height; // 1440
 
 const calcWitdh = window.screen.width * 0.9;
 const calcHeight = window.screen.height * 0.9;
@@ -119,6 +21,8 @@ class SpaceMap extends Component {
     hoveredArea: null,
     hoverInfo:
       'Hover over a Solar System feature to see additional information, click on these features for even more interesting facts',
+    clickInfo2: '',
+    clickInfo3: '',
     title: '',
     X: '',
     Y: ''
@@ -141,7 +45,9 @@ class SpaceMap extends Component {
 
   clickArea(area) {
     this.setState({
-      hoverInfo: area.onClick
+      hoverInfo: area.onClick.one,
+      clickInfo2: area.onClick.two,
+      clickInfo3: area.onClick.three
     });
   }
 
@@ -227,6 +133,8 @@ class SpaceMap extends Component {
             <h3>{this.state.title}</h3>
             {this.state.title ? <hr /> : ''}
             <h4>{this.state.hoverInfo}</h4>
+            <h4>{this.state.clickInfo2}</h4>
+            <h4>{this.state.clickInfo3}</h4>
           </div>
         </div>
       </>

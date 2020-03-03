@@ -7,7 +7,11 @@
       "coords": [21, 186, 18, 1102, 91, 913, 125, 623, 92, 376],
       "title": "Sun",
       "otherInfo": "testing this to see what kind of info can be placed",
-      "onClick": "Additional information About Sun"
+      "onClick": {
+        "one": "Test\n",
+        "two": "Test 2",
+        "three": "Test 3"
+      }
     },
     {
       "name": 1,
@@ -22,6 +26,86 @@
       "shape": "circle",
       "coords": [528, 947, 80],
       "title": "Venus",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": 3,
+      "shape": "circle",
+      "coords": [707, 873, 80],
+      "title": "Earth",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": 4,
+      "shape": "circle",
+      "coords": [885, 797, 80],
+      "title": "Mars",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": 5,
+      "shape": "poly",
+      "coords": [1050, 449, 1015, 702, 1021, 909, 1065, 1077, 1119, 779],
+      "title": "Astroid Belt & Others",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": 6,
+      "shape": "circle",
+      "coords": [1240, 645, 80],
+      "title": "Jupiter",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": "7",
+      "shape": "circle",
+      "coords": [1417, 570, 80],
+      "title": "Saturn",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": "8",
+      "shape": "circle",
+      "coords": [1594, 494, 80],
+      "title": "Uranus",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": "9",
+      "shape": "circle",
+      "coords": [1771, 420, 80],
+      "title": "Neptune",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": "10",
+      "shape": "poly",
+      "coords": [1885, 270, 1885, 517, 2032, 517, 2032, 270],
+      "title": "Kuiper Belt & Others",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": "11",
+      "shape": "circle",
+      "coords": [2125, 266, 60],
+      "title": "Planet X",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    },
+    {
+      "name": "12",
+      "shape": "poly",
+      "coords": [2278, 124, 2157, 518, 2150, 756, 2278, 1132],
+      "title": "Oort Cloud",
       "otherInfo": "testing this to see what kind of info can be placed",
       "onClick": "Additional information About Venus"
     }
