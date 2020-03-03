@@ -1,0 +1,29 @@
+{
+  "name": "my-map",
+  "areas": [
+    {
+      "name": 0,
+      "shape": "poly",
+      "coords": [21, 186, 18, 1102, 91, 913, 125, 623, 92, 376],
+      "title": "Sun",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Sun"
+    },
+    {
+      "name": 1,
+      "shape": "circle",
+      "coords": [350, 1020, 80],
+      "title": "Mercury",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Mercury"
+    },
+    {
+      "name": 2,
+      "shape": "circle",
+      "coords": [528, 947, 80],
+      "title": "Venus",
+      "otherInfo": "testing this to see what kind of info can be placed",
+      "onClick": "Additional information About Venus"
+    }
+  ]
+}
