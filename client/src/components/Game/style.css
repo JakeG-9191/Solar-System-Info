@@ -81,6 +81,12 @@
   margin-bottom: 2%;
 }
 
+.progress-bar {
+  margin-left: 25%;
+  border-radius: 18px;
+  font-size: large;
+}
+
 @keyframes shifting {
   0% {
     background-image: url('https://wallpaperhd.wiki/wp-content/uploads/1080p-wallpaper-181225.jpg');

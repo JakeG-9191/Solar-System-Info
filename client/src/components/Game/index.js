@@ -316,6 +316,32 @@ class Game extends Component {
             ''
           )}
         </div>
+        <div>
+          {(!this.state.gameReset &&
+            this.state.questionNum > 0 &&
+            this.state.startEarth) ||
+          this.state.startSolar ||
+          this.state.startClassified ? (
+            <div
+              className='progress-bar progress-bar-danger'
+              role='progressbar'
+              style={{
+                width: `${((this.state.questionNum /
+                  this.state.totalQuestions) *
+                  100) /
+                  2}%`
+              }}
+            >
+              Questions Asked:{' '}
+              {`${(
+                (this.state.questionNum / this.state.totalQuestions) *
+                100
+              ).toFixed(2)}%`}
+            </div>
+          ) : (
+            ''
+          )}
+        </div>
         <div className='earth-game-questions'>
           {this.state.startEarth ? (
             <>
