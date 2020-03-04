@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import InteractiveMap from '../../json/interactiveMap';
 import SolarSystem from '../../utils/spaceMap/0.jpg';
+import Song from '../../utils/music/bensound-slowmotion.mp3';
 import ImageMapper from 'react-image-mapper';
 import { Link } from 'react-router-dom';
 import './style.css';
@@ -8,12 +9,16 @@ import './style.css';
 const URL = SolarSystem;
 const MAP = InteractiveMap;
 
-// const testWidth = window.screen.width; // 2560
-// const testHeight = window.screen.height; // 1440
-
 const calcWitdh = window.screen.width * 0.9;
 const calcHeight = window.screen.height * 0.9;
 
+window.onload = function() {
+  const myAudio = document.getElementById('myAudio');
+  myAudio.volume = 0.1;
+};
+
+// const testWidth = window.screen.width; // 2560
+// const testHeight = window.screen.height; // 1440
 // const calcWitdh = window.screen.width - window.screen.width * 0.2;
 
 class SpaceMap extends Component {
@@ -62,9 +67,11 @@ class SpaceMap extends Component {
   leaveArea(area) {
     this.setState({
       hoveredArea: null,
-      testHover:
+      hoverInfo:
         'Hover over a Solar System feature to see additional information, click on these features for even more interesting facts',
-      title: ''
+      title: '',
+      clickInfo2: '',
+      clickInfo3: ''
     });
   }
 
@@ -119,14 +126,21 @@ class SpaceMap extends Component {
               </button>
             </Link>
           </div>
-          {this.state.hoveredArea && (
+          {/* {this.state.hoveredArea && (
             <span
               className='tooltip'
               style={{ ...this.getTipPosition(this.state.hoveredArea) }}
             >
               {this.state.hoveredArea && this.state.hoveredArea.name}
             </span>
-          )}
+          )} */}
+          <audio
+            id='myAudio'
+            controls
+            src={Song}
+            autoplay={this.state.hoverInfo}
+            loop={true}
+          />
           <div className='testing-overlay'>
             <h3>Our Solar System | Interactive Map</h3>
             <hr />

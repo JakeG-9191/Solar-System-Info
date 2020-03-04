@@ -8,7 +8,7 @@
       "title": "Sun",
       "otherInfo": "testing this to see what kind of info can be placed",
       "onClick": {
-        "one": "Test\n",
+        "one": "Test",
         "two": "Test 2",
         "three": "Test 3"
       }
