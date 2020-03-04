@@ -33,6 +33,7 @@ const customStyles = {
 
 class SpaceMap extends Component {
   state = {
+    musicSelection: true,
     hoveredArea: null,
     hoverInfo:
       'Hover over a Solar System feature to see additional information, click on these features for even more interesting facts',
@@ -69,7 +70,7 @@ class SpaceMap extends Component {
 
   componentWillMount() {
     window.addEventListener('click', this.getClickPosition, false);
-    window.onload = function() {
+    window.onload = () => {
       const myAudio = document.getElementById('myAudio');
       myAudio.volume = 0.05;
     };
@@ -160,8 +161,26 @@ class SpaceMap extends Component {
               </button>
             </Link>
           </div>
+          {!this.state.musicSelection ? (
+            <audio
+              id='myAudio'
+              controls
+              src={Song}
+              autoPlay={true}
+              loop={true}
+            />
+          ) : (
+            <audio
+              id='myAudio'
+              controls
+              src={Song}
+              autoPlay={false}
+              loop={true}
+            />
+          )}
           <div>
             <Modal
+              ariaHideApp={false}
               isOpen={this.state.modalIsOpen}
               onAfterOpen={this.afterOpenModal}
               onRequestClose={this.closeModal}
@@ -169,17 +188,13 @@ class SpaceMap extends Component {
               style={customStyles}
             >
               <div className='modal-wrap'>
-                <div className='modal-title'>
-                  <h1>{this.state.hoverInfo}</h1>
-                </div>
                 <div className='modal-sound'>
                   <h3>
                     Autoplay for music is enabled for this page, if you wish to
                     have the best experience we recommend leaving the autoplay
                     feature on while you explore the Interactive Map, if you
-                    prefer though, you can Decline to have the sound on now. You
-                    will also see audio controls in the top right portion of the
-                    page if you change your mind later.
+                    prefer though, you can shut off the sound via the controls
+                    on the player in the right left hand corner.
                   </h3>
                   <hr />
                 </div>
@@ -190,23 +205,10 @@ class SpaceMap extends Component {
                   >
                     Accept
                   </button>
-                  <button
-                    className='btn btn-dark btn-lg modal-close'
-                    onClick={this.closeModal}
-                  >
-                    Decline
-                  </button>
                 </div>
               </div>
             </Modal>
           </div>
-          <audio
-            id='myAudio'
-            controls
-            src={Song}
-            autoplay={this.state.hoverInfo}
-            loop={true}
-          />
           <div className='testing-overlay'>
             <h3>Our Solar System | Interactive Map</h3>
             <hr />
