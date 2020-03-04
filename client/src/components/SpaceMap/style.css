@@ -34,3 +34,50 @@ audio {
   left: 1%;
   z-index: 10;
 }
+
+#modal {
+  position: fixed;
+  top: 0px;
+  z-index: 55;
+}
+
+.ReactModal__Body--open {
+  z-index: 88;
+}
+
+.modal-wrap {
+  background-color: black;
+  color: white;
+  border-radius: 18px;
+  padding: 1rem;
+}
+
+.ReactModal__Content {
+  border-radius: 18px;
+  bottom: 105px;
+  z-index: 91;
+}
+
+.ReactModal__Content--after-open {
+  border: none;
+  z-index: 92;
+}
+
+.ReactModal__Overlay {
+  z-index: 90;
+  background-image: url('https://d.newsweek.com/en/full/1555572/asteroid.jpg');
+  background-repeat: no-repeat;
+  background-size: cover, contain;
+  background-attachment: fixed;
+  width: 97vw;
+  height: 95vh;
+  margin-left: 1%;
+  margin-top: 1%;
+  border-style: solid;
+  border-radius: 18px;
+  border-width: 15px;
+}
+
+.modal-close {
+  margin: 1rem;
+}

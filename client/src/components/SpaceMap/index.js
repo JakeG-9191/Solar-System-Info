@@ -4,6 +4,8 @@ import SolarSystem from '../../utils/spaceMap/0.jpg';
 import Song from '../../utils/music/bensound-slowmotion.mp3';
 import ImageMapper from 'react-image-mapper';
 import { Link } from 'react-router-dom';
+import ReactDOM from 'react-dom';
+import Modal from 'react-modal';
 import './style.css';
 
 const URL = SolarSystem;
@@ -12,9 +14,17 @@ const MAP = InteractiveMap;
 const calcWitdh = window.screen.width * 0.9;
 const calcHeight = window.screen.height * 0.9;
 
-window.onload = function() {
-  const myAudio = document.getElementById('myAudio');
-  myAudio.volume = 0.1;
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    background: 'none',
+    width: '90vw'
+  }
 };
 
 // const testWidth = window.screen.width; // 2560
@@ -33,13 +43,37 @@ class SpaceMap extends Component {
     Y: ''
   };
 
-  componentDidMount() {
-    this.loadBackground();
+  constructor() {
+    super();
+
+    this.state = {
+      modalIsOpen: false
+    };
+
+    this.openModal = this.openModal.bind(this);
+    this.closeModal = this.closeModal.bind(this);
   }
 
-  // componentWillMount() {
-  //   window.addEventListener('click', this.getClickPosition, false);
-  // }
+  openModal(area) {
+    this.setState({ modalIsOpen: true });
+  }
+
+  closeModal() {
+    this.setState({ modalIsOpen: false });
+  }
+
+  componentDidMount() {
+    this.loadBackground();
+    setTimeout(this.openModal, 500);
+  }
+
+  componentWillMount() {
+    window.addEventListener('click', this.getClickPosition, false);
+    window.onload = function() {
+      const myAudio = document.getElementById('myAudio');
+      myAudio.volume = 0.05;
+    };
+  }
 
   // getClickPosition = e => {
   //   this.setState({
@@ -126,14 +160,46 @@ class SpaceMap extends Component {
               </button>
             </Link>
           </div>
-          {/* {this.state.hoveredArea && (
-            <span
-              className='tooltip'
-              style={{ ...this.getTipPosition(this.state.hoveredArea) }}
+          <div>
+            <Modal
+              isOpen={this.state.modalIsOpen}
+              onAfterOpen={this.afterOpenModal}
+              onRequestClose={this.closeModal}
+              contentLabel='Example Modal'
+              style={customStyles}
             >
-              {this.state.hoveredArea && this.state.hoveredArea.name}
-            </span>
-          )} */}
+              <div className='modal-wrap'>
+                <div className='modal-title'>
+                  <h1>{this.state.hoverInfo}</h1>
+                </div>
+                <div className='modal-sound'>
+                  <h3>
+                    Autoplay for music is enabled for this page, if you wish to
+                    have the best experience we recommend leaving the autoplay
+                    feature on while you explore the Interactive Map, if you
+                    prefer though, you can Decline to have the sound on now. You
+                    will also see audio controls in the top right portion of the
+                    page if you change your mind later.
+                  </h3>
+                  <hr />
+                </div>
+                <div className='sound-on'>
+                  <button
+                    className='btn btn-dark btn-lg modal-close'
+                    onClick={this.closeModal}
+                  >
+                    Accept
+                  </button>
+                  <button
+                    className='btn btn-dark btn-lg modal-close'
+                    onClick={this.closeModal}
+                  >
+                    Decline
+                  </button>
+                </div>
+              </div>
+            </Modal>
+          </div>
           <audio
             id='myAudio'
             controls
