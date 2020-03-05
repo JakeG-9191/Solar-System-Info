@@ -36,7 +36,7 @@ class SpaceMap extends Component {
     musicSelection: true,
     hoveredArea: null,
     hoverInfo:
-      'Hover over a Solar System feature to see additional information, click on these features for even more interesting facts',
+      'Hover over a Solar System feature to see additional information, when you see Einstien, click on these features for even more interesting facts',
     clickInfo2: '',
     clickInfo3: '',
     title: '',
@@ -103,7 +103,7 @@ class SpaceMap extends Component {
     this.setState({
       hoveredArea: null,
       hoverInfo:
-        'Hover over a Solar System feature to see additional information, click on these features for even more interesting facts',
+        'Hover over a Solar System feature to see additional information, when you see Einstien, click on these features for even more interesting facts',
       title: '',
       clickInfo2: '',
       clickInfo3: ''

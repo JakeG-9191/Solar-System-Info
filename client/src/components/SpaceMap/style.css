@@ -3,6 +3,7 @@
   background-repeat: no-repeat;
   background-size: cover, contain;
   background-attachment: fixed;
+  cursor: url('https://img.icons8.com/nolan/64/physics.png'), auto;
 }
 
 .solar-fix {
@@ -74,4 +75,8 @@ audio {
 
 .modal-close {
   margin: 1rem;
+}
+
+area {
+  cursor: url('https://img.icons8.com/officel/40/000000/einstein.png'), auto;
 }
