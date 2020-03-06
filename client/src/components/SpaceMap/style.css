@@ -41,6 +41,14 @@ audio {
   z-index: 10;
 }
 
+#seeAnimation {
+  position: fixed;
+  top: 10%;
+  left: 30px;
+  z-index: 11;
+  padding: 1rem;
+}
+
 .ReactModal__Body--open {
   z-index: 88;
 }
@@ -134,7 +142,7 @@ small {
     z-index: 88;
   }
   90% {
-    opacity: 0.8;
+    opacity: 0.9;
     z-index: 88;
   }
   100% {

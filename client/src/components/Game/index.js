@@ -241,7 +241,7 @@ class Game extends Component {
             no way to return to the last question. After the last questions is
             answered, your results will be displayed. The "Classified Edition"
             has the toughest questions of the three game modes. *Hint, some
-            questions are covered in the quick facts on Home page!*
+            questions are covered in other parts of the website!*
           </h3>
           {this.state.initialGameState ? (
             ''

@@ -85,6 +85,13 @@ class SpaceMap extends Component {
     });
   };
 
+  oneMoreAnimation = () => {
+    this.setState({
+      animateReady: false
+    });
+    setTimeout(this.closeModal, 500);
+  };
+
   // getClickPosition = e => {
   //   this.setState({
   //     X: e.clientX,
@@ -171,21 +178,39 @@ class SpaceMap extends Component {
             </Link>
           </div>
           {!this.state.musicSelection ? (
-            <audio
-              id='myAudio'
-              controls
-              src={Song}
-              autoPlay={true}
-              loop={true}
-            />
+            <div>
+              <audio
+                id='myAudio'
+                controls
+                src={Song}
+                autoPlay={true}
+                loop={true}
+              />
+              <button
+                className='btn btn-warning'
+                onClick={this.oneMoreAnimation}
+                id='seeAnimation'
+              >
+                See Introduction Animation Again
+              </button>
+            </div>
           ) : (
-            <audio
-              id='myAudio'
-              controls
-              src={Song}
-              autoPlay={false}
-              loop={true}
-            />
+            <div>
+              <audio
+                id='myAudio'
+                controls
+                src={Song}
+                autoPlay={true}
+                loop={true}
+              />
+              <button
+                className='btn btn-warning'
+                onClick={this.oneMoreAnimation}
+                id='seeAnimation'
+              >
+                See Introduction Animation Again
+              </button>
+            </div>
           )}
           <div>
             <Modal
