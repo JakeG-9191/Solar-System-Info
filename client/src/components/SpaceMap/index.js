@@ -66,6 +66,10 @@ class SpaceMap extends Component {
   }
 
   componentDidMount() {
+    window.onload = () => {
+      const myAudio = document.getElementById('myAudio');
+      myAudio.volume = 0.05;
+    };
     this.loadBackground();
     setTimeout(this.openModal, 500);
     setTimeout(this.buttonOpen, 3000);
@@ -73,10 +77,6 @@ class SpaceMap extends Component {
 
   componentWillMount() {
     window.addEventListener('click', this.getClickPosition, false);
-    // window.onload = () => {
-    //   const myAudio = document.getElementById('myAudio');
-    //   myAudio.volume = 0.05;
-    // };
     window.addEventListener('click', this.audioTest, false);
   }
 
@@ -196,6 +196,7 @@ class SpaceMap extends Component {
                 autoPlay={true}
                 loop={true}
               />
+              <small id='royalty'>www.bensound.com</small>
               <button
                 className='btn btn-warning'
                 onClick={this.oneMoreAnimation}

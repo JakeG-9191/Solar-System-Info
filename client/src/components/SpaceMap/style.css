@@ -36,17 +36,30 @@ hr {
 
 audio {
   position: fixed;
-  top: 5%;
+  top: 6%;
   left: 1%;
   z-index: 10;
 }
 
 #seeAnimation {
   position: fixed;
-  top: 10%;
+  top: 11%;
   left: 30px;
   z-index: 11;
   padding: 1rem;
+}
+
+#royalty {
+  position: fixed;
+  top: 5%;
+  left: 4%;
+  z-index: 12;
+  padding: 1rem;
+  color: black;
+  background-color: #f1f3f4;
+  border-radius: 18px;
+  padding: 0 1rem;
+  border-bottom: 0;
 }
 
 .ReactModal__Body--open {
@@ -186,7 +199,7 @@ small {
     opacity: 0;
   }
   50% {
-    opacity: 0.7;
+    opacity: 0.4;
   }
   60% {
     opacity: 1;
@@ -204,7 +217,7 @@ small {
     opacity: 0;
   }
   50% {
-    opacity: 0.5;
+    opacity: 0.4;
   }
   70% {
     opacity: 1;
