@@ -73,10 +73,20 @@ class SpaceMap extends Component {
 
   componentWillMount() {
     window.addEventListener('click', this.getClickPosition, false);
-    window.onload = () => {
-      const myAudio = document.getElementById('myAudio');
-      myAudio.volume = 0.05;
-    };
+    // window.onload = () => {
+    //   const myAudio = document.getElementById('myAudio');
+    //   myAudio.volume = 0.05;
+    // };
+    window.addEventListener('click', this.audioTest, false);
+  }
+
+  audioTest = () => {
+    const myAudio = document.getElementById('myAudio');
+    myAudio.volume = 0.05;
+  };
+
+  componentWillUnmount() {
+    window.removeEventListener('click', this.audioTest);
   }
 
   buttonOpen = () => {

@@ -84,6 +84,7 @@ audio {
   border-style: solid;
   border-radius: 18px;
   border-width: 15px;
+  cursor: url('https://img.icons8.com/nolan/64/space-shuttle.png'), auto;
 }
 
 .modal-close {
@@ -114,6 +115,7 @@ small {
   border-style: solid;
   border-width: 15px;
   border-radius: 18px;
+  cursor: url('https://img.icons8.com/color/50/000000/astronaut.png'), auto;
 }
 
 #fade-1 {
