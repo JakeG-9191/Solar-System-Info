@@ -41,7 +41,8 @@ class SpaceMap extends Component {
     clickInfo3: '',
     title: '',
     X: '',
-    Y: ''
+    Y: '',
+    allowButton: null
   };
 
   constructor() {
@@ -66,6 +67,7 @@ class SpaceMap extends Component {
   componentDidMount() {
     this.loadBackground();
     setTimeout(this.openModal, 500);
+    setTimeout(this.buttonOpen, 5000);
   }
 
   componentWillMount() {
@@ -75,6 +77,12 @@ class SpaceMap extends Component {
       myAudio.volume = 0.05;
     };
   }
+
+  buttonOpen = () => {
+    this.setState({
+      allowButton: true
+    });
+  };
 
   // getClickPosition = e => {
   //   this.setState({
@@ -194,17 +202,27 @@ class SpaceMap extends Component {
                     have the best experience we recommend leaving the autoplay
                     feature on while you explore the Interactive Map, if you
                     prefer though, you can shut off the sound via the controls
-                    on the player in the right left hand corner.
+                    on the player in the top left-hand corner.
                   </h3>
                   <hr />
                 </div>
                 <div className='sound-on'>
-                  <button
+                  {this.state.allowButton ? (
+                    <button
+                      className='btn btn-dark btn-lg modal-close'
+                      onClick={this.closeModal}
+                    >
+                      Accept
+                    </button>
+                  ) : (
+                    ''
+                  )}
+                  {/* <button
                     className='btn btn-dark btn-lg modal-close'
                     onClick={this.closeModal}
                   >
                     Accept
-                  </button>
+                  </button> */}
                 </div>
               </div>
             </Modal>
