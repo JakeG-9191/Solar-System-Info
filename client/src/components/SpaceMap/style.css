@@ -12,15 +12,20 @@
 
 .testing-overlay {
   position: fixed;
-  top: 60%;
-  left: 60%;
+  top: 54%;
+  left: 57%;
   z-index: 7;
-  background-color: white;
-  color: black;
-  height: 350px;
+  background-color: #101529;
+  height: 425px;
   width: 650px;
   padding: 1rem;
   border-radius: 18px;
+  border-style: solid;
+  border-color: #f9cf55;
+}
+
+hr {
+  background-color: #f9cf55;
 }
 
 .interactive-fix {
@@ -54,7 +59,7 @@ audio {
 }
 
 .ReactModal__Content--after-open {
-  border: none;
+  border: 0;
   z-index: 92;
 }
 
@@ -79,4 +84,14 @@ audio {
 
 area {
   cursor: url('https://img.icons8.com/officel/40/000000/einstein.png'), auto;
+}
+
+small {
+  border-style: solid;
+  border-right: 0;
+  border-left: 0;
+  border-top: 0;
+  border-width: 1px;
+  border-color: #f9cf55;
+  margin-bottom: 1%;
 }

@@ -210,13 +210,16 @@ class SpaceMap extends Component {
             </Modal>
           </div>
           <div className='testing-overlay'>
+            <small>Source - ThePlanets.org | NASA</small>
             <h3>Our Solar System | Interactive Map</h3>
             <hr />
             <h3>{this.state.title}</h3>
             {this.state.title ? <hr /> : ''}
-            <h4>{this.state.hoverInfo}</h4>
-            <h4>{this.state.clickInfo2}</h4>
-            <h4>{this.state.clickInfo3}</h4>
+            <h5>{this.state.hoverInfo}</h5>
+            {this.state.clickInfo2 ? <hr /> : ''}
+            <h5>{this.state.clickInfo2}</h5>
+            {this.state.clickInfo3 ? <hr /> : ''}
+            <h5>{this.state.clickInfo3}</h5>
           </div>
         </div>
       </>
