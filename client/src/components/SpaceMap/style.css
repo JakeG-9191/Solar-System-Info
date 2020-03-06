@@ -90,7 +90,7 @@ audio {
   background-repeat: no-repeat;
   background-size: cover, contain;
   background-attachment: fixed;
-  width: 97vw;
+  width: 98vw;
   height: 95vh;
   margin-left: 1%;
   margin-top: 1%;
@@ -123,7 +123,7 @@ small {
   position: absolute;
   left: 1%;
   top: 2%;
-  width: 97%;
+  width: 98%;
   height: 95%;
   border-style: solid;
   border-width: 15px;
