@@ -42,7 +42,8 @@ class SpaceMap extends Component {
     title: '',
     X: '',
     Y: '',
-    allowButton: null
+    allowButton: null,
+    animateReady: false
   };
 
   constructor() {
@@ -61,13 +62,13 @@ class SpaceMap extends Component {
   }
 
   closeModal() {
-    this.setState({ modalIsOpen: false });
+    this.setState({ modalIsOpen: false, animateReady: true });
   }
 
   componentDidMount() {
     this.loadBackground();
     setTimeout(this.openModal, 500);
-    setTimeout(this.buttonOpen, 4000);
+    setTimeout(this.buttonOpen, 3000);
   }
 
   componentWillMount() {
@@ -244,6 +245,23 @@ class SpaceMap extends Component {
             {this.state.clickInfo3 ? <hr /> : ''}
             <h5>{this.state.clickInfo3}</h5>
           </div>
+          {this.state.animateReady ? (
+            <div className='animated-intro'>
+              <h1 id='fade-1'>
+                Welcome to the Interactive Map of our solar system...
+              </h1>
+              <h1 id='fade-2'>
+                Please use your cursor to visit the various components of our
+                solar system...
+              </h1>
+              <h1 id='fade-3'>
+                When your cursor changes, click on a planet or feature for more
+                information...
+              </h1>
+            </div>
+          ) : (
+            ''
+          )}
         </div>
       </>
     );

@@ -1,9 +1,9 @@
 .space-map0 {
-  background-image: url('https://i.pinimg.com/originals/f6/20/a1/f620a179ca1acfd15a0754701677fb58.jpg');
   background-repeat: no-repeat;
   background-size: cover, contain;
   background-attachment: fixed;
   cursor: url('https://img.icons8.com/nolan/64/physics.png'), auto;
+  animation: mapBackDrop 30s infinite;
 }
 
 .solar-fix {
@@ -94,4 +94,115 @@ small {
   border-width: 1px;
   border-color: #f9cf55;
   margin-bottom: 1%;
+}
+
+.animated-intro {
+  animation: intro 12s normal forwards;
+  position: absolute;
+  left: 1%;
+  top: 2%;
+  width: 97%;
+  height: 95%;
+  border-style: solid;
+  border-width: 15px;
+  border-radius: 18px;
+}
+
+#fade-1 {
+  margin-top: 10%;
+  animation: fade1 9s normal forwards;
+}
+
+#fade-2 {
+  margin-top: 10%;
+  animation: fade2 10s normal forwards;
+}
+
+#fade-3 {
+  margin-top: 10%;
+  animation: fade3 11s normal forwards;
+}
+
+@keyframes intro {
+  0% {
+    background-image: url('../../utils/spaceMap/first.jpg');
+    opacity: 1;
+    z-index: 88;
+  }
+  50% {
+    opacity: 1;
+    z-index: 88;
+  }
+  90% {
+    opacity: 0.8;
+    z-index: 88;
+  }
+  100% {
+    opacity: 0;
+    z-index: -1;
+    background-image: url('../../utils/spaceMap/second.jpg');
+  }
+}
+
+@keyframes mapBackDrop {
+  0% {
+    background-image: url('https://images.hdqwalls.com/download/space-stars-purple-sky-3n-2560x1440.jpg');
+  }
+  50% {
+    background-image: url('https://wallpaperplay.com/walls/full/3/4/9/166702.jpg');
+  }
+  100% {
+    background-image: url('https://images.hdqwalls.com/download/space-stars-purple-sky-3n-2560x1440.jpg');
+  }
+}
+
+@keyframes fade1 {
+  0% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade2 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.7;
+  }
+  60% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade3 {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  70% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
 }
