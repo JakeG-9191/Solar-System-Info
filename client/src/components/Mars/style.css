@@ -45,7 +45,7 @@
   color: white;
   border-radius: 18px;
   padding: 1rem;
-  margin-top: 3rem;
+  margin-top: 8%;
 }
 
 .picture-bucket {
@@ -147,10 +147,10 @@ svg {
 }
 
 .user-search:hover {
-  background-image: url('https://t4.ftcdn.net/jpg/02/18/28/27/240_F_218282711_3ZYksP9qhFH9vtFdJgaKeS6kl4nFKpVE.jpg');
+  background-image: url('https://img.icons8.com/ios-filled/50/000000/astronaut.png');
   border-style: none;
   transform: scale(1.5);
-  color: black;
+  background-color: #d36939;
 }
 
 #photo-meta {

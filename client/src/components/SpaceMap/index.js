@@ -67,7 +67,7 @@ class SpaceMap extends Component {
   componentDidMount() {
     this.loadBackground();
     setTimeout(this.openModal, 500);
-    setTimeout(this.buttonOpen, 5000);
+    setTimeout(this.buttonOpen, 4000);
   }
 
   componentWillMount() {
@@ -215,7 +215,12 @@ class SpaceMap extends Component {
                       Accept
                     </button>
                   ) : (
-                    ''
+                    <button
+                      disabled
+                      className='btn btn-dark btn-lg modal-close'
+                    >
+                      Please Wait...
+                    </button>
                   )}
                   {/* <button
                     className='btn btn-dark btn-lg modal-close'

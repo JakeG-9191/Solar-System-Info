@@ -324,7 +324,6 @@ class Mars extends Component {
             <div className='row'>
               <div className='martian-weather col-md-3'>
                 <h4 className='weather-app'>7 Day Martian Forecast</h4>
-                <hr />
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[0]
                     ? `Sol ${this.state.marsUpdatedSols[0]} | Average Air Temp: ${this.state.marsUpdatedWeather[0]} F`
