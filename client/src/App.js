@@ -35,10 +35,10 @@ class App extends Component {
         <Router>
           <Switch>
             <Route exact path='/' component={Home} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/solar_map' component={SpaceMap} />
-            <Route exact path='/game' component={Game} />
-            <Route exact path='/mars' component={Mars} />
+            <Route path='/login' component={Login} />
+            <Route path='/solar_map' component={SpaceMap} />
+            <Route path='/game' component={Game} />
+            <Route path='/mars' component={Mars} />
           </Switch>
         </Router>
       </>

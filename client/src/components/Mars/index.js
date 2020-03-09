@@ -21,6 +21,10 @@ const options = [
   }
 ];
 
+const rollingHeight = window.screen.height / 3;
+
+const rollingWidth = window.screen.width / 4;
+
 // customizes style of dropdown to select cameras
 const customStyles = {
   container: provided => ({
@@ -452,6 +456,8 @@ class Mars extends Component {
                   alt={this.state.martianDescription}
                   id='rolling-photos'
                   src={this.state.martianImage}
+                  height={`${rollingHeight}px`}
+                  width={`${rollingWidth}px`}
                 ></img>
                 <h4>{this.state.martianDescription.substr(0, 400)}...</h4>
               </div>

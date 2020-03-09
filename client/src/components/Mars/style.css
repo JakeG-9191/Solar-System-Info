@@ -38,6 +38,7 @@
   animation: shiftingMars 20s infinite;
   padding: 1rem;
   border-radius: 18px;
+  height: fit-content;
 }
 
 .weather-app {
@@ -82,10 +83,8 @@ label {
 }
 
 #rolling-photos {
-  height: 450px;
   padding: 1rem;
   background: #d36939;
-  width: 600px;
   border-radius: 18px;
   margin-bottom: 2rem;
 }
