@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Login from './components/Login';
 import SpaceMap from './components/SpaceMap';
 import Game from './components/Game';
 import Mars from './components/Mars';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 class App extends Component {

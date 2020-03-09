@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactPlayer from 'react-player';
+import { Link } from 'react-router-dom';
 import API from '../../utils/API';
 import Facts from '../../json/facts.json';
 import NasaVid from '../../json/nasaVideos';
-import { Link } from 'react-router-dom';
 import './style.css';
 
 class Home extends Component {
