@@ -22,6 +22,7 @@
   background: black;
   color: white;
   border-style: none;
+  box-sizing: content-box;
 }
 
 .photo-buttons:hover {
