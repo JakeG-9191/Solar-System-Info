@@ -6,11 +6,13 @@ import Facts from '../../json/facts.json';
 import NasaVid from '../../json/nasaVideos';
 import './style.css';
 
-const rollingHeight = window.screen.height / 2;
-const rollingWidth = window.screen.width / 2;
+let rollingHeight = window.screen.height / 2;
+let rollingWidth = window.screen.width / 2;
 
 class Home extends Component {
   state = {
+    fixedHeight: rollingHeight,
+    fixedWidth: rollingWidth,
     randomImage: '',
     randomVideo: '',
     randomDescription: '',
@@ -165,7 +167,7 @@ class Home extends Component {
                   id='randomImage'
                   alt='An issue occured while trying to load this image'
                   src={this.state.randomImage ? this.state.randomImage : ''}
-                  height={rollingHeight}
+                  height={this.state.rollingHeight}
                 ></img>
               </a>
               <h5 id='dailyInfo'>{this.state.randomDescription}</h5>
@@ -175,8 +177,12 @@ class Home extends Component {
                 muted
                 controls={true}
                 id='randomVideo'
-                width={this.state.randomVideo ? rollingHeight : '0px'}
-                height={this.state.randomVideo ? rollingWidth : '0px'}
+                width={
+                  this.state.randomVideo ? this.state.rollingHeight : '0px'
+                }
+                height={
+                  this.state.randomVideo ? this.state.rollingWidth : '0px'
+                }
               />
             </div>
           </div>
