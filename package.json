@@ -10,8 +10,7 @@
     "server": "nodemon server.js",
     "client": "cd client && npm run start",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "build": "cd client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "build": "cd client && npm run build"
   },
   "author": "",
   "license": "ISC",
@@ -20,6 +19,9 @@
     "jest": "^24.9.0",
     "jshint": "^2.11.0",
     "supertest": "^4.0.2"
+  },
+  "engines": {
+    "node": "12.14.1"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
