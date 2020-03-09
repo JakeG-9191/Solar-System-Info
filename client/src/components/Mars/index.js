@@ -468,7 +468,11 @@ class Mars extends Component {
                     <h6 id='curious-note'>
                       *Note - Curiousity Landed Aug. 5, 2012
                     </h6>
-                    <a target='_blank' href='https://mars.nasa.gov/msl/home/'>
+                    <a
+                      target='_blank'
+                      rel='noopener noreferrer'
+                      href='https://mars.nasa.gov/msl/home/'
+                    >
                       Mars Curiousity
                     </a>
                     <hr />

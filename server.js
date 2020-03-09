@@ -1,8 +1,8 @@
 const express = require('express');
+const mongoose = require('mongoose');
 const users = require('./routes/users');
 const posts = require('./routes/posts');
 const config = require('config');
-const mongoose = require('mongoose');
 
 const app = express();
 
@@ -15,12 +15,6 @@ if (process.env.NODE_ENV === 'production') {
 
 app.use('/api/users', users);
 app.use('/api/posts', posts);
-
-const root = require('path').join(__dirname, 'client', 'build');
-app.use(express.static(root));
-app.get('*', (req, res) => {
-  res.sendFile('index.html', { root });
-});
 
 const db = config.get('db');
 

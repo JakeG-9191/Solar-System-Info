@@ -4,7 +4,6 @@ import SolarSystem from '../../utils/spaceMap/0.jpg';
 import Song from '../../utils/music/bensound-slowmotion.mp3';
 import ImageMapper from 'react-image-mapper';
 import { Link } from 'react-router-dom';
-import ReactDOM from 'react-dom';
 import Modal from 'react-modal';
 import './style.css';
 
