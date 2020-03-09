@@ -9,6 +9,10 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, useNewUrlParser: true }));
 
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
+
 app.use('/api/users', users);
 app.use('/api/posts', posts);
 
