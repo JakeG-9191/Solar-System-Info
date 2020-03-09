@@ -1,21 +1,27 @@
-// const express = require('express');
-// const users = require('./routes/users');
-// const posts = require('./routes/posts');
-// const config = require('config');
-// const mongoose = require('mongoose');
+const express = require('express');
+const users = require('./routes/users');
+const posts = require('./routes/posts');
+const config = require('config');
+const mongoose = require('mongoose');
 
-// const app = express();
+const app = express();
 
-// app.use(express.json());
-// app.use(express.urlencoded({ extended: true, useNewUrlParser: true }));
+app.use(express.json());
+app.use(express.urlencoded({ extended: true, useNewUrlParser: true }));
 
-// app.use('/api/users', users);
-// app.use('/api/posts', posts);
+app.use('/api/users', users);
+app.use('/api/posts', posts);
 
-// const db = config.get('db');
+const root = require('path').join(__dirname, 'client', 'build');
+app.use(express.static(root));
+app.get('*', (req, res) => {
+  res.sendFile('index.html', { root });
+});
 
-// mongoose.connect(db).then(() => console.log(`Connected to ${db}`));
+const db = config.get('db');
 
-// const PORT = process.env.PORT || 5000;
+mongoose.connect(db).then(() => console.log(`Connected to ${db}`));
 
-// app.listen(PORT, () => console.log(`App listening on port ${PORT}...`));
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => console.log(`App listening on port ${PORT}...`));

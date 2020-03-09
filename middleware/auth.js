@@ -1,16 +1,16 @@
-// const jwt = require('jsonwebtoken');
-// const config = require('config');
+const jwt = require('jsonwebtoken');
+const config = require('config');
 
-// module.exports = function(req, res, next) {
-//   const token = req.header('x-auth-token');
-//   if (!token)
-//     return res.status(401).send('Access has been denied, no token provided');
+module.exports = function(req, res, next) {
+  const token = req.header('x-auth-token');
+  if (!token)
+    return res.status(401).send('Access has been denied, no token provided');
 
-//   try {
-//     const decoded = jwt.verify(token, config.get('jwtPrivate'));
-//     req.register = decoded;
-//     next();
-//   } catch (ex) {
-//     res.status(400).send('This Token Is Invalid');
-//   }
-// };
+  try {
+    const decoded = jwt.verify(token, config.get('jwtPrivate'));
+    req.register = decoded;
+    next();
+  } catch (ex) {
+    res.status(400).send('This Token Is Invalid');
+  }
+};
