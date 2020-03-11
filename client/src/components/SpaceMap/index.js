@@ -267,11 +267,15 @@ class SpaceMap extends Component {
           </div>
           <div>
             {this.state.img ? (
-              <img className='feature-image' src={this.state.img}></img>
+              <img
+                className='feature-image'
+                alt='Solar System Feature'
+                src={this.state.img}
+              ></img>
             ) : (
               <>
                 <h3 className='feature-image'>
-                  Select a solar system feature...
+                  Select A Solar System Feature...
                 </h3>
               </>
             )}
