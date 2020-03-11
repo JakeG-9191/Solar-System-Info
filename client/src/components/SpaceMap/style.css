@@ -24,6 +24,20 @@
   border-color: #f9cf55;
 }
 
+.feature-image {
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  z-index: 9;
+  background-color: #101529;
+  height: 310px;
+  width: 450px;
+  padding: 1rem;
+  border-radius: 18px;
+  border-style: solid;
+  border-color: #f9cf55;
+}
+
 hr {
   background-color: #f9cf55;
 }

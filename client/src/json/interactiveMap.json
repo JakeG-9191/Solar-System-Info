@@ -7,6 +7,7 @@
       "coords": [21, 186, 18, 1102, 91, 913, 125, 623, 92, 376],
       "title": "Sun",
       "otherInfo": "The Sun, which is the solar system's largest object, accounts for more than 99.86% of the mass of the solar system, and has an immense gravitational pull.",
+      "img": "https://images.spot.im/v1/production/wmblv4bf4qwrschj42yn",
       "onClick": {
         "one": "The Sun will burn for 130 million years, towards the end of this period it will grow large enough to consume Earth.",
         "two": "The Sun is the closest thing to a perfect sphere in the observed universe.",
@@ -19,6 +20,7 @@
       "coords": [350, 1020, 80],
       "title": "Mercury",
       "otherInfo": "Mercury, the closest planet to the Sun is also the smallest of the 8 planets within the inner solar system.",
+      "img": "https://i.insider.com/5c9a18b8c6cc50382d262f62?width=1100&format=jpeg&auto=webp",
       "onClick": {
         "one": "A year on Mercury is 88 days, however a day on Mercury is 176 Earth days.",
         "two": "Even though it is closer to the Sun than Venus, it is actually cooler than Venus.",
@@ -31,6 +33,7 @@
       "coords": [528, 947, 80],
       "title": "Venus",
       "otherInfo": "Sometimes refered to as Earth's sister planet, Venus is the second planet from the Sun and bright enough to light up our night sky.",
+      "img": "https://www.nasa.gov/sites/default/files/thumbnails/image/venus20191211-16.jpg",
       "onClick": {
         "one": "Because thier size and mass are simliar, sometimes Earth and Venus are referred to as sister planets.",
         "two": "With its slow rotation, a day on Venus is actually longer than a full year.",
@@ -43,6 +46,7 @@
       "coords": [707, 873, 80],
       "title": "Earth",
       "otherInfo": "Earth is the third planet from the Sun, our home is also the largest of the terrestrial planets.",
+      "img": "https://scx1.b-cdn.net/csz/news/800/2019/earth.jpg",
       "onClick": {
         "one": "Earth is the only plent that is not named after a god or goddess.",
         "two": "Because the rotation of our planet is slowing down, in 140 million years an average day would be 25 hours.",
@@ -55,6 +59,7 @@
       "coords": [885, 797, 80],
       "title": "Mars",
       "otherInfo": "The fourth planet from the Sun and likely the first stop for human visitors, the Red Planet is spectacular in many fashions.",
+      "img": "https://www.usnews.com/dims4/USNEWS/c5e6c7f/2147483647/thumbnail/640x420/quality/85/?url=https%3A%2F%2Fmedia.beam.usnews.com%2Fd3%2F51%2Fdb6b60ee447190f8f6e0df831d40%2F160129-mars-editorial.jpg",
       "onClick": {
         "one": "Theoretically, you could jump three times as high on Mars compared to Earth.",
         "two": "Less than half, 16 of 39, Mars missions have been sucessful.",
@@ -67,6 +72,7 @@
       "coords": [1050, 449, 1015, 702, 1021, 909, 1065, 1077, 1119, 779],
       "title": "Astroid Belt & Others",
       "otherInfo": "The asteroid belt roughly lies between the orbits of Mars and Jupiter, and marks the move from terrestrial planets to gaseous ones.",
+      "img": "https://estaticos.megainteresting.com/media/cache/1140x_thumb/uploads/images/article/5e44fa105bafe855705468da/cinturon-de-asteroides_0.jpg",
       "onClick": {
         "one": "While scientists have confirmed hundreds of thousands of asteroids in the belt, there may be billions more.",
         "two": "The asteroid 1 Ceres is large enough to be a dwarf planet and is the largest astroid in the inner solar system.",
@@ -79,6 +85,7 @@
       "coords": [1240, 645, 80],
       "title": "Jupiter",
       "otherInfo": "Named after the King of Gods, Jupiter is the fifth planet from the Sun and the largest of all known planets in the solar system.",
+      "img": "https://www.slashgear.com/wp-content/uploads/2018/07/Jupiter-980x607.jpg",
       "onClick": {
         "one": "Jupiter is so large that 317 Earth masses would be needed for one Jupiter mass.",
         "two": "Ganymede, the largest of Jupiter's 67 moons, is even bigger than Mercury.",
@@ -91,6 +98,7 @@
       "coords": [1417, 570, 80],
       "title": "Saturn",
       "otherInfo": "Saturn's rings capture our imaginations, and the sixth planet from the Sun is also the second largest.",
+      "img": "https://resize.hswstatic.com/w_907/gif/saturn-lead-image.jpg",
       "onClick": {
         "one": "Even at its distance, Saturn was large enough to be known by ancient civilizations.",
         "two": "The winds on Saturn are the fastest in the solar system, and reach up to 1,100 miles per hour (1,800km/hr).",
@@ -103,6 +111,7 @@
       "coords": [1594, 494, 80],
       "title": "Uranus",
       "otherInfo": "The seventh planet from the Sun, Uranus, was not discovered until 1781.",
+      "img": "https://ichef.bbci.co.uk/wwfeatures/live/976_549/images/live/p0/25/7v/p0257vk5.jpg",
       "onClick": {
         "one": "Similar to Venus, Uranus rotates clockwise, the only two planets in the solar system to do so.",
         "two": "Because of it's chemical composition and pale blue color, Uranus is often referred to as the 'Ice Giant'.",
@@ -115,6 +124,7 @@
       "coords": [1771, 420, 80],
       "title": "Neptune",
       "otherInfo": "The furthest planet from the Sun is Neptune, the eighth and final planet in the solar system.",
+      "img": "https://solarsystem.nasa.gov/system/feature_items/images/82_carousel_neptune_1.jpg",
       "onClick": {
         "one": "One orbit around the Sun for Neptune takes nearly 165 Earth years.",
         "two": "After Jupiter, Neptune has the solar system's second largest gravitation pull by a planet.",
@@ -127,6 +137,7 @@
       "coords": [1885, 270, 1885, 517, 2032, 517, 2032, 270],
       "title": "Kuiper Belt & Others",
       "otherInfo": "The Kuiper Belt is a disk-shaped region in the outer solar system, it has many similarities to the asteroid belt, however is considerably larger.",
+      "img": "https://solarsystem.nasa.gov/internal_resources/158/",
       "onClick": {
         "one": "The region is believed to contain hundreds of millions of small, icy bodies that are leftover from planet formation.",
         "two": "There are three dwarf planets known to exist in the Kuiper Belt, including Pluto, Haumea and Makemake.",
@@ -139,6 +150,7 @@
       "coords": [2125, 266, 60],
       "title": "Planet X",
       "otherInfo": "Also known as 'Planet Nine', if Planet X's discovery is confirmed, it may be 10 times the mass of Earth and orbit 20 times farther from the Sun than Neptune.",
+      "img": "https://solarsystem.nasa.gov/system/content_pages/main_images/383_planet_9_art_1_1400.jpg",
       "onClick": {
         "one": "Given its distance from the Sun, it may take between 10,000 and 20,000 Earth years to make one full orbit around the Sun.",
         "two": "Planet X has not yet been fully discoverd, but mathematical modeling points to a high likelyhood of the planet's existance.",
@@ -151,6 +163,7 @@
       "coords": [2278, 124, 2157, 518, 2150, 756, 2278, 1132],
       "title": "Oort Cloud",
       "otherInfo": "It is believed the Oort Cloud occupies the space somewhere between 2000 to 5000 AU from the Sun, 1 AU is about the distance from Earth to the Sun.",
+      "img": "https://www.universetoday.com/wp-content/uploads/2011/02/oort-cloud-nasa.jpg",
       "onClick": {
         "one": "The Oort Cloud is so large that it is believed that it is affected by gravitational pull from other stars in the Milky Way Galaxy.",
         "two": "Some scientists believe that up to two trillion objects are within the Oort Cloud.",

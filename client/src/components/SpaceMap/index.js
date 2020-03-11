@@ -38,6 +38,7 @@ class SpaceMap extends Component {
       'Hover over a Solar System feature to see additional information, when you see Einstien, click on these features for even more interesting facts',
     clickInfo2: '',
     clickInfo3: '',
+    img: '',
     title: '',
     X: '',
     Y: '',
@@ -112,7 +113,8 @@ class SpaceMap extends Component {
     this.setState({
       hoverInfo: area.onClick.one,
       clickInfo2: area.onClick.two,
-      clickInfo3: area.onClick.three
+      clickInfo3: area.onClick.three,
+      img: area.img
     });
   }
 
@@ -131,7 +133,8 @@ class SpaceMap extends Component {
         'Hover over a Solar System feature to see additional information, when you see Einstien, click on these features for even more interesting facts',
       title: '',
       clickInfo2: '',
-      clickInfo3: ''
+      clickInfo3: '',
+      img: ''
     });
   }
 
@@ -258,15 +261,20 @@ class SpaceMap extends Component {
                       Please Wait...
                     </button>
                   )}
-                  {/* <button
-                    className='btn btn-dark btn-lg modal-close'
-                    onClick={this.closeModal}
-                  >
-                    Accept
-                  </button> */}
                 </div>
               </div>
             </Modal>
+          </div>
+          <div>
+            {this.state.img ? (
+              <img className='feature-image' src={this.state.img}></img>
+            ) : (
+              <>
+                <h3 className='feature-image'>
+                  Select a solar system feature...
+                </h3>
+              </>
+            )}
           </div>
           <div className='testing-overlay'>
             <small>Source - ThePlanets.org | NASA</small>
