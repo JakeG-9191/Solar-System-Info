@@ -4,7 +4,7 @@
   padding: 1rem;
   position: fixed;
   width: 100%;
-  z-index: 25;
+  z-index: 99;
   bottom: 0;
   font-size: larger;
 }

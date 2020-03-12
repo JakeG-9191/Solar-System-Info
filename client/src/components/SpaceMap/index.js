@@ -13,11 +13,11 @@ const MAP = InteractiveMap;
 const calcWitdh = window.screen.width * 0.9;
 const calcHeight = window.screen.height * 0.9;
 
-const picWidth = window.screen.width * 0.25;
+const picWidth = window.screen.width * 0.2;
 const picHeight = window.screen.height * 0.25;
 
-const infoWidth = window.screen.width * 0.3;
-const infoHeight = window.screen.height * 0.31;
+const infoWidth = window.screen.width * 0.28;
+const infoHeight = window.screen.height * 0.27;
 
 const customStyles = {
   content: {
@@ -33,16 +33,17 @@ const customStyles = {
   }
 };
 
-// const testWidth = window.screen.width; // 2560
-// const testHeight = window.screen.height; // 1440
-// const calcWitdh = window.screen.width - window.screen.width * 0.2;
-
 class SpaceMap extends Component {
   state = {
+    hoveredAreaTooltip: null,
+    hoverInfoTooltip:
+      'Hover over a Solar System feature to see additional information, when you see Einstien, click on these features for even more interesting facts, these are displayed in the information pane to the bottom right',
+    titleTooltip: '',
     musicSelection: true,
     hoveredArea: null,
     hoverInfo:
       'Hover over a Solar System feature to see additional information, when you see Einstien, click on these features for even more interesting facts',
+    clickInfo1: '',
     clickInfo2: '',
     clickInfo3: '',
     img: '',
@@ -118,7 +119,9 @@ class SpaceMap extends Component {
 
   clickArea(area) {
     this.setState({
-      hoverInfo: area.onClick.one,
+      title: area.title,
+      hoverInfo: area.otherInfo,
+      clickInfo1: area.onClick.one,
       clickInfo2: area.onClick.two,
       clickInfo3: area.onClick.three,
       img: area.img
@@ -127,22 +130,19 @@ class SpaceMap extends Component {
 
   enterArea(area) {
     this.setState({
-      hoveredArea: area,
-      hoverInfo: area.otherInfo,
-      title: area.title
+      hoveredAreaTooltip: area,
+      hoverInfoTooltip: area.otherInfo,
+      titleTooltip: area.title
     });
   }
 
   leaveArea(area) {
-    // this.setState({
-    //   hoveredArea: null,
-    //   hoverInfo:
-    //     'Hover over a Solar System feature to see additional information, when you see Einstien, click on these features for even more interesting facts',
-    //   title: '',
-    //   clickInfo2: '',
-    //   clickInfo3: '',
-    //   img: ''
-    // });
+    this.setState({
+      hoveredAreaTooltip: null,
+      hoverInfoTooltip:
+        'Hover over a Solar System feature to see additional information, when you see Einstien, click on these features for even more interesting facts, these are displayed in the information pane to the bottom right',
+      titleTooltip: ''
+    });
   }
 
   getTipPosition(area) {
@@ -165,7 +165,7 @@ class SpaceMap extends Component {
       <>
         <div>
           <ImageMapper
-            imgWidth={2334}
+            imgWidth={2304}
             active={false}
             src={URL}
             map={MAP}
@@ -244,7 +244,7 @@ class SpaceMap extends Component {
             >
               <div className='modal-wrap'>
                 <div className='modal-sound'>
-                  <h3 className='h3fix'>
+                  <h3>
                     Autoplay for music is enabled for this page, if you wish to
                     have the best experience we recommend leaving the autoplay
                     feature on while you explore the Interactive Map, if you
@@ -295,15 +295,25 @@ class SpaceMap extends Component {
             className='testing-overlay'
           >
             <small>Source - ThePlanets.org | NASA</small>
-            <h3 className='h3fix'>Our Solar System | Interactive Map</h3>
+            <h3>Our Solar System | Interactive Map</h3>
             <hr />
-            <h3 className='h3fix'>{this.state.title}</h3>
+            <h3>{this.state.title}</h3>
             {this.state.title ? <hr /> : ''}
-            <h5 className='h5fix'>{this.state.hoverInfo}</h5>
+            <h5>{this.state.hoverInfo}</h5>
+            {this.state.clickInfo1 ? <hr /> : ''}
+            <h5>{this.state.clickInfo1}</h5>
             {this.state.clickInfo2 ? <hr /> : ''}
-            <h5 className='h5fix'>{this.state.clickInfo2}</h5>
+            <h5>{this.state.clickInfo2}</h5>
             {this.state.clickInfo3 ? <hr /> : ''}
-            <h5 className='h5fix'>{this.state.clickInfo3}</h5>
+            <h5>{this.state.clickInfo3}</h5>
+          </div>
+          <div
+            style={{ height: infoHeight / 2.5, width: infoWidth / 1 }}
+            className='tooltipInfo'
+          >
+            <h5>{this.state.titleTooltip}</h5>
+            {this.state.titleTooltip ? <hr /> : ''}
+            <h6>{this.state.hoverInfoTooltip}</h6>
           </div>
           {this.state.animateReady ? (
             <div className='animated-intro'>

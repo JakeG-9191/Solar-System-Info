@@ -20,19 +20,32 @@
   border-radius: 18px;
   border-style: solid;
   border-color: #f9cf55;
-  overflow-y: scroll
+  overflow-y: scroll;
 }
 
 .feature-image {
   position: absolute;
   top: 20%;
-  left: 10%;
+  left: 9%;
   z-index: 9;
   background-color: #101529;
   padding: 1rem;
   border-radius: 18px;
   border-style: solid;
   border-color: #f9cf55;
+}
+
+.tooltipInfo {
+  position: absolute;
+  top: 9%;
+  left: 30%;
+  z-index: 10;
+  background-color: #101529;
+  padding: 1rem;
+  border-radius: 18px;
+  border-style: solid;
+  border-color: #f9cf55;
+  box-sizing: content-box;
 }
 
 hr {
@@ -129,14 +142,6 @@ small {
   border-color: #f9cf55;
   margin-bottom: 1%;
 }
-
-/* .h3fix {
-  font-size: 3.5vh;
-}
-
-.h5fix {
-  font-size: 3vh;
-} */
 
 .animated-intro {
   animation: intro 12s normal forwards;
