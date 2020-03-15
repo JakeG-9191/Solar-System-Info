@@ -172,6 +172,7 @@ class Home extends Component {
               </a>
               <h5 id='dailyInfo'>{this.state.randomDescription}</h5>
               <ReactPlayer
+                loop={true}
                 url={this.state.randomVideo ? this.state.randomVideo : ''}
                 playing
                 muted

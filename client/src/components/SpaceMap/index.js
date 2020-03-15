@@ -307,10 +307,7 @@ class SpaceMap extends Component {
             {this.state.clickInfo3 ? <hr /> : ''}
             <h5>{this.state.clickInfo3}</h5>
           </div>
-          <div
-            style={{ height: infoHeight / 2.5, width: infoWidth / 1 }}
-            className='tooltipInfo'
-          >
+          <div style={{ width: infoWidth }} className='tooltipInfo'>
             <h5>{this.state.titleTooltip}</h5>
             {this.state.titleTooltip ? <hr /> : ''}
             <h6>{this.state.hoverInfoTooltip}</h6>

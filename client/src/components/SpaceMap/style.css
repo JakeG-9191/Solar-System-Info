@@ -38,14 +38,14 @@
 .tooltipInfo {
   position: absolute;
   top: 9%;
-  left: 30%;
+  left: 31%;
   z-index: 10;
   background-color: #101529;
   padding: 1rem;
   border-radius: 18px;
   border-style: solid;
   border-color: #f9cf55;
-  box-sizing: content-box;
+  height: fit-content;
 }
 
 hr {
