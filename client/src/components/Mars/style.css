@@ -177,6 +177,9 @@ svg {
   .col-md-12 {
     margin-bottom: 2rem;
   }
+  #rolling-photos {
+    width: 100%;
+  }
 }
 
 @media (max-width: 908px) {

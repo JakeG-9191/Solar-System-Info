@@ -330,37 +330,65 @@ class Mars extends Component {
                 <h4 className='weather-app'>7 Day Martian Forecast</h4>
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[0]
-                    ? `Sol ${this.state.marsUpdatedSols[0]} | Average Air Temp: ${this.state.marsUpdatedWeather[0]} F`
+                    ? `Sol ${
+                        this.state.marsUpdatedSols[0]
+                      } | Average Air Temp: ${this.state.marsUpdatedWeather[0].toFixed(
+                        2
+                      )} C`
                     : 'No Data Available For This Sol'}
                 </h5>
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[1]
-                    ? `Sol ${this.state.marsUpdatedSols[1]} | Average Air Temp: ${this.state.marsUpdatedWeather[1]} F`
+                    ? `Sol ${
+                        this.state.marsUpdatedSols[1]
+                      } | Average Air Temp: ${this.state.marsUpdatedWeather[1].toFixed(
+                        2
+                      )} C`
                     : 'No Data Available For This Sol'}
                 </h5>
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[2]
-                    ? `Sol ${this.state.marsUpdatedSols[2]} | Average Air Temp: ${this.state.marsUpdatedWeather[2]} F`
+                    ? `Sol ${
+                        this.state.marsUpdatedSols[2]
+                      } | Average Air Temp: ${this.state.marsUpdatedWeather[2].toFixed(
+                        2
+                      )} C`
                     : 'No Data Available For This Sol'}
                 </h5>
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[3]
-                    ? `Sol ${this.state.marsUpdatedSols[3]} | Average Air Temp: ${this.state.marsUpdatedWeather[3]} F`
+                    ? `Sol ${
+                        this.state.marsUpdatedSols[3]
+                      } | Average Air Temp: ${this.state.marsUpdatedWeather[3].toFixed(
+                        2
+                      )} C`
                     : 'No Data Available For This Sol'}
                 </h5>
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[4]
-                    ? `Sol ${this.state.marsUpdatedSols[4]} | Average Air Temp: ${this.state.marsUpdatedWeather[4]} F`
+                    ? `Sol ${
+                        this.state.marsUpdatedSols[4]
+                      } | Average Air Temp: ${this.state.marsUpdatedWeather[4].toFixed(
+                        2
+                      )} C`
                     : 'No Data Available For This Sol'}
                 </h5>
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[5]
-                    ? `Sol ${this.state.marsUpdatedSols[5]} | Average Air Temp: ${this.state.marsUpdatedWeather[5]} F`
+                    ? `Sol ${
+                        this.state.marsUpdatedSols[5]
+                      } | Average Air Temp: ${this.state.marsUpdatedWeather[5].toFixed(
+                        2
+                      )} C`
                     : 'No Data Available For This Sol'}
                 </h5>
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[6]
-                    ? `Sol ${this.state.marsUpdatedSols[6]} | Average Air Temp: ${this.state.marsUpdatedWeather[6]} F`
+                    ? `Sol ${
+                        this.state.marsUpdatedSols[6]
+                      } | Average Air Temp: ${this.state.marsUpdatedWeather[6].toFixed(
+                        2
+                      )} C`
                     : 'No Data Available For This Sol'}
                 </h5>
               </div>
