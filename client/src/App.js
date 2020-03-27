@@ -9,14 +9,37 @@ import './App.css';
 
 class App extends Component {
   state = {
-    cookieMessage:
-      'We use cookies and web analytics trackers to help improve site performance and your experience, by continuing to use this website you consent to this policy.'
+    cookieMessage: ''
   };
+
+  componentWillMount() {
+    this.isCookieConsented();
+  }
 
   clearCookie = () => {
     this.setState({
       cookieMessage: ''
     });
+    this.cookieInfo();
+  };
+
+  cookieInfo = () => {
+    localStorage.setItem('confirmed', true);
+  };
+
+  isCookieConsented = () => {
+    let checked = localStorage.getItem('confirmed');
+    console.log(`this user's consent for cookie, status: ${checked}`);
+    if (checked) {
+      this.setState({
+        cookieMessage: ''
+      });
+    } else {
+      this.setState({
+        cookieMessage:
+          'We use cookies and web analytics trackers to help improve site performance and your experience, by continuing to use this website you consent to this policy.'
+      });
+    }
   };
 
   render() {
