@@ -78,7 +78,6 @@ class Game extends Component {
   };
 
   showGame = e => {
-    e.preventDefault();
     this.setState({
       gameChoice: true
     });
@@ -116,7 +115,6 @@ class Game extends Component {
 
   // select Earth Game edition
   earthEdition = e => {
-    e.preventDefault();
     this.setState({
       gameEdition: 'Earth',
       gameStart: true
@@ -124,7 +122,6 @@ class Game extends Component {
   };
 
   solarEdition = e => {
-    e.preventDefault();
     this.setState({
       gameEdition: 'Solar System',
       gameStart: true
@@ -132,7 +129,6 @@ class Game extends Component {
   };
 
   classifiedEdition = e => {
-    e.preventDefault();
     this.setState({
       gameEdition: 'Classified',
       gameStart: true
@@ -255,12 +251,13 @@ class Game extends Component {
           )}
           <div>
             {this.state.initialGameState ? (
-              <button
-                className='btn btn-primary game-utility'
+              <a
+                href='#classified-slide'
+                className='button btn btn-primary game-utility'
                 onClick={this.showGame}
               >
                 View All Game Choices
-              </button>
+              </a>
             ) : (
               ''
             )}
@@ -269,36 +266,40 @@ class Game extends Component {
         <div>
           <div>
             {this.state.gameChoice ? (
-              <button
-                className='btn btn-primary game-utility'
+              <a
+                href='#game-start-load'
+                className='button btn btn-primary game-utility'
                 onClick={this.earthEdition}
               >
                 Earth Edition
-              </button>
+              </a>
             ) : (
               ''
             )}
           </div>
           <div>
             {this.state.gameChoice ? (
-              <button
-                className='btn btn-primary game-utility'
+              <a
+                href='#game-start-load'
+                className='button btn btn-primary game-utility'
                 onClick={this.solarEdition}
               >
                 Solar System Edition
-              </button>
+              </a>
             ) : (
               ''
             )}
           </div>
           <div>
             {this.state.gameChoice ? (
-              <button
-                className='btn btn-primary game-utility'
+              <a
+                id='#classified-slide'
+                href='#game-start-load'
+                className='button btn btn-primary game-utility'
                 onClick={this.classifiedEdition}
               >
                 Classified Edition
-              </button>
+              </a>
             ) : (
               ''
             )}
@@ -306,12 +307,14 @@ class Game extends Component {
         </div>
         <div>
           {this.state.gameStart ? (
-            <button
-              className='btn btn-primary game-start'
+            <a
+              href='#bottom-scroll'
+              id='game-start-load'
+              className='button btn btn-primary game-start'
               onClick={this.startGame}
             >
               Start New Game
-            </button>
+            </a>
           ) : (
             ''
           )}
@@ -550,6 +553,7 @@ class Game extends Component {
             ''
           )}
         </div>
+        <div id='bottom-scroll'></div>
       </>
     );
   }

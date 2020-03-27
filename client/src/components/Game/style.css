@@ -133,11 +133,13 @@
     margin-left: 5%;
   }
   .game-player-score {
-    width: 100%;
-    margin: 0;
-    padding: 0;
+    width: 90%;
+    margin: 2rem 1rem;
+    padding: 1rem;
     font-size: medium;
-    margin-bottom: 3rem;
+    border-width: 3px;
+    border-style: solid;
+    border-color: #e0ba4c;
   }
   .game-player-score h1 {
     font-size: x-large;
