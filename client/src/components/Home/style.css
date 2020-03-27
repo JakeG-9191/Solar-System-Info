@@ -6,6 +6,7 @@ body {
 #randomImage {
   border-radius: 18px;
   margin-top: 3%;
+  max-width: 90%;
 }
 
 .backdrop0 {
@@ -129,5 +130,16 @@ body {
 @media (min-width: 1200px) {
   .container {
     max-width: 90%;
+  }
+}
+
+@media (max-width: 908px) {
+  .btn-success {
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+  .btn-info {
+    width: 100%;
+    margin: 0 0 1rem 0;
   }
 }

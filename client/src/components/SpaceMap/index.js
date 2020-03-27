@@ -164,6 +164,27 @@ class SpaceMap extends Component {
     if (window.screen.width < 1280) {
       return (
         <div className='device-too-small'>
+          <div className='navBar interactive-fix'>
+            <Link to='/'>
+              <button className='btn btn-success'>Home</button>
+            </Link>
+            <Link to='/login'>
+              <button className='btn btn-success' disabled>
+                Login
+              </button>
+            </Link>
+            <Link to='/solar_map'>
+              <button className='btn btn-info'>Interactive Map</button>
+            </Link>
+            <Link to='/mars'>
+              <button className='btn btn-success'>Mars Special</button>
+            </Link>
+            <Link to='/game'>
+              <button className='btn btn-success'>
+                Solar System Trivia Game
+              </button>
+            </Link>
+          </div>
           <h3>
             In order to engage with the interactive solar map, you must use a
             screen with at least 1280px width (also known as 720p), we are sorry

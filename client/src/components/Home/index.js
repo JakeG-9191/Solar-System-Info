@@ -78,7 +78,7 @@ class Home extends Component {
   render() {
     return (
       <>
-        <div className='navBar'>
+        <div className='navBar' id='main-navigation'>
           <Link to='/'>
             <button className='btn btn-info'>Home</button>
           </Link>
@@ -104,7 +104,7 @@ class Home extends Component {
         </div>
         <div className='container'>
           <div className='row'>
-            <div id='aboutWebsite' className='col-md-3'>
+            <div id='aboutWebsite' className='col-12 col-md-12 col-lg-3'>
               <h2>About This Website</h2>
               <h5 id='websiteInfo'>
                 Our Solar System! is a website about our very own Solar System,
@@ -123,7 +123,7 @@ class Home extends Component {
               </h6>
             </div>
             <div className='col-md-1'></div>
-            <div className='facts col-md-4'>
+            <div className='facts col-12 col-md-12 col-lg-4'>
               <h2>{this.state.factTitle}</h2>
               <h5 id='facts-body'>{this.state.factBody}</h5>
               <h6>Source: {this.state.factSource}</h6>
@@ -135,8 +135,8 @@ class Home extends Component {
                 {this.state.factURL}
               </a>
             </div>
-            <div className='col-md-1'></div>
-            <div id='nasa-videos' className='col-md-3'>
+            <div className='col-lg-1'></div>
+            <div id='nasa-videos' className='col-12 col-md-12 col-lg-3'>
               <a
                 target='_blank'
                 rel='noopener noreferrer'
@@ -155,7 +155,7 @@ class Home extends Component {
               />
               <h6>Source: NASA</h6>
             </div>
-            <div className='welcome col-md-12'>
+            <div className='welcome col-12 col-md-12 col-lg-12'>
               <h2>NASA Photo / Video Of The Day!</h2>
               <h3>{this.state.date}</h3>
               <a
