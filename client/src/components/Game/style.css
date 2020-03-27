@@ -40,7 +40,6 @@
 .game-utility {
   padding: 1rem;
   margin: 1rem;
-  width: 30%;
   font-size: x-large;
 }
 
@@ -97,5 +96,46 @@
   }
   100% {
     background-image: url('https://wallpaperhd.wiki/wp-content/uploads/1080p-wallpaper-181225.jpg');
+  }
+}
+
+@media (max-width: 908px) {
+  .progress-bar {
+    margin: 0 2rem;
+  }
+  .btn-success {
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+  .btn-info {
+    width: 100%;
+    margin: 0 0 1rem 0;
+  }
+  .game-utility {
+    width: 90%;
+    font-size: large;
+  }
+  .game-start {
+    width: 95%;
+    font-size: large;
+  }
+  .game-buttons {
+    width: 95%;
+    padding: 1rem;
+    font-size: large;
+  }
+  .game-directions {
+    width: 90%;
+    margin-left: 5%;
+  }
+  .game-player-score {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-size: medium;
+    margin-bottom: 3rem;
+  }
+  .game-player-score h1 {
+    font-size: x-large;
   }
 }

@@ -326,7 +326,7 @@ class Mars extends Component {
           <h1 id='mars-intro'>The Mars Special</h1>
           <div className='container'>
             <div className='row'>
-              <div className='martian-weather col-md-3'>
+              <div className='martian-weather col-12 col-md-12 col-lg-3'>
                 <h4 className='weather-app'>7 Day Martian Forecast</h4>
                 <h5 className='weather-app'>
                   {this.state.marsUpdatedSols[0]
@@ -364,8 +364,8 @@ class Mars extends Component {
                     : 'No Data Available For This Sol'}
                 </h5>
               </div>
-              <div className='col-md-1'></div>
-              <div className='col-md-3 jumbotron'>
+              <div className='col-lg-1'></div>
+              <div className='col-12 col-md-12 col-lg-3 jumbotron'>
                 <div id='martian-static-facts'>
                   <h4>
                     Mars is one of the most explored bodies in our solar system,
@@ -422,8 +422,8 @@ class Mars extends Component {
                   </a>
                 </div>
               </div>
-              <div className='col-md-1'></div>
-              <div className='col-md-4'>
+              <div className='col-lg-1'></div>
+              <div className='col-12 col-md-12 col-lg-4'>
                 <div className='search-buttons'>
                   <h5>Click Buttons Below To Search New Images</h5>
                   <button
@@ -469,7 +469,7 @@ class Mars extends Component {
                 </h2>
               </div>
               {!this.state.photosDisplayed ? (
-                <div className='col-md-12 picture-bucket'>
+                <div className='col-12 col-md-12 col-lg-12 picture-bucket'>
                   <form>
                     <h6 id='curious-note'>
                       *Note - Curiousity Landed Aug. 5, 2012
@@ -517,7 +517,7 @@ class Mars extends Component {
               ) : (
                 ''
               )}
-              <div className='col-md-12'>
+              <div className='col-12 col-md-12 col-lg-12'>
                 <h3 id='no-image-found'>
                   {this.state.roverName[0]
                     ? `Camera Name: ${this.state.roverName[0]}`
@@ -571,7 +571,7 @@ class Mars extends Component {
                   src={this.state.roverPhoto[7] ? this.state.roverPhoto[7] : ''}
                 />
               </div>
-              <div className='col-md-12'>
+              <div className='col-12 col-md-12 col-lg-12'>
                 {!this.state.photosDisplayed ? (
                   ''
                 ) : (
