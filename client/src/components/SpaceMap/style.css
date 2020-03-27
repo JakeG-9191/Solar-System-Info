@@ -10,6 +10,17 @@
   max-width: 100%;
 }
 
+.device-too-small audio {
+  margin-top: 5rem;
+  width: 90%;
+  margin-left: 5%;
+}
+
+.device-too-small h3 {
+  margin-top: 20rem;
+  padding: 3rem;
+}
+
 .testing-overlay {
   position: absolute;
   top: 57%;

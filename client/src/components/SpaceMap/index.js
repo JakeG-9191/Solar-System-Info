@@ -161,6 +161,26 @@ class SpaceMap extends Component {
   };
 
   render() {
+    if (window.screen.width < 1280) {
+      return (
+        <div className='device-too-small'>
+          <h3>
+            In order to engage with the interactive solar map, you must use a
+            screen with at least 1280px width (also known as 720p), we are sorry
+            for any inconvenience and hope you will return to the interactive
+            map with a larger device in the future.
+          </h3>
+          <audio
+            id='myAudio'
+            className='device-too-small'
+            controls
+            src={Song}
+            autoPlay={true}
+            loop={true}
+          />
+        </div>
+      );
+    }
     return (
       <>
         <div>
