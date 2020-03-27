@@ -180,6 +180,13 @@ svg {
   #rolling-photos {
     width: 100%;
   }
+  .rover-image {
+    height: auto;
+    width: inherit;
+  }
+  .rover-image:hover {
+    transform: unset;
+  }
 }
 
 @media (max-width: 908px) {
